@@ -89,31 +89,38 @@ jobs:
           
           // Read the screenshot
           const imageBuffer = fs.readFileSync('screenshot.png');
+          const imageBase64 = imageBuffer.toString('base64');
           
-          // Upload using GitHub's attachments API (same as drag & drop in UI)
-          const FormData = require('form-data');
-          const form = new FormData();
-          form.append('file', imageBuffer, {
-            filename: 'screenshot.png',
-            contentType: 'image/png'
+          // Try the simple approach - create a temp comment to get GitHub to host the image
+          console.log('Creating temporary comment to upload image...');
+          
+          // Create temp comment with base64 image (GitHub will convert this to a hosted URL)
+          const tempComment = await github.rest.issues.createComment({
+            owner,
+            repo,
+            issue_number: pull_number,
+            body: `![temp](data:image/png;base64,${imageBase64})`
           });
           
-          const uploadResponse = await fetch(`https://github.com/${owner}/${repo}/upload/policies/assets`, {
-            method: 'POST',
-            headers: {
-              'Authorization': `token ${{ secrets.GITHUB_TOKEN }}`,
-              'Accept': 'application/vnd.github.v3+json',
-              ...form.getHeaders()
-            },
-            body: form
+          // Wait for GitHub to process the image
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          
+          // Get the processed comment
+          const processedComment = await github.rest.issues.getComment({
+            owner,
+            repo,
+            comment_id: tempComment.data.id,
           });
           
-          if (!uploadResponse.ok) {
-            throw new Error(`Upload failed: ${uploadResponse.status}`);
-          }
+          // Extract the GitHub-hosted image URL
+          const githubImageUrlMatch = processedComment.data.body.match(/https:\/\/github\.com\/.*?\.png/);
           
-          const uploadData = await uploadResponse.json();
-          const imageUrl = uploadData.asset.url;
+          // Delete the temp comment
+          await github.rest.issues.deleteComment({
+            owner,
+            repo,
+            comment_id: tempComment.data.id,
+          });
           
           // Delete any existing preview comments
           const comments = await github.rest.issues.listComments({
@@ -135,22 +142,41 @@ jobs:
             });
           }
           
-          // Create the comment with the uploaded image
+          // Create the final comment
           const artifactUrl = `${{ github.server_url }}/${{ github.repository }}/actions/runs/${run_id}`;
           
-          const commentBody = [
-            "## 🖼️ Archive Preview",
-            "",
-            `![Archive Preview](${imageUrl})`,
-            "",
-            "**Local Development:**",
-            "```bash",
-            "make serve",
-            "# Visit http://localhost:4000",
-            "```",
-            "",
-            `📥 [Download Full Resolution](${artifactUrl}) (Artifacts → \`preview-screenshot-${pull_number}\`)`
-          ].join('\n');
+          let commentBody;
+          if (githubImageUrlMatch) {
+            const imageUrl = githubImageUrlMatch[0];
+            commentBody = [
+              "## 🖼️ Archive Preview",
+              "",
+              `![Archive Preview](${imageUrl})`,
+              "",
+              "**Local Development:**",
+              "```bash",
+              "make serve",
+              "# Visit http://localhost:4000",
+              "```",
+              "",
+              `📥 [Download Full Resolution](${artifactUrl}) (Artifacts → \`preview-screenshot-${pull_number}\`)`
+            ].join('\n');
+          } else {
+            // Fallback if image URL extraction failed
+            commentBody = [
+              "## 🖼️ Archive Preview",
+              "",
+              "Screenshot captured successfully!",
+              "",
+              "**Local Development:**",
+              "```bash",
+              "make serve",
+              "# Visit http://localhost:4000",
+              "```",
+              "",
+              `📥 [Download Screenshot](${artifactUrl}) (Artifacts → \`preview-screenshot-${pull_number}\`)`
+            ].join('\n');
+          }
           
           await github.rest.issues.createComment({
             owner,
