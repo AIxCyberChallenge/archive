@@ -1,0 +1,115 @@
+name: PR Preview
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Install dependencies
+      run: bundle install
+      
+    - name: Build site
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+        
+    - name: Setup Node.js for screenshot
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Playwright
+      run: |
+        npm install -g playwright
+        npx playwright install chromium
+        
+    - name: Start Jekyll server in background
+      run: |
+        bundle exec jekyll serve --host 0.0.0.0 --port 4000 --detach
+        sleep 5  # Wait for server to start
+        
+    - name: Take screenshot
+      run: |
+        npx playwright screenshot \
+          --wait-for-selector="body" \
+          --viewport-size=1280,720 \
+          --full-page \
+          http://localhost:4000 \
+          screenshot.png
+          
+    - name: Upload screenshot artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: preview-screenshot
+        path: screenshot.png
+        retention-days: 7
+        
+    - name: Convert screenshot to base64
+      id: screenshot
+      run: |
+        base64_image=$(base64 -w 0 screenshot.png)
+        echo "base64_data=$base64_image" >> $GITHUB_OUTPUT
+        
+    - name: Post PR comment with screenshot
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { owner, repo } = context.repo;
+          const pull_number = context.payload.pull_request.number;
+          
+          // Delete previous preview comments
+          const comments = await github.rest.issues.listComments({
+            owner,
+            repo,
+            issue_number: pull_number,
+          });
+          
+          const botComments = comments.data.filter(comment => 
+            comment.user.type === 'Bot' && 
+            comment.body.includes('🖼️ PR Preview')
+          );
+          
+          for (const comment of botComments) {
+            await github.rest.issues.deleteComment({
+              owner,
+              repo,
+              comment_id: comment.id,
+            });
+          }
+          
+          // Create new comment with screenshot
+          const body = `## 🖼️ PR Preview
+          
+          Here's how the site looks with your changes:
+          
+          ![Preview](data:image/png;base64,${{ steps.screenshot.outputs.base64_data }})
+          
+          **Preview URL**: \`http://localhost:4000\` (when running locally)
+          
+          ---
+          *This preview was generated automatically by GitHub Actions*`;
+          
+          await github.rest.issues.createComment({
+            owner,
+            repo,
+            issue_number: pull_number,
+            body: body
+          });
+          
+    - name: Stop Jekyll server
+      run: |
+        pkill -f jekyll || true

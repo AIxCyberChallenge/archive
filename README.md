@@ -55,7 +55,7 @@ make serve    # Start development server at localhost:4000
 1. Create feature branch: `git checkout -b feature/name`
 2. Make changes and test: `make serve`
 3. Run tests: `make test`
-4. Submit PR (tests run automatically)
+4. Submit PR (tests + visual preview generated automatically)
 
 ## Testing
 
@@ -64,5 +64,7 @@ Automated tests check:
 - Internal link integrity  
 - Image loading
 - SEO metadata
+
+**PR Visual Previews**: Screenshots automatically posted to PRs
 
 Run locally: `make test`

@@ -82,6 +82,7 @@ commit: test ## Run tests before committing
 push: test ## Run tests before pushing
 	@echo "✅ Tests passed! Safe to push."
 	@echo "💡 Run: git push origin $$(git branch --show-current)"
+	@echo "📸 Note: PRs automatically generate visual previews via GitHub Actions"
 
 # Documentation
 docs: ## Open documentation
