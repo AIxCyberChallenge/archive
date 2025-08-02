@@ -88,21 +88,104 @@ jobs:
         comment-author: 'github-actions[bot]'
         body-includes: 'Archive Preview'
 
-    # Update or create a comment with the PNG
-    - name: Update PR Comment
-      uses: peter-evans/create-or-update-comment@v3
+    # Upload image and create comment using a more reliable method
+    - name: Create or Update PR Comment with Image
+      uses: actions/github-script@v7
       with:
-        issue-number: ${{ github.event.pull_request.number }}
-        comment-id: ${{ steps.find-comment.outputs.comment-id }}  # Use if updating an existing comment
-        body: |
-          ## 🖼️ Archive Preview
+        script: |
+          const fs = require('fs');
+          const { owner, repo } = context.repo;
+          const pull_number = context.payload.pull_request.number;
+          const run_id = context.runId;
           
-          ![Archive Preview](${{ steps.upload-png.outputs.artifact-url }})
+          // First, create a temporary comment to upload the image
+          const imageBuffer = fs.readFileSync('screenshot.png');
+          const imageBase64 = imageBuffer.toString('base64');
           
-          **Local Development:**
-          ```bash
-          make serve
-          # Visit http://localhost:4000
-          ```
+          // Create a temp comment to get GitHub to host the image
+          const tempComment = await github.rest.issues.createComment({
+            owner,
+            repo,
+            issue_number: pull_number,
+            body: `![temp](data:image/png;base64,${imageBase64.substring(0, 30000)})` // Truncate to avoid size issues
+          });
           
-          📥 [Download Full Resolution](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) (Artifacts → `preview-screenshot-${{ github.event.pull_request.number }}`)
+          // Wait a moment for GitHub to process
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          
+          // Get the updated comment to extract the GitHub-hosted URL
+          const updatedTempComment = await github.rest.issues.getComment({
+            owner,
+            repo,
+            comment_id: tempComment.data.id,
+          });
+          
+          // Extract GitHub's image URL
+          const githubImageMatch = updatedTempComment.data.body.match(/https:\/\/github\.com\/.*?\.png/);
+          let imageUrl = null;
+          
+          if (githubImageMatch) {
+            imageUrl = githubImageMatch[0];
+          }
+          
+          // Delete the temp comment
+          await github.rest.issues.deleteComment({
+            owner,
+            repo,
+            comment_id: tempComment.data.id,
+          });
+          
+          const artifactUrl = `${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`;
+          
+          let commentBody;
+          if (imageUrl) {
+            commentBody = [
+              "## 🖼️ Archive Preview",
+              "",
+              `![Archive Preview](${imageUrl})`,
+              "",
+              "**Local Development:**",
+              "```bash",
+              "make serve",
+              "# Visit http://localhost:4000",
+              "```",
+              "",
+              `📥 [Download Full Resolution](${artifactUrl}) (Artifacts → \`preview-screenshot-${pull_number}\`)`
+            ].join('\n');
+          } else {
+            // Fallback if image upload failed
+            commentBody = [
+              "## 🖼️ Archive Preview",
+              "",
+              "Screenshot generated successfully!",
+              "",
+              "**Local Development:**",
+              "```bash",
+              "make serve",
+              "# Visit http://localhost:4000",
+              "```",
+              "",
+              `📥 [Download Screenshot](${artifactUrl}) (Artifacts → \`preview-screenshot-${pull_number}\`)`
+            ].join('\n');
+          }
+          
+          // Check if we need to update existing comment
+          const existingCommentId = '${{ steps.find-comment.outputs.comment-id }}';
+          
+          if (existingCommentId) {
+            // Update existing comment
+            await github.rest.issues.updateComment({
+              owner,
+              repo,
+              comment_id: existingCommentId,
+              body: commentBody
+            });
+          } else {
+            // Create new comment
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pull_number,
+              body: commentBody
+            });
+          }
