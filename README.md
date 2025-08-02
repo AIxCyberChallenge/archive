@@ -64,7 +64,3 @@ Automated tests check:
 - Internal link integrity  
 - Image loading
 - SEO metadata
-
-**PR Visual Previews**: Screenshots automatically posted to PRs
-
-Run locally: `make test`

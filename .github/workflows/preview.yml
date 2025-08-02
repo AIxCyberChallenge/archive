@@ -49,105 +49,165 @@ jobs:
         
     - name: Take screenshot
       run: |
-        # Take a smaller screenshot to reduce file size
+        # Take a screenshot optimized for GitHub display
         npx playwright screenshot \
           --wait-for-selector="body" \
           --viewport-size=1280,720 \
           http://localhost:4000 \
-          screenshot-full.png
+          screenshot.png
           
-        # Optimize/compress the image using ImageMagick if available
+        # Optimize the image for GitHub display (max 10MB, good quality)
         if command -v convert >/dev/null 2>&1; then
-          convert screenshot-full.png -quality 80 -resize 800x600 screenshot.png
-        else
-          cp screenshot-full.png screenshot.png
+          convert screenshot.png -quality 85 -resize 1200x800\> screenshot_optimized.png
+          mv screenshot_optimized.png screenshot.png
         fi
         
-    - name: Create small base64 preview
-      id: preview
-      run: |
-        # Create a very small thumbnail for inline display
-        if command -v convert >/dev/null 2>&1; then
-          convert screenshot.png -quality 60 -resize 400x300 thumbnail.png
-          thumbnail_b64=$(base64 -w 0 thumbnail.png | head -c 50000)  # Limit to 50KB
-          echo "thumbnail_data=$thumbnail_b64" >> $GITHUB_OUTPUT
-          echo "has_thumbnail=true" >> $GITHUB_OUTPUT
-        else
-          echo "has_thumbnail=false" >> $GITHUB_OUTPUT
-        fi
-          
     - name: Upload screenshot artifact
       uses: actions/upload-artifact@v4
       with:
         name: preview-screenshot-${{ github.event.pull_request.number }}
         path: screenshot.png
         retention-days: 7
-        
-    - name: Post PR comment with screenshot
+    - name: Upload image to GitHub and post PR comment
       uses: actions/github-script@v7
       with:
         script: |
+          const fs = require('fs');
           const { owner, repo } = context.repo;
           const pull_number = context.payload.pull_request.number;
           const run_id = context.runId;
-          const has_thumbnail = '${{ steps.preview.outputs.has_thumbnail }}' === 'true';
           
-          // Delete previous preview comments
-          const comments = await github.rest.issues.listComments({
-            owner,
-            repo,
-            issue_number: pull_number,
-          });
+          // Read the screenshot file
+          const screenshotPath = 'screenshot.png';
+          const imageBuffer = fs.readFileSync(screenshotPath);
+          const imageBase64 = imageBuffer.toString('base64');
           
-          const botComments = comments.data.filter(comment => 
-            comment.user.type === 'Bot' && 
-            comment.body.includes('🖼️ PR Preview')
-          );
-          
-          for (const comment of botComments) {
-            await github.rest.issues.deleteComment({
+          try {
+            // Upload the image to GitHub's asset storage
+            // This uses GitHub's undocumented but widely-used image upload endpoint
+            const uploadResponse = await github.request('POST /repos/{owner}/{repo}/releases/assets', {
               owner,
               repo,
-              comment_id: comment.id,
+              url: `https://uploads.github.com/repos/${owner}/${repo}/releases/assets`,
+              headers: {
+                'Content-Type': 'image/png',
+                'Content-Length': imageBuffer.length
+              },
+              data: imageBuffer,
+              name: `preview-${pull_number}-${Date.now()}.png`
+            }).catch(async (error) => {
+              // Fallback: Use GitHub's attachment upload via issue creation
+              console.log('Release asset upload failed, trying issue attachment...');
+              
+              // Create a temporary comment with the image to get GitHub URL
+              const tempComment = await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: pull_number,
+                body: `![Preview](data:image/png;base64,${imageBase64})`
+              });
+              
+              // Extract the GitHub-generated URL from the comment
+              const commentBody = tempComment.data.body;
+              const githubUrlMatch = commentBody.match(/https:\/\/github\.com\/.*?\.png/);
+              
+              if (githubUrlMatch) {
+                // Delete the temporary comment
+                await github.rest.issues.deleteComment({
+                  owner,
+                  repo,
+                  comment_id: tempComment.data.id,
+                });
+                
+                return { data: { browser_download_url: githubUrlMatch[0] } };
+              }
+              
+              throw error;
+            });
+            
+            const imageUrl = uploadResponse.data.browser_download_url || uploadResponse.data.url;
+            
+            // Delete any previous preview comments
+            const comments = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number: pull_number,
+            });
+            
+            const botComments = comments.data.filter(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('🖼️ PR Preview')
+            );
+            
+            for (const comment of botComments) {
+              await github.rest.issues.deleteComment({
+                owner,
+                repo,
+                comment_id: comment.id,
+              });
+            }
+            
+            // Create the new comment with the hosted image
+            const artifactUrl = `https://github.com/${owner}/${repo}/actions/runs/${run_id}`;
+            
+            const body = [
+              "## 🖼️ PR Preview",
+              "",
+              "Here's how the site looks with your changes:",
+              "",
+              `![Website Preview](${imageUrl})`,
+              "",
+              "**Local Preview:**",
+              "```bash",
+              "make serve",
+              "# Visit http://localhost:4000",
+              "```",
+              "",
+              `📸 **[Download Full Resolution](${artifactUrl})** (Click "Artifacts" → \`preview-screenshot-${pull_number}\`)`,
+              "",
+              "---",
+              `*Generated by [GitHub Actions Run ${run_id}](${artifactUrl})*`
+            ].join('\n');
+            
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pull_number,
+              body: body
+            });
+            
+          } catch (error) {
+            console.error('Failed to upload image:', error);
+            
+            // Ultimate fallback: Post comment without image
+            const artifactUrl = `https://github.com/${owner}/${repo}/actions/runs/${run_id}`;
+            
+            const fallbackBody = [
+              "## 🖼️ PR Preview",
+              "",
+              "Here's how the site looks with your changes:",
+              "",
+              `📸 **[Download Screenshot](${artifactUrl})**`,
+              `→ Click "Artifacts" → Download \`preview-screenshot-${pull_number}\``,
+              "",
+              "**Local Preview:**",
+              "```bash",
+              "make serve",
+              "# Visit http://localhost:4000",
+              "```",
+              "",
+              "---",
+              `*Generated by [GitHub Actions Run ${run_id}](${artifactUrl})*`,
+              "*(Image preview temporarily unavailable)*"
+            ].join('\n');
+            
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pull_number,
+              body: fallbackBody
             });
           }
-          
-          const artifactUrl = `https://github.com/${owner}/${repo}/actions/runs/${run_id}`;
-          
-          let thumbnailSection = '';
-          if (has_thumbnail) {
-            const thumbnailData = '${{ steps.preview.outputs.thumbnail_data }}';
-            if (thumbnailData && thumbnailData.length < 40000) {  // Safety check
-              thumbnailSection = `
-          
-          **Quick Preview:**
-          ![Thumbnail Preview](data:image/png;base64,${thumbnailData})
-          `;
-            }
-          }
-          
-          const body = `## 🖼️ PR Preview
-          
-          Here's how the site looks with your changes:${thumbnailSection}
-          
-          📸 **[Download Full Screenshot](${artifactUrl})** 
-          → Click the link above → Scroll to "Artifacts" → Download \`preview-screenshot-${pull_number}\`
-          
-          **Local Preview:** 
-          \`\`\`bash
-          make serve
-          # Visit http://localhost:4000
-          \`\`\`
-          
-          ---
-          *Generated by [GitHub Actions Run ${run_id}](${artifactUrl})*`;
-          
-          await github.rest.issues.createComment({
-            owner,
-            repo,
-            issue_number: pull_number,
-            body: body
-          });
           
     - name: Stop Jekyll server
       run: |
