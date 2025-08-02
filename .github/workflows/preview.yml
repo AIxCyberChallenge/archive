@@ -73,14 +73,36 @@ jobs:
         
     - name: Upload screenshot artifact
       uses: actions/upload-artifact@v4
+      id: upload-png
       with:
         name: preview-screenshot-${{ github.event.pull_request.number }}
         path: screenshot.png
+        if-no-files-found: error
         retention-days: 7
         
-    - name: Comment with Image Preview
-      uses: opengisch/comment-pr-with-images@upload_only
+    - name: Find Comment
+      id: find-comment
+      uses: peter-evans/find-comment@v3
       with:
-        images: "screenshot.png"
-        upload_to: github_branch
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-author: 'github-actions[bot]'
+        body-includes: 'Archive Preview'
+
+    # Update or create a comment with the PNG
+    - name: Update PR Comment
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-id: ${{ steps.find-comment.outputs.comment-id }}  # Use if updating an existing comment
+        body: |
+          ## 🖼️ Archive Preview
+          
+          ![Archive Preview](${{ steps.upload-png.outputs.artifact-url }})
+          
+          **Local Development:**
+          ```bash
+          make serve
+          # Visit http://localhost:4000
+          ```
+          
+          📥 [Download Full Resolution](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) (Artifacts → `preview-screenshot-${{ github.event.pull_request.number }}`)
