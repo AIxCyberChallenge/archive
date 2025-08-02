@@ -1,0 +1,44 @@
+title: AIxCC Competition Archive
+description: The comprehensive archive of DARPA's Artificial Intelligence Cyber Challenge
+url: "https://archive.aicyberchallenge.com"
+baseurl: ""
+
+# Repository information for GitHub Pages
+repository: AIxCyberChallenge/website
+
+# Jekyll configuration (GitHub Pages compatible)
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+timezone: America/Los_Angeles
+
+# GitHub Pages compatible settings
+github:
+  is_project_page: false
+
+# Plugins (using GitHub Pages compatible versions)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Build settings
+safe: true
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .bundle/
+  - .git/
+  - .github/
+  - .gitignore
+  - scripts/
+  - Makefile
+
+# Custom variables
+organization: AIxCyberChallenge
+main_site_url: "https://aicyberchallenge.com"
