@@ -1,0 +1,138 @@
+name: PR Preview
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Git
+      run: |
+        git config --global --add safe.directory /github/workspace
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+      
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Install dependencies
+      run: bundle install
+      
+    - name: Build site
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+        
+    - name: Setup Node.js for screenshot
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Playwright
+      run: |
+        npm install -g playwright
+        npx playwright install chromium
+        
+    - name: Start Jekyll server in background
+      run: |
+        bundle exec jekyll serve --host 0.0.0.0 --port 4000 --detach
+        sleep 5  # Wait for server to start
+        
+    - name: Take screenshot
+      run: |
+        # Take a screenshot optimized for GitHub display
+        npx playwright screenshot \
+          --wait-for-selector="body" \
+          --viewport-size=1280,720 \
+          http://localhost:4000 \
+          screenshot.png
+          
+        # Optimize the image for GitHub display (max 10MB, good quality)
+        if command -v convert >/dev/null 2>&1; then
+          convert screenshot.png -quality 85 -resize 1200x800\> screenshot_optimized.png
+          mv screenshot_optimized.png screenshot.png
+        fi
+        
+    - name: Upload screenshot to repository
+      run: |
+        # Create a unique filename for the screenshot
+        SCREENSHOT_NAME="preview-${{ github.event.pull_request.number }}-$(date +%s).png"
+        
+        # Copy screenshot to a directory that will be committed
+        mkdir -p .github/previews
+        cp screenshot.png ".github/previews/$SCREENSHOT_NAME"
+        
+        # Add and commit the screenshot
+        git add ".github/previews/$SCREENSHOT_NAME"
+        git commit -m "Add preview screenshot for PR #${{ github.event.pull_request.number }}"
+        git push origin HEAD:${{ github.head_ref }}
+        
+        # Store the screenshot path for the next step
+        echo "SCREENSHOT_PATH=.github/previews/$SCREENSHOT_NAME" >> $GITHUB_ENV
+        echo "SCREENSHOT_NAME=$SCREENSHOT_NAME" >> $GITHUB_ENV
+        
+    - name: Update PR description with screenshot
+      run: |
+        # Get current PR description
+        CURRENT_BODY=$(curl -s \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}" \
+          | jq -r '.body // ""')
+        
+        # Create the image URL
+        IMAGE_URL="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/$SCREENSHOT_PATH"
+        
+        # Create preview section markdown
+        PREVIEW_SECTION="## 📸 Preview Screenshot"$'\n\n'"![Website Preview]($IMAGE_URL)"$'\n\n'"---"
+        
+        # Check if preview section already exists and replace it, otherwise prepend
+        if echo "$CURRENT_BODY" | grep -q "## 📸 Preview Screenshot"; then
+          # Remove existing preview section and add new one
+          NEW_BODY=$(echo "$CURRENT_BODY" | sed '/## 📸 Preview Screenshot/,/^---$/d')
+          NEW_BODY="$PREVIEW_SECTION"$'\n\n'"$NEW_BODY"
+        else
+          # Prepend to existing body
+          if [ -n "$CURRENT_BODY" ]; then
+            NEW_BODY="$PREVIEW_SECTION"$'\n\n'"$CURRENT_BODY"
+          else
+            NEW_BODY="$PREVIEW_SECTION"
+          fi
+        fi
+        
+        # Update the PR description using GitHub API
+        echo "$NEW_BODY" | jq -Rs '{body: .}' > update_payload.json
+        
+        curl -X PATCH \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Content-Type: application/json" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}" \
+          -d @update_payload.json
+        
+        # Add to step summary
+        echo "## 📸 Preview Updated" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Successfully updated PR #${{ github.event.pull_request.number }} with preview screenshot:" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "![Preview]($IMAGE_URL)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Screenshot path:** \`$SCREENSHOT_PATH\`" >> $GITHUB_STEP_SUMMARY
