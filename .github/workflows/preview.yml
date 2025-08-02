@@ -70,10 +70,69 @@ jobs:
           convert screenshot.png -quality 85 -resize 1200x800\> screenshot_optimized.png
           mv screenshot_optimized.png screenshot.png
         fi
-    - name: Upload Preview
-      uses: edunad/actions-image@v2.0.0
-      with:
-        path: './screenshot.png'
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        title: 'Archive Preview'
-        annotationLevel: 'preview'
+        
+    - name: Upload screenshot to repository
+      run: |
+        # Create a unique filename for the screenshot
+        SCREENSHOT_NAME="preview-${{ github.event.pull_request.number }}-$(date +%s).png"
+        
+        # Copy screenshot to a directory that will be committed
+        mkdir -p .github/previews
+        cp screenshot.png ".github/previews/$SCREENSHOT_NAME"
+        
+        # Add and commit the screenshot
+        git add ".github/previews/$SCREENSHOT_NAME"
+        git commit -m "Add preview screenshot for PR #${{ github.event.pull_request.number }}"
+        git push origin HEAD:${{ github.head_ref }}
+        
+        # Store the screenshot path for the next step
+        echo "SCREENSHOT_PATH=.github/previews/$SCREENSHOT_NAME" >> $GITHUB_ENV
+        echo "SCREENSHOT_NAME=$SCREENSHOT_NAME" >> $GITHUB_ENV
+        
+    - name: Update PR description with screenshot
+      run: |
+        # Get current PR description
+        CURRENT_BODY=$(curl -s \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}" \
+          | jq -r '.body // ""')
+        
+        # Create the image URL
+        IMAGE_URL="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/$SCREENSHOT_PATH"
+        
+        # Create preview section markdown
+        PREVIEW_SECTION="## 📸 Preview Screenshot"$'\n\n'"![Website Preview]($IMAGE_URL)"$'\n\n'"---"
+        
+        # Check if preview section already exists and replace it, otherwise prepend
+        if echo "$CURRENT_BODY" | grep -q "## 📸 Preview Screenshot"; then
+          # Remove existing preview section and add new one
+          NEW_BODY=$(echo "$CURRENT_BODY" | sed '/## 📸 Preview Screenshot/,/^---$/d')
+          NEW_BODY="$PREVIEW_SECTION"$'\n\n'"$NEW_BODY"
+        else
+          # Prepend to existing body
+          if [ -n "$CURRENT_BODY" ]; then
+            NEW_BODY="$PREVIEW_SECTION"$'\n\n'"$CURRENT_BODY"
+          else
+            NEW_BODY="$PREVIEW_SECTION"
+          fi
+        fi
+        
+        # Update the PR description using GitHub API
+        echo "$NEW_BODY" | jq -Rs '{body: .}' > update_payload.json
+        
+        curl -X PATCH \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Content-Type: application/json" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}" \
+          -d @update_payload.json
+        
+        # Add to step summary
+        echo "## 📸 Preview Updated" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Successfully updated PR #${{ github.event.pull_request.number }} with preview screenshot:" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "![Preview]($IMAGE_URL)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Screenshot path:** \`$SCREENSHOT_PATH\`" >> $GITHUB_STEP_SUMMARY
