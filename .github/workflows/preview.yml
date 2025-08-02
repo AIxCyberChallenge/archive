@@ -68,86 +68,58 @@ jobs:
         name: preview-screenshot-${{ github.event.pull_request.number }}
         path: screenshot.png
         retention-days: 7
-    - name: Upload image to GitHub and post PR comment
+    - name: Upload screenshot and post PR comment
       uses: actions/github-script@v7
       with:
         script: |
           const fs = require('fs');
+          const path = require('path');
           const { owner, repo } = context.repo;
           const pull_number = context.payload.pull_request.number;
           const run_id = context.runId;
           
+          // Delete any previous preview comments first
+          const comments = await github.rest.issues.listComments({
+            owner,
+            repo,
+            issue_number: pull_number,
+          });
+          
+          const botComments = comments.data.filter(comment => 
+            comment.user.type === 'Bot' && 
+            comment.body.includes('🖼️ PR Preview')
+          );
+          
+          for (const comment of botComments) {
+            await github.rest.issues.deleteComment({
+              owner,
+              repo,
+              comment_id: comment.id,
+            });
+          }
+          
           // Read the screenshot file
           const screenshotPath = 'screenshot.png';
           const imageBuffer = fs.readFileSync(screenshotPath);
-          const imageBase64 = imageBuffer.toString('base64');
           
           try {
-            // Upload the image to GitHub's asset storage
-            // This uses GitHub's undocumented but widely-used image upload endpoint
-            const uploadResponse = await github.request('POST /repos/{owner}/{repo}/releases/assets', {
+            // Use GitHub's user content API to upload the image
+            const imageBase64 = imageBuffer.toString('base64');
+            
+            // Create the file in a temporary location using GitHub's content API
+            const tempFileName = `preview-${pull_number}-${Date.now()}.png`;
+            const uploadResponse = await github.rest.repos.createOrUpdateFileContents({
               owner,
               repo,
-              url: `https://uploads.github.com/repos/${owner}/${repo}/releases/assets`,
-              headers: {
-                'Content-Type': 'image/png',
-                'Content-Length': imageBuffer.length
-              },
-              data: imageBuffer,
-              name: `preview-${pull_number}-${Date.now()}.png`
-            }).catch(async (error) => {
-              // Fallback: Use GitHub's attachment upload via issue creation
-              console.log('Release asset upload failed, trying issue attachment...');
-              
-              // Create a temporary comment with the image to get GitHub URL
-              const tempComment = await github.rest.issues.createComment({
-                owner,
-                repo,
-                issue_number: pull_number,
-                body: `![Preview](data:image/png;base64,${imageBase64})`
-              });
-              
-              // Extract the GitHub-generated URL from the comment
-              const commentBody = tempComment.data.body;
-              const githubUrlMatch = commentBody.match(/https:\/\/github\.com\/.*?\.png/);
-              
-              if (githubUrlMatch) {
-                // Delete the temporary comment
-                await github.rest.issues.deleteComment({
-                  owner,
-                  repo,
-                  comment_id: tempComment.data.id,
-                });
-                
-                return { data: { browser_download_url: githubUrlMatch[0] } };
-              }
-              
-              throw error;
+              path: `.github/temp/${tempFileName}`,
+              message: `Add preview screenshot for PR #${pull_number}`,
+              content: imageBase64,
+              branch: context.payload.pull_request.head.ref
             });
             
-            const imageUrl = uploadResponse.data.browser_download_url || uploadResponse.data.url;
+            // Construct the raw GitHub URL for the uploaded file
+            const imageUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${context.payload.pull_request.head.ref}/.github/temp/${tempFileName}`;
             
-            // Delete any previous preview comments
-            const comments = await github.rest.issues.listComments({
-              owner,
-              repo,
-              issue_number: pull_number,
-            });
-            
-            const botComments = comments.data.filter(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes('🖼️ PR Preview')
-            );
-            
-            for (const comment of botComments) {
-              await github.rest.issues.deleteComment({
-                owner,
-                repo,
-                comment_id: comment.id,
-              });
-            }
-            
-            // Create the new comment with the hosted image
             const artifactUrl = `https://github.com/${owner}/${repo}/actions/runs/${run_id}`;
             
             const body = [
@@ -163,7 +135,7 @@ jobs:
               "# Visit http://localhost:4000",
               "```",
               "",
-              `📸 **[Download Full Resolution](${artifactUrl})** (Click "Artifacts" → \`preview-screenshot-${pull_number}\`)`,
+              `📸 [Download Full Resolution](${artifactUrl}) (Artifacts → \`preview-screenshot-${pull_number}\`)`,
               "",
               "---",
               `*Generated by [GitHub Actions Run ${run_id}](${artifactUrl})*`
@@ -179,16 +151,16 @@ jobs:
           } catch (error) {
             console.error('Failed to upload image:', error);
             
-            // Ultimate fallback: Post comment without image
+            // Fallback to artifact download only
             const artifactUrl = `https://github.com/${owner}/${repo}/actions/runs/${run_id}`;
             
             const fallbackBody = [
               "## 🖼️ PR Preview",
               "",
-              "Here's how the site looks with your changes:",
+              "Preview screenshot is ready:",
               "",
               `📸 **[Download Screenshot](${artifactUrl})**`,
-              `→ Click "Artifacts" → Download \`preview-screenshot-${pull_number}\``,
+              "→ Click \"Artifacts\" → Download \`preview-screenshot-${pull_number}\`",
               "",
               "**Local Preview:**",
               "```bash",
@@ -197,8 +169,7 @@ jobs:
               "```",
               "",
               "---",
-              `*Generated by [GitHub Actions Run ${run_id}](${artifactUrl})*`,
-              "*(Image preview temporarily unavailable)*"
+              `*Generated by [GitHub Actions Run ${run_id}](${artifactUrl})*`
             ].join('\n');
             
             await github.rest.issues.createComment({

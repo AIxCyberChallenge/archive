@@ -36,6 +36,7 @@ make serve    # Start development server at localhost:4000
 
 - **Automatic**: Pushes to `main` branch auto-deploy via GitHub Pages
 - **Manual testing**: GitHub Actions runs tests on all PRs
+- **PR Previews**: Visual screenshots automatically generated for all PRs
 
 ## Project Structure
 
@@ -55,7 +56,7 @@ make serve    # Start development server at localhost:4000
 1. Create feature branch: `git checkout -b feature/name`
 2. Make changes and test: `make serve`
 3. Run tests: `make test`
-4. Submit PR (tests + visual preview generated automatically)
+4. Submit PR (automated tests + visual preview screenshot generated)
 
 ## Testing
 
