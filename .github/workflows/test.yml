@@ -1,0 +1,35 @@
+name: Test Site
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Install dependencies
+      run: bundle install
+      
+    - name: Build site
+      run: bundle exec jekyll build --strict_front_matter
+      env:
+        JEKYLL_ENV: production
+        
+    - name: Test HTML
+      run: |
+        bundle exec htmlproofer ./_site \
+          --disable-external \
+          --ignore-urls="/favicon.ico"
