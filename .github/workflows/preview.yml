@@ -6,7 +6,7 @@ on:
     types: [opened, synchronize, reopened]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   issues: write
 
@@ -17,6 +17,15 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Git
+      run: |
+        git config --global --add safe.directory /github/workspace
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
       
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
@@ -74,7 +83,4 @@ jobs:
       with:
         images: "screenshot.png"
         upload_to: github_branch
-        custom_attachment_msg: "## 🖼️ PR Preview\n\nHere's how the site looks with your changes:"
-        edit_previous_comment: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
-
