@@ -63,8 +63,6 @@ title: AIxCC Competition Archive
   }
 
   header {
-    background: rgba(0,0,0,0.5);
-    border-bottom: 1px solid #1a1a1a;
     padding: 20px 0;
   }
 
@@ -87,7 +85,7 @@ title: AIxCC Competition Archive
   }
 
   main {
-    padding: 80px 0;
+    padding: 60px 0;
   }
 
   .hero {
@@ -117,9 +115,8 @@ title: AIxCC Competition Archive
     border: 1px solid #333333;
     padding: 12px 24px;
     border-radius: 50px;
-    font-size: 0.9rem;
     font-weight: 500;
-    color: #FFD700;
+    color: white;
     margin-bottom: 40px;
   }
 
@@ -203,21 +200,11 @@ title: AIxCC Competition Archive
   }
 </style>
 
-<header>
-  <div class="container">
-    <div class="header-content">
-      <a href="/" class="logo">
-        <img src="/assets/img/logo.png" alt="AIxCC logo" style="width:300px"/>
-      </a>
-    </div>
-  </div>
-</header>
-
 <main>
   <div class="container">
     <div class="hero">
+      <h1><img src="/assets/img/logo.png" alt="AIxCC logo" style="width:500px; margin-bottom: 20px;"/></h1>
       <div class="status-badge">Coming Soon</div>
-      <h1>AIxCC Competition Archive</h1>
       <p class="subtitle">The comprehensive archive of DARPA's Artificial Intelligence Cyber Challenge, documenting the competition data, team submissions, and breakthrough cybersecurity innovations.</p>
     </div>
     
