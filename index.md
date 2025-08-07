@@ -203,7 +203,7 @@ title: AIxCC Competition Archive
 <main>
   <div class="container">
     <div class="hero">
-      <h1><img src="/assets/img/logo.png" alt="AIxCC logo" style="width:500px; margin-bottom: 20px;"/></h1>
+      <h1><img src="/assets/img/logo.png" alt="AIxCC logo" style="max-width:500px; width: 100%; margin-bottom: 20px;"/></h1>
       <div class="status-badge">Coming Soon</div>
       <p class="subtitle">The comprehensive archive of DARPA's Artificial Intelligence Cyber Challenge, documenting the competition data, team submissions, and breakthrough cybersecurity innovations.</p>
     </div>
