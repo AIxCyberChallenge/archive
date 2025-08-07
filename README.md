@@ -7,23 +7,25 @@ Developer documentation for the AIxCC Competition Archive website.
 
 ## Quick Start
 
+Make sure you have Ruby >3.1 on your machine. Then:
+
 ```bash
-git clone https://github.com/AIxCyberChallenge/website.git
-cd website
+git clone https://github.com/AIxCyberChallenge/archive.git
+cd archive
 make setup    # Install dependencies
 make serve    # Start development server at localhost:4000
 ```
 
 ## Development Commands
 
-| Command | Description |
-|---------|-------------|
-| `make setup` | Install Ruby dependencies |
+| Command      | Description                               |
+| ------------ | ----------------------------------------- |
+| `make setup` | Install Ruby dependencies                 |
 | `make serve` | Start development server with live reload |
-| `make build` | Build site for production |
-| `make test` | Run HTML validation and link checking |
-| `make clean` | Remove build artifacts |
-| `make help` | Show all available commands |
+| `make build` | Build site for production                 |
+| `make test`  | Run HTML validation and link checking     |
+| `make clean` | Remove build artifacts                    |
+| `make help`  | Show all available commands               |
 
 ## Requirements
 
@@ -61,7 +63,8 @@ make serve    # Start development server at localhost:4000
 ## Testing
 
 Automated tests check:
+
 - HTML structure validation
-- Internal link integrity  
+- Internal link integrity
 - Image loading
 - SEO metadata
