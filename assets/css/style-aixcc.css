@@ -1,0 +1,186 @@
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 100 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf");
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: italic;
+  font-weight: 100 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/assets/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf");
+}
+
+:root {
+  font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+  background: url("/assets/img/bg.jpg") center center / cover;
+  color: #FFFFFF;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+p {
+  font-size: 16px;
+}
+.mb-2 {
+  margin-bottom: 20px;
+}
+h2 {
+  margin-bottom: 24px;
+}
+
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+main {
+  padding: 60px 0;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card {
+  background: #07081a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 60px;
+  width: 47%;
+  margin: 1.5%;
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+.card-top {
+  width: 100%;
+  background: url("/assets/img/shield.png") #07081a left center / contain no-repeat;
+  justify-content: center;
+}
+.card img {
+  width: 40%;
+}
+.card-top img {
+  width: 55%;
+}
+.sherpa-content {
+  margin-left: 320px;
+  width: 45%;
+}
+.team-info {
+  padding-left: 24px;
+  border-left: 3px solid white;
+  margin-left: 24px;
+  height: 100%;
+  width: 60%;
+}
+@media (max-width: 800px) {
+  .card {
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 24px;
+  }
+  .sherpa-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  .card-top {
+    flex-wrap: wrap;
+    background: #07081a;
+  }
+  .card-top img {
+    order: -1;
+    margin: 0 0 24px;
+    width: 80%;
+  }
+}
+
+/* remove if the aixcc style links are gone
+.main-site-link {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.main-site-link a {
+  font-family: "IBM Plex Sans", Sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  background: #7488b2;
+  color: #FFFFFF;
+  border-style: none;
+  border-radius: 0px 40px 0px 040px;
+  padding: 25px 50px 25px 50px;
+  box-shadow: black 6px 6px 0 0;
+}
+
+.main-site-link a:hover {
+  background-color: #343846;
+  color: #FFFFFF;
+}
+*/
+
+footer {
+  background: #000000;
+  border-top: 1px solid #1a1a1a;
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer p {
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #FFD700;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .coming-soon {
+    padding: 40px 20px;
+  }
+}
