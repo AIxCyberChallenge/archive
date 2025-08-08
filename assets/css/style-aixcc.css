@@ -86,7 +86,7 @@ main {
   align-items: center;
 }
 .card-top {
-  width: 100%;
+  width: 97%;
   background: url("/assets/img/shield.png") #07081a left center / contain no-repeat;
   justify-content: center;
 }
