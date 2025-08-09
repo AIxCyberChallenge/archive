@@ -9,7 +9,7 @@ title: AIxCC Competition Archive
       <div class="sherpa-content">
         <h2>SHERPA</h2>
         <p class="mb-2">Security Harness Engineering for Robust Program Analysis, or SHERPA, intelligently generates fuzzing harnesses for attacker-controlled entrypoints</p>
-        <p class="mb-2">>>> Repo: <a href="http://github.com/AIxCyberChallenge/sherpa">Github</a></p>
+        <p class="mb-2">>>> Repo: <a target="_blank" href="http://github.com/AIxCyberChallenge/sherpa">Github</a></p>
       </div>
       <img src="/assets/img/aixcc.png"/>
     </div>
@@ -20,8 +20,8 @@ title: AIxCC Competition Archive
           <h2>Artiphishell</h2>
           <p>Shellphish's cyber reasoning system.</p>
           <p><b>Team: Shellphish </b></p>
-          <p>>>> Semifinal Release: <a href="https://github.com/shellphish/artiphishell/releases/tag/Semi-Finals">Github</a></p>
-          <p>>>> Final Release: <a href="https://github.com/shellphish/artiphishell/releases/tag/Finals">Github</a></p>
+          <p>>>> Semifinal Release: <a target="_blank" href="https://github.com/shellphish/artiphishell/releases/tag/Semi-Finals">Github</a></p>
+          <p>>>> Final Release: <a target="_blank" href="https://github.com/shellphish/artiphishell/releases/tag/Finals">Github</a></p>
         </div>
       </div>
       <div class="card">
@@ -30,8 +30,8 @@ title: AIxCC Competition Archive
           <h2>Atlantis</h2>
           <p>Team Atlanta's cyber reasoning system.</p>
           <p><b>Team: </b>Team Atlanta</p>
-          <p>>>> Semifinal Release: <a href="https://github.com/Team-Atlanta/aixcc-asc-atlantis">Github</a></p>
-          <p>>>> Final Release: <a href="https://github.com/Team-Atlanta/aixcc-afc-atlantis">Github</a></p>
+          <p>>>> Semifinal Release: <a target="_blank" href="https://github.com/Team-Atlanta/aixcc-asc-atlantis">Github</a></p>
+          <p>>>> Final Release: <a target="_blank" href="https://github.com/Team-Atlanta/aixcc-afc-atlantis">Github</a></p>
         </div>
       </div>
       <div class="card">
@@ -40,7 +40,7 @@ title: AIxCC Competition Archive
           <h2>RoboDuck</h2>
           <p>Theori's cyber reasoning system.</p>
           <p><b>Team: Theori</b></p>
-          <p>>>> Semifinal Release & Final Release: <a href="https://theori-io.github.io/aixcc-public/index.html">Github</a></p>
+          <p>>>> Semifinal Release & Final Release: <a target="_blank" href="https://theori-io.github.io/aixcc-public/index.html">Github</a></p>
         </div>
       </div>
       <div class="card">
@@ -49,8 +49,8 @@ title: AIxCC Competition Archive
           <h2>Buttercup</h2>
           <p>Trail of Bits' cyber reasoning system.</p>
           <p><b>Team: Trail of Bits</b></p>
-          <p>>>> Semifinal Release: <a href="https://github.com/trailofbits/asc-buttercup">Github</a></p>
-          <p>>>> Final Release: <a href="https://github.com/trailofbits/afc-buttercup">Github</a></p>
+          <p>>>> Semifinal Release: <a target="_blank" href="https://github.com/trailofbits/asc-buttercup">Github</a></p>
+          <p>>>> Final Release: <a target="_blank" href="https://github.com/trailofbits/afc-buttercup">Github</a></p>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@ title: AIxCC Competition Archive
   <div class="container">
     <p>
       Copyright 2025 &nbsp;///&nbsp; 
-      <a href="https://aicyberchallenge.com/index.php/terms-condition/">Terms and Conditions</a>
+      <a target="_blank" href="https://aicyberchallenge.com/index.php/terms-condition/">Terms and Conditions</a>
     </p>
   </div>
 </footer>
