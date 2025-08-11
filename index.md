@@ -53,6 +53,16 @@ title: AIxCC Competition Archive
           <p>>>> Final Release: <a target="_blank" href="https://github.com/trailofbits/afc-buttercup">Github</a></p>
         </div>
       </div>
+      <div class="card">
+        <img src="/assets/img/fuzzing.png" />
+        <div class="team-info">
+          <h2>Fuzzing Brain</h2>
+          <p>All You Need IS A Fuzzing Brain's cyber reasoning system.</p>
+          <p><b>Team: All You Need IS A Fuzzing Brain</b></p>
+          <p>>>> Semifinal Release: <a target="_blank" href="https://github.com/o2lab/asc-crs-all-you-need-is-a-fuzzing-brain">Github</a></p>
+          <p>>>> Final Release: <a target="_blank" href="https://github.com/o2lab/afc-crs-all-you-need-is-a-fuzzing-brain">Github</a></p>
+        </div>
+      </div>
     </div>
   </div>
 </main>
