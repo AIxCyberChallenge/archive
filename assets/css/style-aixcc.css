@@ -46,6 +46,10 @@ body {
   min-height: 100vh;
 }
 
+a {
+  color: white;
+}
+
 p {
   font-size: 16px;
 }
@@ -107,7 +111,42 @@ main {
   height: 100%;
   width: 60%;
 }
-@media (max-width: 800px) {
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 36px;
+}
+.hero p {
+  margin-bottom: 16px;
+}
+.hero-image {
+  width: 35%;
+  padding: 2% 4% 2% 4%;
+}
+.hero-content {
+  width: 65%;
+}
+.hero h1 {
+  font-size: 40px;
+}
+
+footer {
+  background: #000000;
+  border-top: 1px solid #1a1a1a;
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer p {
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1070px) {
   .card {
     width: 100%;
     margin: 0 0 24px;
@@ -126,61 +165,14 @@ main {
     margin: 0 0 24px;
     width: 80%;
   }
-}
-
-/* remove if the aixcc style links are gone
-.main-site-link {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.main-site-link a {
-  font-family: "IBM Plex Sans", Sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  font-style: normal;
-  text-decoration: none;
-  background: #7488b2;
-  color: #FFFFFF;
-  border-style: none;
-  border-radius: 0px 40px 0px 040px;
-  padding: 25px 50px 25px 50px;
-  box-shadow: black 6px 6px 0 0;
-}
-
-.main-site-link a:hover {
-  background-color: #343846;
-  color: #FFFFFF;
-}
-*/
-
-footer {
-  background: #000000;
-  border-top: 1px solid #1a1a1a;
-  padding: 40px 0;
-  text-align: center;
-}
-
-footer p {
-  color: #666666;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #CCCCCC;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #FFD700;
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  .hero {
+    flex-wrap: wrap;
   }
-  
-  .coming-soon {
-    padding: 40px 20px;
+  .hero-image {
+    max-width: 500px;
+    width: 100%;
+  }
+  .hero-content {
+    width: 100%;
   }
 }
