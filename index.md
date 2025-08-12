@@ -5,13 +5,28 @@ title: AIxCC Competition Archive
 
 <main>
   <div class="container">
-    <div class="card card-top">
-      <div class="sherpa-content">
-        <h2>SHERPA</h2>
-        <p class="mb-2">Security Harness Engineering for Robust Program Analysis, or SHERPA, intelligently generates fuzzing harnesses for attacker-controlled entrypoints</p>
-        <p class="mb-2">>>> Repo: <a target="_blank" href="http://github.com/AIxCyberChallenge/sherpa">Github</a></p>
-      </div>
-      <img src="/assets/img/aixcc.png"/>
+    <div class="hero">
+        <img src="/assets/img/hero.png" alt="hero image for archive site" class="hero-image">
+        <div class="hero-content">
+            <h1>Open Source Archive</h1>
+            <p>
+            The AI Cyber Challenge was designed to advance cybersecurity technology AND ensure that technology is
+            applied to secure the code we all rely on. To that end, all 7 finalist teams are releasing their competition
+            Cyber Reasoning Systems (CRSs) open-source in order to accelerate the distribution and use of the AIx-
+            CC-developed technology within the cybersecurity and software development fields. The teams’ systems
+            will be released over the next several weeks so check back often.
+            </p>
+            <p>
+            In addition, you are invited to access, test, use and build on the following:
+            </p>
+            <p>
+            → AIxCC competition infrastructure <br/>
+            → Competition Challenges <br/>
+            → Cyber Reasoning Unified Model Benchmark System (CRUMBS) <br/>
+            → Competition harness documentation <br/>
+            → And more!
+            </p>
+        </div>
     </div>
     <div class="card-grid">
       <div class="card">
@@ -63,6 +78,14 @@ title: AIxCC Competition Archive
           <p>>>> Final Release: <a target="_blank" href="https://github.com/o2lab/afc-crs-all-you-need-is-a-fuzzing-brain">Github</a></p>
         </div>
       </div>
+    </div>
+    <div class="card card-top">
+      <div class="sherpa-content">
+        <h2>SHERPA</h2>
+        <p class="mb-2">Security Harness Engineering for Robust Program Analysis, or SHERPA, intelligently generates fuzzing harnesses for attacker-controlled entrypoints</p>
+        <p class="mb-2">>>> Repo: <a target="_blank" href="http://github.com/AIxCyberChallenge/sherpa">Github</a></p>
+      </div>
+      <img src="/assets/img/aixcc.png"/>
     </div>
   </div>
 </main>
