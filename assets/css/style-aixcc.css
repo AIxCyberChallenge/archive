@@ -91,18 +91,13 @@ main {
 }
 .card-top {
   width: 97%;
-  background: url("/assets/img/shield.png") #07081a left center / contain no-repeat;
   justify-content: center;
 }
 .card img {
   width: 40%;
 }
-.card-top img {
-  width: 55%;
-}
 .sherpa-content {
-  margin-left: 320px;
-  width: 45%;
+  width: 100%;
 }
 .team-info {
   padding-left: 24px;
