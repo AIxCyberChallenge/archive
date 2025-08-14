@@ -80,7 +80,8 @@ title: AIxCC Competition Archive
       </div>
     </div>
     <div class="card card-top">
-      <div class="sherpa-content">
+      <img src="/assets/img/sherpa.png" style="width: 25%;" />
+      <div class="team-info">
         <h2>SHERPA</h2>
         <p class="mb-2">Security Harness Engineering for Robust Program Analysis, or SHERPA, intelligently generates fuzzing harnesses for attacker-controlled entrypoints</p>
         <p class="mb-2">>>> Repo: <a target="_blank" href="http://github.com/AIxCyberChallenge/sherpa">Github</a></p>
