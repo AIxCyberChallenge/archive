@@ -42,3 +42,4 @@ exclude:
 # Custom variables
 organization: AIxCyberChallenge
 main_site_url: "https://aicyberchallenge.com"
+example_crs_repo_url: "https://github.com/AIxCyberChallenge/example-crs-architecture"

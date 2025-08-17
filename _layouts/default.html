@@ -11,6 +11,10 @@
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    {% if page.redirect %}
+    <meta http-equiv="refresh" content="0; url={{ page.redirect }}">
+    <link rel="canonical" href="{{ page.redirect }}" />
+    {% endif %}
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -22,6 +26,97 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+        <header>
+            <div class="container navbar" role="navigation">
+                <a class="brand" href="/">AIxCC Archive</a>
+                <div class="spacer"></div>
+                <button class="menu-toggle" aria-label="Toggle menu" aria-controls="main-menu" aria-expanded="false">
+                    <span class="menu-icon" aria-hidden="true"></span>
+                    Menu
+                </button>
+                <nav id="main-menu" class="menu" aria-label="Main Navigation">
+                      <a href="/">Home</a>
+                      <a href="/api/quickstart/">Getting Started</a>
+                      <a href="/api/">API Explorer</a>
+                      <a href="/data/">Data Explorer</a>
+                </nav>
+            </div>
+        </header>
     {{ content }}
+        <script type="module">
+            // D2 renderer: upgrades <pre><code class="language-d2|d2">...</code></pre>
+            // to <div class="d2 ..."> and renders SVG via WASM.
+            import { D2 } from 'https://esm.sh/@terrastruct/d2@0.1.33';
+            (function(){
+                function upgradeD2Blocks() {
+                    const blocks = Array.from(document.querySelectorAll('pre > code.language-d2, pre > code.d2'));
+                    for (const code of blocks) {
+                        const pre = code.parentElement;
+                        const container = document.createElement('div');
+                        container.classList.add('d2');
+                        // preserve responsive classes like diagram-mobile/desktop
+                        code.classList.forEach(cls => {
+                            if (cls.startsWith('diagram-')) container.classList.add(cls);
+                        });
+                        container.textContent = code.textContent;
+                        pre.replaceWith(container);
+                    }
+                }
+                async function renderAllD2() {
+                    const d2 = new D2();
+                    const nodes = Array.from(document.querySelectorAll('div.d2'));
+                    for (const el of nodes) {
+                        try {
+                            let src = el.textContent || '';
+                            const external = el.getAttribute('data-src');
+                            if (external) {
+                                const resp = await fetch(external, { cache: 'no-cache' });
+                                src = await resp.text();
+                            }
+                            const compiled = await d2.compile(src, { layout: 'elk' });
+                            const opts = Object.assign({}, compiled.renderOptions, {
+                                pad: 2,
+                                center: true,
+                                scale: 0.75,
+                                forceAppendix: false
+                            });
+                            const svg = await d2.render(compiled.diagram, opts);
+                            el.innerHTML = svg;
+                        } catch (e) {
+                            const msg = (e && (e.message || e.toString())) || 'Unknown error';
+                            el.innerHTML = '<div class="diagram-error">D2 render error: ' + msg + '</div>';
+                            console.warn('D2 render failed', e);
+                        }
+                    }
+                }
+                document.addEventListener('DOMContentLoaded', function(){
+                    upgradeD2Blocks();
+                    renderAllD2();
+                });
+                // Mobile menu toggle
+                const toggle = document.querySelector('.menu-toggle');
+                const menu = document.querySelector('nav.menu');
+                if (toggle && menu) {
+                    function closeMenu() {
+                        menu.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+                    toggle.addEventListener('click', function(e){
+                        e.stopPropagation();
+                        const open = menu.classList.toggle('open');
+                        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    });
+                    document.addEventListener('click', function(e){
+                        if (!menu.contains(e.target) && e.target !== toggle) {
+                            closeMenu();
+                        }
+                    });
+                    // Close on escape
+                    document.addEventListener('keydown', function(e){
+                        if (e.key === 'Escape') closeMenu();
+                    });
+                }
+            })();
+        </script>
 </body>
 </html>
