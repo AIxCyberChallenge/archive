@@ -11,6 +11,10 @@
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    {% if page.redirect %}
+    <meta http-equiv="refresh" content="0; url={{ page.redirect }}">
+    <link rel="canonical" href="{{ page.redirect }}" />
+    {% endif %}
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -32,6 +36,7 @@
                 </button>
                 <nav id="main-menu" class="menu" aria-label="Main Navigation">
                       <a href="/">Home</a>
+                      <a href="/api/quickstart/">Getting Started</a>
                       <a href="/api/">API Explorer</a>
                       <a href="/data/">Data Explorer</a>
                 </nav>

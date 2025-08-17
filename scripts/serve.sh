@@ -66,4 +66,26 @@ if [ "${DISABLE_LIVERELOAD:-0}" != "1" ]; then
   ARGS+=( --livereload --livereload-port "${LR_PORT}" )
 fi
 
-bundle exec jekyll serve "${ARGS[@]}"
+# Resolve Bundler: prefer Homebrew Ruby bundler if available, then fallback
+BREW_PREFIX=$(command -v brew >/dev/null 2>&1 && brew --prefix || echo "")
+CANDIDATES=(
+  "$(command -v bundle)"                  # Use the same bundle your shell uses
+  "$BREW_PREFIX/opt/ruby/bin/bundle"
+  "/opt/homebrew/opt/ruby/bin/bundle"     # Apple Silicon default
+  "/usr/local/opt/ruby/bin/bundle"        # Intel default
+)
+
+BUNDLE_CMD=""
+for c in "${CANDIDATES[@]}"; do
+  if [ -n "$c" ] && [ -x "$c" ]; then
+    BUNDLE_CMD="$c"
+    break
+  fi
+done
+
+if [ -z "$BUNDLE_CMD" ]; then
+  echo "❌ Bundler not found. Please install bundler 2.7.1 (e.g., gem install bundler:2.7.1) or run 'make setup'." >&2
+  exit 1
+fi
+
+"$BUNDLE_CMD" exec jekyll serve "${ARGS[@]}"

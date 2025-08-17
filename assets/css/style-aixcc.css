@@ -112,6 +112,28 @@ header {
 main {
   padding: 60px 0;
 }
+/* Markdown content defaults */
+.sherpa-content h1, .sherpa-content h2, .sherpa-content h3,
+.sherpa-content h4, .sherpa-content h5 { margin: 18px 0 12px; }
+.sherpa-content p { margin: 10px 0; }
+.sherpa-content ul, .sherpa-content ol { margin: 10px 0 16px 24px; }
+.sherpa-content li { margin: 6px 0; }
+.sherpa-content table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+.sherpa-content th, .sherpa-content td { border: 1px solid #333; padding: 8px 10px; }
+.sherpa-content blockquote { border-left: 3px solid #444; padding: 6px 12px; color: #ddd; margin: 12px 0; background: rgba(0,0,0,0.2); }
+
+/* Code blocks */
+pre { background: #0b0b0b; border: 1px solid #222; border-radius: 10px; padding: 12px 14px; overflow-x: auto; }
+code { background: rgba(255,255,255,0.05); border: 1px solid #333; border-radius: 6px; padding: 0 4px; }
+pre code { background: transparent; border: 0; padding: 0; color: #e6e6e6; }
+
+/* Rouge syntax tokens (minimal) */
+.highlight .k { color: #c792ea; }  /* keyword */
+.highlight .nf { color: #82aaff; } /* function name */
+.highlight .s { color: #ecc48d; }  /* string */
+.highlight .mi { color: #f78c6c; } /* number */
+.highlight .na { color: #addb67; } /* attr */
+.highlight .c { color: #697098; }  /* comment */
 
 /* Diagram container */
 .d2, .d2 > svg {

@@ -24,10 +24,10 @@ description: Redoc viewers and documentation for the AIxCC Competition API and C
         <p>The interface each team’s CRS provides so the Competition API can deliver tasks and receive status. Defines how CRSs handle broadcasts (e.g., SARIF) and report status.</p>
       </div>
     </a>
-    <a class="card" id="link-crs" href="/api/quickstart/">
+    <a class="card" id="link-example-crs" href="{{ site.example_crs_repo_url }}" target="_blank" rel="noopener">
       <div class="sherpa-content">
-        <h2>Quickstart</h2>
-        <p>Get started building a CRS.</p>
+        <h2>Example CRS Architecture</h2>
+        <p>All content needed to build a compliant CRS: API specs, examples, and reference infrastructure.</p>
       </div>
     </a>
   </div>

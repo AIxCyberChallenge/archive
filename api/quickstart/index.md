@@ -1,54 +1,42 @@
 ---
 layout: default
-title: Quickstart
-description: Get started building a CRS compatible with the AIxCC Competition APIs
+title: Getting Started
+description: "Choose your path: adopt a finalist CRS or use the example-crs-architecture reference repo."
 ---
 
-{% capture qs_md %}
-### Build your own CRS: quickstart
+<main>
+  <div class="container">
+    <div class="hero">
+      <img src="/assets/img/hero.png" alt="Getting started" class="hero-image" />
+      <div class="hero-content">
+        <h1>Getting started</h1>
+        <p class="mb-2">Two simple options: start from one of the open-sourced finalist CRSs, or build your own using our reference repository.</p>
+      </div>
+    </div>
 
-Implement the CRS API endpoints for `/status/`, `/v1/task/`, and `/v1/sarif/`. Then use the Competition API to trigger smoke tests and iterate.
+    <div class="card-grid" style="margin-top: 8px;">
+      <div class="card">
+        <div class="sherpa-content">
+          <h2>Option A: Use a finalist CRS</h2>
+          <p class="mb-2">Fastest path. Pick from the 7 CRSs listed on the Archive home page and adapt as needed.</p>
+          <p><a href="/">Browse finalist CRSs on the Archive home</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="sherpa-content">
+          <h2>Option B: Build from scratch</h2>
+          <p class="mb-2">Use the example-crs-architecture repo for API specs, example services, and reference infrastructure.</p>
+          <p><a target="_blank" href="{{ site.example_crs_repo_url }}">Open example-crs-architecture on GitHub</a></p>
+        </div>
+      </div>
+    </div>
 
-> Note: The Competition API source code has not yet been released by the organizers. The OpenAPI specs are provided so researchers can build compliant CRSs for future testing.
-
-#### Request an integration (delta) task
-
-```bash
-curl -u <team-id>:<secret> -X POST \
-  'https://api.aixcc.tech/v1/request/delta/' \
-  -H 'Content-Type: application/json' \
-  --data '{"duration_secs": 3600}'
-```
-
-#### Request a specific Exhibition 3 challenge
-
-```bash
-curl -u <team-id>:<secret> -X POST \
-  'https://api.aixcc.tech/v1/request/ex3-tk-full-01/' \
-  --json '{"duration_secs": 43200}'
-```
-
-#### List available challenges
-
-```bash
-curl -u <team-id>:<secret> -X GET \
-  'https://api.aixcc.tech/v1/request/list/'
-```
-
-#### Optional: generate client/server stubs (OpenAPI Generator)
-
-```bash
-docker run --rm -v "$PWD":/local openapitools/openapi-generator-cli generate \
-  -i /local/docs/competition.yaml \
-  -g <lang> \
-  -o /local/out
-```
-
-See OpenAPI Generator docs for language-specific config.
-{% endcapture %}
-
-<div class="container">
-  <div class="sherpa-content">
-    {{ qs_md | markdownify }}
+    <div class="sherpa-content">
+      <h2>Helpful links</h2>
+      <ul>
+        <li><a href="/api/">API Explorer (Competition + CRS + SARIF)</a></li>
+        <li><a href="/docs/">Raw specs and schemas</a></li>
+      </ul>
+    </div>
   </div>
-</div>
+</main>

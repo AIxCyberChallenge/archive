@@ -33,7 +33,7 @@ title: AIxCC Competition Archive
         <img src="/assets/img/aixcc.png" alt="API docs" />
         <div class="team-info">
           <h2>API Explorer</h2>
-          <p>Browse the Competition and CRS APIs with a streamlined Redoc viewer, plus the SARIF schema.</p>
+          <p>Browse the Competition and CRS API specifications with a streamlined doc viewer.</p>
           <p>>>> <a target="_blank" href="/api">API Explorer</a></p>
         </div>
       </div>
