@@ -19,6 +19,61 @@
       color: #222;
       border-color: #ddd;
     }
+  /* Ensure right panel uses dark text in light mode */
+  #redoc-container .right-panel,
+  #redoc-container .api-content,
+  #redoc-container .right-panel *,
+  #redoc-container .api-content * { color: #0b0d17 !important; }
+  /* Common controls and labels */
+  #redoc-container button,
+  #redoc-container [role="button"],
+  #redoc-container label,
+  #redoc-container .content-type,
+  #redoc-container .content-type *,
+  #redoc-container [class*="content-type" i],
+  #redoc-container [class*="contenttype" i],
+  #redoc-container [class*="mime" i],
+  #redoc-container [class*="mime-type" i] { color: #0b0d17 !important; }
+  /* Native controls text color */
+  #redoc-container select,
+  #redoc-container input,
+  #redoc-container textarea { color: #0b0d17 !important; -webkit-text-fill-color: #0b0d17; }
+  #redoc-container select option { color: #0b0d17 !important; background: #ffffff !important; }
+  /* Endpoint URL/link coloring */
+  #redoc-container a { color: #0891b2 !important; }
+  #redoc-container [class*="operation" i] [class*="endpoint" i],
+  #redoc-container [class*="operation" i] a { color: #0b0d17 !important; }
+    /* Make code boxes and samples stand out in light mode */
+    #redoc-container pre,
+  #redoc-container code,
+  #redoc-container .right-panel pre,
+  #redoc-container .right-panel code {
+      background-color: #f3f4f6 !important; /* gray-100 */
+      color: #0b0d17 !important;
+    }
+  /* Ensure nested token spans inside code adopt dark text */
+  #redoc-container pre *,
+  #redoc-container code *,
+  #redoc-container .right-panel pre *,
+  #redoc-container .right-panel code * { color: #0b0d17 !important; }
+    #redoc-container pre {
+      border: 1px solid #e5e7eb !important; /* gray-200 */
+      border-radius: 10px !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    #redoc-container pre code { font-size: 0.95rem; }
+    /* Tables and dividers with better contrast in light mode */
+    #redoc-container table th,
+    #redoc-container table td {
+      border-color: #e5e7eb !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    /* Subtle borders for code blocks in dark mode without changing theme colors */
+    #redoc-container pre {
+      border: 1px solid #222 !important;
+      border-radius: 10px !important;
+    }
   }
   @media (max-width: 768px) { #redoc-container { padding: 8px; } }
   </style>
