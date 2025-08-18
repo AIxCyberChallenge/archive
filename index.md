@@ -30,7 +30,15 @@ title: AIxCC Competition Archive
     </div>
     <div class="card-grid">
       <div class="card">
-        <img src="/assets/img/shellphish.png" />
+        <img src="/assets/img/aixcc.png" alt="API docs" />
+        <div class="team-info">
+          <h2>API Explorer</h2>
+          <p>Browse the Competition and CRS API specifications with a streamlined doc viewer.</p>
+          <p>>>> <a target="_blank" href="/api">API Explorer</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/img/shellphish.png" alt="Shellphish logo" />
         <div class="team-info">
           <h2>Artiphishell</h2>
           <p>Shellphish's cyber reasoning system.</p>
@@ -40,7 +48,7 @@ title: AIxCC Competition Archive
         </div>
       </div>
       <div class="card">
-        <img src="/assets/img/atlanta.png" />
+        <img src="/assets/img/atlanta.png" alt="Team Atlanta logo" />
         <div class="team-info">
           <h2>Atlantis</h2>
           <p>Team Atlanta's cyber reasoning system.</p>
@@ -50,7 +58,7 @@ title: AIxCC Competition Archive
         </div>
       </div>
       <div class="card">
-        <img src="/assets/img/theori.png" />
+        <img src="/assets/img/theori.png" alt="Theori logo" />
         <div class="team-info">
           <h2>RoboDuck</h2>
           <p>Theori's cyber reasoning system.</p>
@@ -59,7 +67,7 @@ title: AIxCC Competition Archive
         </div>
       </div>
       <div class="card">
-        <img src="/assets/img/tob.png" />
+        <img src="/assets/img/tob.png" alt="Trail of Bits logo" />
         <div class="team-info">
           <h2>Buttercup</h2>
           <p>Trail of Bits' cyber reasoning system.</p>
@@ -69,7 +77,7 @@ title: AIxCC Competition Archive
         </div>
       </div>
       <div class="card">
-        <img src="/assets/img/fuzzing.png" />
+        <img src="/assets/img/fuzzing.png" alt="All You Need Is A Fuzzing Brain logo" />
         <div class="team-info">
           <h2>Fuzzing Brain</h2>
           <p>All You Need IS A Fuzzing Brain's cyber reasoning system.</p>
@@ -80,11 +88,11 @@ title: AIxCC Competition Archive
       </div>
     </div>
     <div class="card card-top">
-      <img src="/assets/img/sherpa.png" style="width: 25%;" />
+      <img src="/assets/img/sherpa.png" style="width: 25%;" alt="SHERPA logo" />
       <div class="team-info">
         <h2>SHERPA</h2>
         <p class="mb-2">Security Harness Engineering for Robust Program Analysis, or SHERPA, intelligently generates fuzzing harnesses for attacker-controlled entrypoints</p>
-        <p class="mb-2">>>> Repo: <a target="_blank" href="http://github.com/AIxCyberChallenge/sherpa">Github</a></p>
+  <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/sherpa">Github</a></p>
       </div>
     </div>
   </div>

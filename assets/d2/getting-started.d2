@@ -1,0 +1,43 @@
+// Getting Started overview: local vs cloud paths
+
+Researcher: {
+  label: "Researcher Workstation"
+}
+
+LocalServer: {
+  label: "Example Competition Server\n(docker compose)"
+}
+
+LocalCRS: {
+  label: "Example CRS Webservice\n(your CRS locally)"
+}
+
+CloudCRS: {
+  label: "CRS on AKS\n(Terraform + K8s + Tailscale)"
+}
+
+CompAPI: {
+  label: "Competition API\n(tasking + submissions)"
+}
+
+Telemetry: {
+  label: "Telemetry Backend\n(SigNoz or OTLP endpoint)"
+}
+
+// Local path
+Researcher -> LocalServer: "compose up"
+LocalServer -> LocalCRS: "send tasks"
+LocalCRS -> LocalServer: "POV / Patch / SARIF / Bundle"
+
+// Cloud path
+Researcher -> CloudCRS: "deploy (make up)"
+CompAPI -> CloudCRS: "/v1/request/* (tasking)"
+CloudCRS -> CompAPI: "submissions + status"
+
+// Telemetry for both
+LocalCRS -> Telemetry: "OTLP spans (LLM + actions)"
+CloudCRS -> Telemetry: "OTLP spans (LLM + actions)"
+
+// Cross-link local smoke test
+Researcher -> CompAPI: "optional: /v1/request/delta"
+CompAPI -> LocalCRS: "integration test (if reachable)"

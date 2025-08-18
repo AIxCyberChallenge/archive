@@ -1,0 +1,59 @@
+<div class="container">
+  <div id="redoc-container"></div>
+</div>
+
+<script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+<style>
+  #redoc-container { background:#07081a; border:1px solid #333; border-radius:12px; padding: 12px; }
+  /* Basic text/link colors as a fallback; primary theming is done via Redoc theme below */
+  #redoc-container { color: #ddd; }
+  #redoc-container a { color: #fff; }
+  /* Remove blue-tinted inner backgrounds; use container bg */
+  #redoc-container [class*="menu-content"],
+  #redoc-container [class*="api-content"] { background: transparent !important; }
+  /* Code block colors */
+  #redoc-container pre, #redoc-container code { background-color: #0d0e23 !important; color: #e6e6e6 !important; }
+  /* Keep expanded panels, sections, and tables dark */
+  #redoc-container div, #redoc-container section, #redoc-container article, #redoc-container aside { background-color: transparent !important; }
+  #redoc-container table { background: transparent !important; }
+  #redoc-container th, #redoc-container td { border-color: #333 !important; }
+  /* Tabs and selected states */
+  #redoc-container [class*="tab--selected"] { background: #111 !important; color: #fff !important; border-color: #333 !important; }
+  #redoc-container [class*="tab"] { background: #0d0e23 !important; color: #ddd !important; }
+  /* Inputs (e.g., search) */
+  #redoc-container input, #redoc-container select, #redoc-container textarea { background:#0d0e23 !important; color:#e6e6e6 !important; border:1px solid #333 !important; }
+  /* Headings and readability */
+  #redoc-container h1, #redoc-container h2, #redoc-container h3, #redoc-container h4, #redoc-container h5 { color:#fff; }
+  #redoc-container { line-height: 1.6; }
+  @media (max-width: 768px) { #redoc-container { padding: 8px; } }
+  @media (prefers-color-scheme: light) {
+    #redoc-container { background:#f9f9fb; color:#222; }
+  }
+  </style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const SPEC_URL = '{{ include.spec_url | default: "/docs/competition.yaml" }}';
+    const redocEl = document.getElementById('redoc-container');
+    if (!redocEl) return;
+    Redoc.init(SPEC_URL, {
+      expandResponses: '200,201',
+      hideDownloadButton: false,
+      theme: {
+        colors: {
+          primary: { main: '#ffffff' },
+          text: { primary: '#e6e6e6', secondary: '#b3b3b3' },
+          http: { get: '#7cb342', post: '#42a5f5', put: '#ffb300', delete: '#ef5350' },
+          background: { main: '#07081a' }
+        },
+        typography: {
+          fontFamily: 'IBM Plex Sans, Helvetica, Arial, sans-serif',
+          headings: { fontFamily: 'IBM Plex Sans, Helvetica, Arial, sans-serif' },
+          links: { color: '#ffffff' },
+          code: { backgroundColor: '#0d0e23', textColor: '#e6e6e6' }
+        },
+        sidebar: { backgroundColor: '#07081a' },
+        rightPanel: { backgroundColor: '#07081a' }
+      }
+    }, redocEl);
+  });
+</script>
