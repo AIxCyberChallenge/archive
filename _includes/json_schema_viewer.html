@@ -1,0 +1,27 @@
+<div class="container">
+  <div id="schema-viewer" class="schema-box"></div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/jsoneditor@10.1.0/dist/jsoneditor.min.css" />
+<script src="https://unpkg.com/jsoneditor@10.1.0/dist/jsoneditor.min.js"></script>
+<style>
+  .schema-box { background:#07081a; border:1px solid #333; border-radius:12px; padding: 12px; }
+  .jsoneditor { border: none; }
+  .jsoneditor-navigation-bar { background: #0d0e23; color: #ddd; }
+  .jsoneditor-menu { background: #111; border-bottom: 1px solid #333; }
+  .jsoneditor-menu a, .jsoneditor-menu button { color: #fff; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('schema-viewer');
+    const editor = new JSONEditor(container, { mode: 'view', mainMenuBar: true, navigationBar: true, statusBar: false });
+    try {
+      const res = await fetch('{{ include.schema_url | default: "/docs/sarif-schema.json" }}');
+      const data = await res.json();
+      editor.set(data);
+    } catch (e) {
+      container.innerHTML = '<p>Failed to load schema.</p>';
+      console.error(e);
+    }
+  });
+</script>

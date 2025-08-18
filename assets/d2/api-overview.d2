@@ -1,0 +1,49 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+    theme-id: 300
+  }
+}
+
+Flow: {
+  label: ""
+  direction: right
+
+  Col1: {
+    label: ""
+    API: { label: "Competition API"; link: "/api/competition/" }
+  }
+
+  Col2: {
+    label: ""
+    direction: down
+    Tasks: { label: "Tasks (Delta | Full)" }
+    Broadcast: { label: "Broadcast SARIF" }
+  }
+
+  Col3: {
+    label: ""
+    direction: right
+    CRS1: { label: "CRS 1"; link: "/api/crs/" }
+    CRS2: { label: "CRS 2"; link: "/api/crs/" }
+    CRSN: { label: "CRS N"; link: "/api/crs/" }
+  }
+
+  Col4: {
+    label: ""
+    Responses: { label: "PoV | Patch | SARIF Assessment | Bundle (PoV+Patch+SARIF Assessment)" }
+  }
+}
+
+Flow.Col1.API -> Flow.Col2.Tasks
+Flow.Col1.API -> Flow.Col2.Broadcast
+Flow.Col2.Tasks -> Flow.Col3.CRS1
+Flow.Col2.Tasks -> Flow.Col3.CRS2
+Flow.Col2.Tasks -> Flow.Col3.CRSN
+Flow.Col2.Broadcast -> Flow.Col3.CRS1
+Flow.Col2.Broadcast -> Flow.Col3.CRS2
+Flow.Col2.Broadcast -> Flow.Col3.CRSN
+Flow.Col3.CRS1 -> Flow.Col4.Responses
+Flow.Col3.CRS2 -> Flow.Col4.Responses
+Flow.Col3.CRSN -> Flow.Col4.Responses
+Flow.Col4.Responses -> Flow.Col1.API
