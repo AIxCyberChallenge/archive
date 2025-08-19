@@ -4,56 +4,143 @@
 
 <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
 <style>
-  #redoc-container { background:#07081a; border:1px solid #333; border-radius:12px; padding: 12px; }
-  /* Basic text/link colors as a fallback; primary theming is done via Redoc theme below */
-  #redoc-container { color: #ddd; }
-  #redoc-container a { color: #fff; }
-  /* Remove blue-tinted inner backgrounds; use container bg */
-  #redoc-container [class*="menu-content"],
-  #redoc-container [class*="api-content"] { background: transparent !important; }
-  /* Code block colors */
-  #redoc-container pre, #redoc-container code { background-color: #0d0e23 !important; color: #e6e6e6 !important; }
-  /* Keep expanded panels, sections, and tables dark */
-  #redoc-container div, #redoc-container section, #redoc-container article, #redoc-container aside { background-color: transparent !important; }
-  #redoc-container table { background: transparent !important; }
-  #redoc-container th, #redoc-container td { border-color: #333 !important; }
-  /* Tabs and selected states */
-  #redoc-container [class*="tab--selected"] { background: #111 !important; color: #fff !important; border-color: #333 !important; }
-  #redoc-container [class*="tab"] { background: #0d0e23 !important; color: #ddd !important; }
-  /* Inputs (e.g., search) */
-  #redoc-container input, #redoc-container select, #redoc-container textarea { background:#0d0e23 !important; color:#e6e6e6 !important; border:1px solid #333 !important; }
-  /* Headings and readability */
-  #redoc-container h1, #redoc-container h2, #redoc-container h3, #redoc-container h4, #redoc-container h5 { color:#fff; }
-  #redoc-container { line-height: 1.6; }
-  @media (max-width: 768px) { #redoc-container { padding: 8px; } }
-  @media (prefers-color-scheme: light) {
-    #redoc-container { background:#f9f9fb; color:#222; }
+  /* Container frame; inner theming is handled by Redoc theme config */
+  #redoc-container {
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 12px;
+    line-height: 1.6;
+    background: #07081a;
+    color: #ddd;
   }
+  @media (prefers-color-scheme: light) {
+    #redoc-container {
+      background: #ffffff;
+      color: #222;
+      border-color: #ddd;
+    }
+  /* Ensure right panel uses dark text in light mode */
+  #redoc-container .right-panel,
+  #redoc-container .api-content,
+  #redoc-container .right-panel *,
+  #redoc-container .api-content * { color: #0b0d17 !important; }
+  /* Common controls and labels */
+  #redoc-container button,
+  #redoc-container [role="button"],
+  #redoc-container label,
+  #redoc-container .content-type,
+  #redoc-container .content-type *,
+  #redoc-container [class*="content-type" i],
+  #redoc-container [class*="contenttype" i],
+  #redoc-container [class*="mime" i],
+  #redoc-container [class*="mime-type" i] { color: #0b0d17 !important; }
+  /* Native controls text color */
+  #redoc-container select,
+  #redoc-container input,
+  #redoc-container textarea { color: #0b0d17 !important; -webkit-text-fill-color: #0b0d17; }
+  #redoc-container select option { color: #0b0d17 !important; background: #ffffff !important; }
+  /* Endpoint URL/link coloring */
+  #redoc-container a { color: #0891b2 !important; }
+  #redoc-container [class*="operation" i] [class*="endpoint" i],
+  #redoc-container [class*="operation" i] a { color: #0b0d17 !important; }
+    /* Make code boxes and samples stand out in light mode */
+    #redoc-container pre,
+  #redoc-container code,
+  #redoc-container .right-panel pre,
+  #redoc-container .right-panel code {
+      background-color: #f3f4f6 !important; /* gray-100 */
+      color: #0b0d17 !important;
+    }
+  /* Ensure nested token spans inside code adopt dark text */
+  #redoc-container pre *,
+  #redoc-container code *,
+  #redoc-container .right-panel pre *,
+  #redoc-container .right-panel code * { color: #0b0d17 !important; }
+    #redoc-container pre {
+      border: 1px solid #e5e7eb !important; /* gray-200 */
+      border-radius: 10px !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    #redoc-container pre code { font-size: 0.95rem; }
+    /* Tables and dividers with better contrast in light mode */
+    #redoc-container table th,
+    #redoc-container table td {
+      border-color: #e5e7eb !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    /* Subtle borders for code blocks in dark mode without changing theme colors */
+    #redoc-container pre {
+      border: 1px solid #222 !important;
+      border-radius: 10px !important;
+    }
+  }
+  @media (max-width: 768px) { #redoc-container { padding: 8px; } }
   </style>
 <script>
   window.addEventListener('DOMContentLoaded', () => {
     const SPEC_URL = '{{ include.spec_url | default: "/docs/competition.yaml" }}';
     const redocEl = document.getElementById('redoc-container');
     if (!redocEl) return;
-    Redoc.init(SPEC_URL, {
-      expandResponses: '200,201',
-      hideDownloadButton: false,
-      theme: {
+
+    const themes = {
+      // Slate/Cyan palette to pair with deep navy site chrome
+      dark: {
         colors: {
-          primary: { main: '#ffffff' },
+          primary: { main: '#06b6d4' },
           text: { primary: '#e6e6e6', secondary: '#b3b3b3' },
-          http: { get: '#7cb342', post: '#42a5f5', put: '#ffb300', delete: '#ef5350' },
+          http: { get: '#22c55e', post: '#06b6d4', put: '#f59e0b', delete: '#ef4444' },
           background: { main: '#07081a' }
         },
         typography: {
           fontFamily: 'IBM Plex Sans, Helvetica, Arial, sans-serif',
           headings: { fontFamily: 'IBM Plex Sans, Helvetica, Arial, sans-serif' },
-          links: { color: '#ffffff' },
+          links: { color: '#06b6d4' },
           code: { backgroundColor: '#0d0e23', textColor: '#e6e6e6' }
         },
         sidebar: { backgroundColor: '#07081a' },
         rightPanel: { backgroundColor: '#07081a' }
+      },
+      light: {
+        colors: {
+          primary: { main: '#0891b2' },
+          text: { primary: '#0f172a', secondary: '#475569' },
+          http: { get: '#16a34a', post: '#0891b2', put: '#d97706', delete: '#dc2626' },
+          background: { main: '#ffffff' }
+        },
+        typography: {
+          fontFamily: 'IBM Plex Sans, Helvetica, Arial, sans-serif',
+          headings: { fontFamily: 'IBM Plex Sans, Helvetica, Arial, sans-serif' },
+          links: { color: '#0891b2' },
+          code: { backgroundColor: '#f8fafc', textColor: '#0b0d17' }
+        },
+        sidebar: { backgroundColor: '#ffffff' },
+        rightPanel: { backgroundColor: '#ffffff' }
       }
-    }, redocEl);
+    };
+
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    function currentThemeName() { return mql.matches ? 'dark' : 'light'; }
+
+    function render() {
+      // Clear previous render (if any)
+      redocEl.innerHTML = '';
+      Redoc.init(SPEC_URL, {
+        expandResponses: '200,201',
+        hideDownloadButton: false,
+        theme: themes[currentThemeName()]
+      }, redocEl);
+    }
+
+    // Initial render
+    render();
+
+    // Respond to OS theme changes
+    if (typeof mql.addEventListener === 'function') {
+      mql.addEventListener('change', render);
+    } else if (typeof mql.addListener === 'function') {
+      // Safari < 14
+      mql.addListener(render);
+    }
   });
 </script>
