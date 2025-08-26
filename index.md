@@ -12,8 +12,7 @@ title: AIxCC Competition Archive
             <p>
             The AI Cyber Challenge was designed to advance cybersecurity technology AND ensure that technology is
             applied to secure the code we all rely on. To that end, all 7 finalist teams are releasing their competition
-            Cyber Reasoning Systems (CRSs) open-source in order to accelerate the distribution and use of the AIxCC-developed technology within the cybersecurity and software development fields. The teams’ systems
-            will be released over the next several weeks so check back often.
+            Cyber Reasoning Systems (CRSs) open-source in order to accelerate the distribution and use of the AIxCC-developed technology within the cybersecurity and software development fields.
             </p>
             <p>
             In addition, you are invited to access, test, use and build on the following:
