@@ -114,11 +114,11 @@ title: AIxCC Competition Archive
       </div>
     </div>
     <div class="card card-top">
-      <img src="/assets/img/scantron.png" style="width: 25%;" alt="Scantron logo" />
+      <img src="/assets/img/competitionapi.png" style="width: 25%;" alt="Competition API logo" />
       <div class="team-info">
-        <h2>Scantron</h2>
-        <p class="mb-2">Scantron is the implementation of the Competition API that was used for the Final Round.</p>
-        <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/scantron">GitHub</a></p>
+        <h2>Competition API</h2>
+        <p class="mb-2">This is the implementation of the Competition API that was used for the Final Round.</p>
+        <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/competition-api">GitHub</a></p>
       </div>
     </div>
   </div>
