@@ -110,7 +110,15 @@ title: AIxCC Competition Archive
       <div class="team-info">
         <h2>SHERPA</h2>
         <p class="mb-2">Security Harness Engineering for Robust Program Analysis, or SHERPA, intelligently generates fuzzing harnesses for attacker-controlled entrypoints</p>
-  <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/sherpa">GitHub</a></p>
+        <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/sherpa">GitHub</a></p>
+      </div>
+    </div>
+    <div class="card card-top">
+      <img src="/assets/img/scantron.png" style="width: 25%;" alt="Scantron logo" />
+      <div class="team-info">
+        <h2>Scantron</h2>
+        <p class="mb-2">Scantron is the implementation of the Competition API that was used for the Final Round.</p>
+        <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/scantron">GitHub</a></p>
       </div>
     </div>
   </div>
