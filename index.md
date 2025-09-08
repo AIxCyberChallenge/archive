@@ -36,6 +36,14 @@ title: AIxCC Competition Archive
         </div>
       </div>
       <div class="card">
+        <img src="/assets/img/scantron.png" alt="Scantron logo" />
+        <div class="team-info">
+          <h2>Scantron</h2>
+          <p>Scantron is the implementation of the Competition API that was used for the Final Round.</p>
+          <p>>>> <a target="_blank" href="https://github.com/AIxCyberChallenge/scantron">GitHub</a></p>
+        </div>
+      </div>
+      <div class="card">
         <img src="/assets/img/shellphish.png" alt="Shellphish logo" />
         <div class="team-info">
           <h2>Artiphishell</h2>
