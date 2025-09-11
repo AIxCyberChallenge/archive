@@ -1,0 +1,2904 @@
+{
+  "custom_type": "object",
+  "examples": [
+    {
+      "disposition": "bad",
+      "event": {
+        "pov_id": "0196b3fa-e305-738d-adc5-e730aaf2a852",
+        "status": "failed"
+      },
+      "event_type": "pov_submission_result",
+      "log_context": "audit",
+      "round_id": "exhibition2",
+      "task_id": "0196b2f1-1628-7210-a06d-fc9e0606d769",
+      "team_id": "3020f48e-8999-4a3e-a238-afe4d187a566",
+      "timestamp": 1746776430415,
+      "version": "0.1.0"
+    },
+    {
+      "disposition": "good",
+      "event": {
+        "crs_url": "https://hunter-test.tail7e9b4c.ts.net",
+        "details": {},
+        "error": null,
+        "ready": true,
+        "state": {
+          "tasks": {
+            "canceled": 0,
+            "errored": 0,
+            "failed": 0,
+            "pending": 0,
+            "processing": 0,
+            "succeeded": 0,
+            "waiting": 0
+          }
+        },
+        "version": "1.1.0"
+      },
+      "event_type": "crs_status_check",
+      "log_context": "audit",
+      "round_id": "final",
+      "task_id": null,
+      "team_id": "249c2ba2-db69-4914-99b8-c44e1df9b00f",
+      "timestamp": 1751158942820,
+      "version": "0.1.0"
+    },
+    {
+      "disposition": "good",
+      "event": {
+        "crs_url": "https://virtual-echo-final.tail7e9b4c.ts.net",
+        "details": null,
+        "error": null,
+        "ready": true,
+        "state": {
+          "tasks": {
+            "canceled": 0,
+            "errored": 0,
+            "failed": 0,
+            "pending": 0,
+            "processing": 2,
+            "succeeded": 24,
+            "waiting": 2
+          }
+        },
+        "version": "gold"
+      },
+      "event_type": "crs_status_check",
+      "log_context": "audit",
+      "round_id": "final",
+      "task_id": null,
+      "team_id": "5e98512c-e8f0-4015-b2fb-77d2ae2477f2",
+      "timestamp": 1751158249983,
+      "version": "0.1.0"
+    },
+    {
+      "disposition": "neutral",
+      "event": {
+        "architecture": "x86_64",
+        "engine": "libfuzzer",
+        "fuzzer_name": "valid",
+        "pov_id": "0196a799-905f-7000-91a4-adf010bee1c2",
+        "sanitizer": "address",
+        "status": "accepted",
+        "testcase_sha256": "30af5d24d0e145712f57ba5bc3f429da2ef226dbeb1dc5b3cf68206dff0825e5"
+      },
+      "event_type": "pov_submission",
+      "log_context": "audit",
+      "round_id": "exhibition2",
+      "task_id": "0196a6df-366d-7498-8a04-02b96ea4b18b",
+      "team_id": "b30a24a8-68b8-4f43-886c-c5544a0e83fb",
+      "timestamp": 1746568581373,
+      "version": "0.1.0"
+    },
+    {
+      "disposition": "neutral",
+      "event": {
+        "bucket_name": "afc-archive-prod-api-artifacts",
+        "entity": "task",
+        "entity_id": "019747e5-e851-7391-af4b-87c6c5222c07",
+        "file_archived": "unstripped_base_tarball",
+        "object_name": "edabbc1eafe7a44fa75f880da228cfe6051f6bb870af5b9d6ac147510c365f76"
+      },
+      "event_type": "file_archived",
+      "log_context": "audit",
+      "round_id": "exhibition3",
+      "task_id": "019747e5-e851-7391-af4b-87c6c5222c07",
+      "team_id": null,
+      "timestamp": 1749257939924,
+      "version": "0.1.0"
+    }
+  ],
+  "properties": {
+    "disposition": {
+      "custom_type": "string",
+      "examples": [
+        "bad",
+        "good",
+        "neutral"
+      ],
+      "type": "string"
+    },
+    "event": {
+      "custom_type": "object",
+      "examples": [
+        {
+          "architecture": "x86_64",
+          "engine": "libfuzzer",
+          "fuzzer_name": "ArchiverZipStreamFuzzer",
+          "pov_id": "01974d36-1f49-78d1-9931-086d898b66cb",
+          "sanitizer": "address",
+          "status": "accepted",
+          "testcase_sha256": "04e46d436e0305bd248d4b3ba9d7ce7cef815344d6e4b354c2c1466f379dc7d7"
+        },
+        {
+          "bucket_name": "afc-archive-prod-api-artifacts",
+          "entity": "patch",
+          "entity_id": "0197424c-30f1-75ae-98b7-6660176d027a",
+          "file_archived": "patch",
+          "object_name": "26b89d676d2391cd4015e619f8084eb8f7f83a5fdb42e6496d931c3a31d576ec"
+        },
+        {
+          "crs_url": "https://ethereal-logic-final.tail7e9b4c.ts.net",
+          "details": {},
+          "error": null,
+          "ready": true,
+          "state": {
+            "tasks": {
+              "canceled": 0,
+              "errored": 0,
+              "failed": 29,
+              "pending": 0,
+              "processing": 2,
+              "succeeded": 0,
+              "waiting": 0
+            }
+          },
+          "version": "0.4.3"
+        },
+        {
+          "functionality_tests_passing": false,
+          "patch_id": "01974648-3473-7bf0-aa80-ed7bb6317c34",
+          "status": "failed"
+        },
+        {
+          "pov_id": "01974ad6-6f36-7506-8f3c-dfc1107a8286",
+          "status": "errored"
+        }
+      ],
+      "properties": {
+        "architecture": {
+          "custom_type": "string",
+          "examples": [
+            "x86_64"
+          ],
+          "type": "string"
+        },
+        "assessment": {
+          "custom_type": "string",
+          "examples": [
+            "correct",
+            "incorrect",
+            "correct",
+            "correct",
+            "incorrect"
+          ],
+          "type": "string"
+        },
+        "assessment_id": {
+          "custom_type": "uuid",
+          "examples": [
+            "0197b055-4397-791b-8c79-eee29fbdcdfa",
+            "0197c9a8-a28c-7a4e-919c-66b4a9145b44",
+            "0197bf02-cf70-76f2-8caf-4de0d5325cd3",
+            "019748d8-a5dd-762d-9592-02120d83317b",
+            "01974b6c-e01c-71cb-b309-0d1c6f5ec8c2"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "base_commit_hash": {
+          "custom_type": "string",
+          "examples": [
+            "f6e46cacfd325dfaab6334913151adc03263449a",
+            "ad177de21961e19e282890255acdbf79a499c8fd",
+            "7f4c900439957b0717d6977ff3d0f689eef92c69",
+            "22f2167bde95adb670db3f305394291d99b36342",
+            "6821f273b289cf6884d8b7d516beff71bbfa9f0a"
+          ],
+          "type": "string"
+        },
+        "broadcast_sarif_id": {
+          "custom_type": "uuid",
+          "examples": [
+            null,
+            "01974b6c-d897-7df8-95d9-85d3207e3ca4",
+            "0197477a-1f3e-76f2-b5f7-c8b25115899c",
+            "019748d6-8fee-7ae1-9877-cb8ccda417f4",
+            "01974cb3-d702-7bfc-b7f5-680ec72e0b3d"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "bucket_name": {
+          "custom_type": "string",
+          "examples": [
+            "afc-archive-prod-api-artifacts"
+          ],
+          "type": "string"
+        },
+        "bundle_id": {
+          "custom_type": "uuid",
+          "examples": [
+            "0196aac2-7b9a-7cc1-9899-c4e4ffeaae81",
+            "01974be1-4b0c-7666-bd7c-d5b7560227bd",
+            "0197b03f-3b61-7b02-b3c5-b3bfa56562ee",
+            "0197c58d-cfec-746f-a4cd-d9dde9e6cd36",
+            "0197c94c-5f4d-7744-824f-478302aa7077"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "challenge": {
+          "custom_type": "object",
+          "examples": [
+            {
+              "base_ref": "918c3afa8d041386f6d3b4ea0261ab24392088b4",
+              "branch_commit_sha": "6b64b9c63746fa52573af4867305132a7330324f",
+              "branch_name": "challenges/shadowsocks-full-01",
+              "challenge_type": "full",
+              "delta_base_branch": "base-shadowsocks-full-01-918c3af",
+              "delta_base_branch_exists": false,
+              "delta_head_branch": "delta-shadowsocks-full-01-",
+              "delta_head_branch_exists": false,
+              "delta_pull_request": null,
+              "delta_pull_request_exists": false,
+              "delta_ref": null,
+              "full_scan_release_exists": false,
+              "full_scan_release_tag_exists": false,
+              "gh_trigger_acked": false,
+              "gh_trigger_nacked": false,
+              "git_artifact_exists": false,
+              "html_url": "https://github.com/aixcc-afc/round-final-phase2-shadowsocks-libev",
+              "is_delta_scan": false,
+              "is_full_scan": true,
+              "key": "aixcc-afc/round-final-phase2-shadowsocks-libev/challenges/shadowsocks-full-01",
+              "language": "c",
+              "name": "rabbit fix",
+              "owner": "aixcc-afc",
+              "release": null,
+              "release_name": "release/aixcc-afc/challenges/shadowsocks-full-01/918c3af",
+              "release_tag_name": "release/aixcc-afc/challenges/shadowsocks-full-01/918c3af",
+              "repo_name": "round-final-phase2-shadowsocks-libev",
+              "round_id": "final-phase2",
+              "sarif_name": "shadowsocks-libev_4",
+              "sarif_sha": "918c3afa8d041386f6d3b4ea0261ab24392088b4",
+              "unharnessed": false,
+              "vulns": [
+                {
+                  "author": "Dan",
+                  "details": {
+                    "cwes": [
+                      "CWE-126"
+                    ],
+                    "description": "json_parse_ex() returns an error if \"end - state.ptr < 6\", however, it then pre-increments state.ptr by 6 before using the state.ptr to access the json buffer which may allow it to reference 1 byte after the end of the json buffer.\n",
+                    "locations": [
+                      {
+                        "endColumn": 48,
+                        "endLine": 323,
+                        "path_from_root": "src/json.c",
+                        "startColumn": 45,
+                        "startLine": 323
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Heap Buffer Over-read",
+                  "patch": {
+                    "bad": null,
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.blob",
+                    "harness": "json_fuzz"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "shadowsocks-libev_1"
+                },
+                {
+                  "author": "Dan",
+                  "details": {
+                    "cwes": [
+                      "CWE-126"
+                    ],
+                    "description": "json_parse_ex() returns an error if \"end - state.ptr < 4\", however, it then pre-increments state.ptr by 4 before using the state.ptr to access the json buffer which may allow it to reference 1 byte after the end of the json buffer.\n",
+                    "locations": [
+                      {
+                        "endColumn": 44,
+                        "endLine": 306,
+                        "path_from_root": "src/json.c",
+                        "startColumn": 41,
+                        "startLine": 306
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Heap Buffer Over-read",
+                  "patch": {
+                    "bad": null,
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.blob",
+                    "harness": "json_fuzz"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "shadowsocks-libev_0"
+                },
+                {
+                  "author": "Dan",
+                  "details": {
+                    "cwes": [
+                      "CWE-126"
+                    ],
+                    "description": "json_parse_ex() returns an error if \"(end - state.ptr) < 3\", however, it then pre-increments state.ptr by 3 before using the state.ptr to access the json buffer which may allow it to reference 1 byte after the end of the json buffer.\n",
+                    "locations": [
+                      {
+                        "endColumn": 50,
+                        "endLine": 633,
+                        "path_from_root": "src/json.c",
+                        "startColumn": 47,
+                        "startLine": 633
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Heap Buffer Over-read",
+                  "patch": {
+                    "bad": null,
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.blob",
+                    "harness": "json_fuzz"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "shadowsocks-libev_3"
+                },
+                {
+                  "author": "Dan",
+                  "details": {
+                    "cwes": [
+                      "CWE-126"
+                    ],
+                    "description": "json_parse_ex() returns an error if \"end - state.ptr < 6\", however, it then pre-increments state.ptr by 6 before using the state.ptr to access the json buffer which may allow it to reference 1 byte after the end of the json buffer.\n",
+                    "locations": [
+                      {
+                        "endColumn": 48,
+                        "endLine": 323,
+                        "path_from_root": "src/json.c",
+                        "startColumn": 45,
+                        "startLine": 323
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Heap Buffer Over-read",
+                  "patch": {
+                    "bad": null,
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.blob",
+                    "harness": "json_fuzz"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "shadowsocks-libev_2"
+                },
+                {
+                  "author": "Dan",
+                  "details": {
+                    "cwes": [
+                      "CWE-126"
+                    ],
+                    "description": "json_parse_ex() returns an error if \"(end - state.ptr) < 4\", however, it then pre-increments state.ptr by 4 before using the state.ptr to access the json buffer which may allow it to reference 1 byte after the end of the json buffer.\n",
+                    "locations": [
+                      {
+                        "endColumn": 50,
+                        "endLine": 618,
+                        "path_from_root": "src/json.c",
+                        "startColumn": 47,
+                        "startLine": 618
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Heap Buffer Over-read",
+                  "patch": {
+                    "bad": null,
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.blob",
+                    "harness": "json_fuzz"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "shadowsocks-libev_4"
+                }
+              ],
+              "vulns_with_valid_sarif": []
+            },
+            {
+              "base_ref": "846e1046f7c2f973e03628c3dae0f7ad17dcd409",
+              "branch_commit_sha": "8399cab25511bc978c742d0f4a66ca648363e747",
+              "branch_name": "challenges/cc-delta-01",
+              "challenge_type": "delta",
+              "delta_base_branch": "base-cc-delta-01-846e104",
+              "delta_base_branch_exists": false,
+              "delta_head_branch": "delta-cc-delta-01-2d89218",
+              "delta_head_branch_exists": true,
+              "delta_pull_request": null,
+              "delta_pull_request_exists": false,
+              "delta_ref": "2d8921821ccd09733bde733aacca6d7982476e96",
+              "full_scan_release_exists": false,
+              "full_scan_release_tag_exists": false,
+              "gh_trigger_acked": false,
+              "gh_trigger_nacked": false,
+              "git_artifact_exists": false,
+              "html_url": "https://github.com/aixcc-afc/round-final-phase1-commons-compress",
+              "is_delta_scan": true,
+              "is_full_scan": false,
+              "key": "aixcc-afc/round-final-phase1-commons-compress/challenges/cc-delta-01",
+              "language": "jvm",
+              "name": "Wicked Standstill",
+              "owner": "aixcc-afc",
+              "release": null,
+              "release_name": "release/aixcc-afc/challenges/cc-delta-01/846e104",
+              "release_tag_name": "release/aixcc-afc/challenges/cc-delta-01/846e104",
+              "repo_name": "round-final-phase1-commons-compress",
+              "round_id": "final-phase1",
+              "sarif_name": null,
+              "sarif_sha": "",
+              "unharnessed": false,
+              "vulns": [
+                {
+                  "author": "Tim Allison",
+                  "details": {
+                    "cwes": [
+                      "CWE-400",
+                      "CWE-770",
+                      "CWE-1333"
+                    ],
+                    "description": "The regex that was added to protect against CVE-2023-42503 can trigger a StackOverflow on crafted data.\n",
+                    "locations": [
+                      {
+                        "endColumn": 1,
+                        "endLine": 223,
+                        "path_from_root": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java",
+                        "startColumn": 5,
+                        "startLine": 221
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "ReDos in TarArchiveEntry",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "CompressTarFuzzer"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "vuln_3"
+                }
+              ],
+              "vulns_with_valid_sarif": []
+            },
+            {
+              "base_ref": "24ce1ac6ac4f56941203f738c5330f8ea007f29f",
+              "branch_commit_sha": "bd86b9a7e6e4f42519d871885fbdfe6c01e5f415",
+              "branch_name": "challenges/sq-delta-01",
+              "challenge_type": "delta",
+              "delta_base_branch": "base-24ce1ac6ac4f56941203f738c5330f8ea007f29f",
+              "delta_base_branch_exists": false,
+              "delta_head_branch": "delta-288ac982b1e51223a2274fd959e5430c66deb453",
+              "delta_head_branch_exists": true,
+              "delta_pull_request": null,
+              "delta_pull_request_exists": false,
+              "delta_ref": "288ac982b1e51223a2274fd959e5430c66deb453",
+              "full_scan_release_exists": false,
+              "full_scan_release_tag_exists": false,
+              "gh_trigger_acked": false,
+              "git_artifact_exists": false,
+              "html_url": "https://github.com/aixcc-afc/round-exhibition3-sqlite",
+              "is_delta_scan": true,
+              "is_full_scan": false,
+              "key": "aixcc-afc/round-exhibition3-sqlite/challenges/sq-delta-01",
+              "language": "c",
+              "name": "Dapper Mouthpiece",
+              "owner": "aixcc-afc",
+              "release": null,
+              "release_name": "release/aixcc-afc/challenges/sq-delta-01/24ce1ac",
+              "release_tag_name": "release/aixcc-afc/challenges/sq-delta-01/24ce1ac",
+              "repo_name": "round-exhibition3-sqlite",
+              "round_id": "exhibition3",
+              "sarif_name": null,
+              "vulns": [
+                {
+                  "author": "factsphere",
+                  "details": {
+                    "cwes": [
+                      "CWE-787"
+                    ],
+                    "description": "The base85 module contains a decompression function which does not properly check for overflow, leading to a heap buffer overflow.\n",
+                    "locations": [
+                      {
+                        "endColumn": 1,
+                        "endLine": 234,
+                        "path_from_root": "ext/misc/base85.c",
+                        "startColumn": 1,
+                        "startLine": 221
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "base85 buffer overflow",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "customfuzz3"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "SQL-006"
+                }
+              ],
+              "vulns_with_valid_sarif": []
+            },
+            {
+              "base_ref": "b9e8fe1a2c398f230958b6ab18630421db939304",
+              "branch_commit_sha": "ca114fb1fe2cd129e04b69803ac9ced2f82da031",
+              "branch_name": "challenges/tk-full-01",
+              "challenge_type": "full",
+              "delta_base_branch": "base-b9e8fe1a2c398f230958b6ab18630421db939304",
+              "delta_base_branch_exists": false,
+              "delta_head_branch": "delta-None",
+              "delta_head_branch_exists": false,
+              "delta_pull_request": null,
+              "delta_pull_request_exists": false,
+              "delta_ref": null,
+              "full_scan_release_exists": false,
+              "full_scan_release_tag_exists": false,
+              "gh_trigger_acked": false,
+              "git_artifact_exists": false,
+              "html_url": "https://github.com/aixcc-afc/round-exhibition3-tika",
+              "is_delta_scan": false,
+              "is_full_scan": true,
+              "key": "aixcc-afc/round-exhibition3-tika/challenges/tk-full-01",
+              "language": "jvm",
+              "name": "deputy",
+              "owner": "aixcc-afc",
+              "release": null,
+              "release_name": "release/aixcc-afc/challenges/tk-full-01/b9e8fe1",
+              "release_tag_name": "release/aixcc-afc/challenges/tk-full-01/b9e8fe1",
+              "repo_name": "round-exhibition3-tika",
+              "round_id": "exhibition3",
+              "sarif_name": null,
+              "vulns": [
+                {
+                  "author": "Tim Allison",
+                  "details": {
+                    "cwes": [
+                      "CWE-502"
+                    ],
+                    "description": "The RTFParser deserializes Java objects embedded in RTF files without limitations.\n",
+                    "locations": [
+                      {
+                        "endColumn": 10,
+                        "endLine": 1480,
+                        "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/TextExtractor.java",
+                        "startColumn": 11,
+                        "startLine": 1473
+                      },
+                      {
+                        "endColumn": 9,
+                        "endLine": 225,
+                        "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/RTFEmbObjHandler.java",
+                        "startColumn": 10,
+                        "startLine": 213
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Object deserialization in RTF",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "RTFParserFuzzer"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "vuln_1"
+                },
+                {
+                  "author": "Tim Allison",
+                  "details": {
+                    "cwes": [
+                      "CWE-611"
+                    ],
+                    "description": "XLIFF12Parser fails to securely configure the xml parser\n",
+                    "locations": [
+                      {
+                        "endColumn": 70,
+                        "endLine": 74,
+                        "path_from_root": "/tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-xml-module/src/main/java/org/apache/tika/parser/xliff/XLIFF12Parser.java",
+                        "startColumn": 8,
+                        "startLine": 73
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "xxe in xliff",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "XliffParserFuzzer"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "vuln_0"
+                },
+                {
+                  "author": "Tim Allison",
+                  "details": {
+                    "cwes": [
+                      "CWE-918"
+                    ],
+                    "description": "TextAndCSVParser fetches user supplied URLs from crafted csv files.\n",
+                    "locations": [
+                      {
+                        "endColumn": 10,
+                        "endLine": 284,
+                        "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-text-module/src/main/java/org/apache/tika/parser/csv/TextAndCSVParser.java",
+                        "startColumn": 9,
+                        "startLine": 274
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Et tu, csv?",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "TextAndCSVParserFuzzer"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "vuln_7"
+                },
+                {
+                  "author": "Tim Allison",
+                  "details": {
+                    "cwes": [
+                      "CWE-23"
+                    ],
+                    "description": "TikaUntar fails to prevent zip slip/path traversal\n",
+                    "locations": [
+                      {
+                        "endColumn": 62,
+                        "endLine": 47,
+                        "path_from_root": "tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java",
+                        "startColumn": 21,
+                        "startLine": 43
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Untar-traversal",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "TikaAppUntarringFuzzer"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "vuln_6"
+                },
+                {
+                  "author": "Tim Allison",
+                  "details": {
+                    "cwes": [
+                      "CWE-78"
+                    ],
+                    "description": "ShellCodeDetector may execute unsanitized user-generated code.\n",
+                    "locations": [
+                      {
+                        "endColumn": 10,
+                        "endLine": 109,
+                        "path_from_root": "tika-core/src/main/java/org/apache/tika/detect/ShellCodeDetector.java",
+                        "startColumn": 9,
+                        "startLine": 88
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Shell we detect",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "TikaAppUnpackerFuzzer"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "vuln_8"
+                }
+              ],
+              "vulns_with_valid_sarif": []
+            },
+            {
+              "base_ref": "87968780e8179389b3e08d894e8182db1685c1de",
+              "branch_commit_sha": "2f33105b2e51434f834655b7b3809334a9883d44",
+              "branch_name": "challenges/zk-delta-01",
+              "challenge_type": "delta",
+              "delta_base_branch": "base-87968780e8179389b3e08d894e8182db1685c1de",
+              "delta_base_branch_exists": false,
+              "delta_head_branch": "delta-fbc9db4ed949776ac7ac33b613b32017e2d8d12a",
+              "delta_head_branch_exists": true,
+              "delta_pull_request": null,
+              "delta_pull_request_exists": false,
+              "delta_ref": "fbc9db4ed949776ac7ac33b613b32017e2d8d12a",
+              "full_scan_release_exists": false,
+              "full_scan_release_tag_exists": false,
+              "gh_trigger_acked": false,
+              "git_artifact_exists": false,
+              "html_url": "https://github.com/aixcc-afc/round-exhibition3-zookeeper",
+              "is_delta_scan": true,
+              "is_full_scan": false,
+              "key": "aixcc-afc/round-exhibition3-zookeeper/challenges/zk-delta-01",
+              "language": "jvm",
+              "name": "Zookeeper - Infinite Colon Problems",
+              "owner": "aixcc-afc",
+              "release": null,
+              "release_name": "release/aixcc-afc/challenges/zk-delta-01/8796878",
+              "release_tag_name": "release/aixcc-afc/challenges/zk-delta-01/8796878",
+              "repo_name": "round-exhibition3-zookeeper",
+              "round_id": "exhibition3",
+              "sarif_name": null,
+              "vulns": [
+                {
+                  "author": "Tim Allison",
+                  "details": {
+                    "cwes": [
+                      "CWE-835",
+                      "CWE-834"
+                    ],
+                    "description": "Infinite loop triggered by crafted ipv6 address.\n",
+                    "locations": [
+                      {
+                        "endColumn": 6,
+                        "endLine": 148,
+                        "path_from_root": "zookeeper-server/src/main/java/org/apache/zookeeper/server/util/MessageTracker.java",
+                        "startColumn": 5,
+                        "startLine": 121
+                      }
+                    ]
+                  },
+                  "has_valid_sarif": false,
+                  "metadata_spec_version": "v1",
+                  "name": "Infinite loop in ipv6 validation",
+                  "patch": {
+                    "bad": "bad_patch.diff",
+                    "good": "good_patch.diff"
+                  },
+                  "pov": {
+                    "blob": "data.bin",
+                    "harness": "MessageTrackerPeekReceivedFuzzer"
+                  },
+                  "sarif_blobs": [],
+                  "valid": true,
+                  "vuln_id": "vuln_2"
+                }
+              ],
+              "vulns_with_valid_sarif": []
+            }
+          ],
+          "properties": {
+            "base_ref": {
+              "custom_type": "string",
+              "examples": [
+                "95c1d3735cb4aaf4a57d1eafff9f4d9196f9092c",
+                "846e1046f7c2f973e03628c3dae0f7ad17dcd409",
+                "24ce1ac6ac4f56941203f738c5330f8ea007f29f",
+                "32cd81aec1bf2c77eb4d4da36186d8a44ee60b15",
+                "87968780e8179389b3e08d894e8182db1685c1de"
+              ],
+              "type": "string"
+            },
+            "branch_commit_sha": {
+              "custom_type": "string",
+              "examples": [
+                "bf403f37b68cfb48f27d1a84e4f76b9a058084ce",
+                "8399cab25511bc978c742d0f4a66ca648363e747",
+                "bd86b9a7e6e4f42519d871885fbdfe6c01e5f415",
+                "99a6466c3bd7c14b2bee0c914b62203220b7764b",
+                "2f33105b2e51434f834655b7b3809334a9883d44"
+              ],
+              "type": "string"
+            },
+            "branch_name": {
+              "custom_type": "string",
+              "examples": [
+                "challenges/ex-delta-02",
+                "challenges/shadowsocks-full-01",
+                "challenges/sq-delta-01",
+                "challenges/tk-full-01",
+                "challenges/lp-delta-01"
+              ],
+              "type": "string"
+            },
+            "challenge_type": {
+              "custom_type": "string",
+              "examples": [
+                "full",
+                "delta",
+                "delta",
+                "delta",
+                "full"
+              ],
+              "type": "string"
+            },
+            "delta_base_branch": {
+              "custom_type": "string",
+              "examples": [
+                "base-freertos-unharnessed-01-eef8eff",
+                "base-ex-delta-02-95c1d37",
+                "base-24ce1ac6ac4f56941203f738c5330f8ea007f29f",
+                "base-32cd81aec1bf2c77eb4d4da36186d8a44ee60b15",
+                "base-87968780e8179389b3e08d894e8182db1685c1de"
+              ],
+              "type": "string"
+            },
+            "delta_base_branch_exists": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "delta_head_branch": {
+              "custom_type": "string",
+              "examples": [
+                "delta-ex-delta-02-7952ece",
+                "delta-shadowsocks-full-01-",
+                "delta-None",
+                "delta-56729ea95532d2fcea425791f52ce50b155cf584",
+                "delta-fbc9db4ed949776ac7ac33b613b32017e2d8d12a"
+              ],
+              "type": "string"
+            },
+            "delta_head_branch_exists": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                true,
+                true,
+                false,
+                true
+              ],
+              "type": "boolean"
+            },
+            "delta_pull_request_exists": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "delta_ref": {
+              "custom_type": "string",
+              "examples": [
+                null,
+                "7952ece0ffb14feff96fcffe9c913ea7042f1ce1",
+                null,
+                "56729ea95532d2fcea425791f52ce50b155cf584",
+                "fbc9db4ed949776ac7ac33b613b32017e2d8d12a"
+              ],
+              "type": "string"
+            },
+            "full_scan_release_exists": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "full_scan_release_tag_exists": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "gh_trigger_acked": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "gh_trigger_nacked": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "git_artifact_exists": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "html_url": {
+              "custom_type": "string",
+              "examples": [
+                "https://github.com/aixcc-afc/round-final-phase7-FreeRTOS-Kernel",
+                "https://github.com/aixcc-afc/round-final-phase2-shadowsocks-libev",
+                "https://github.com/aixcc-afc/round-exhibition3-sqlite",
+                "https://github.com/aixcc-afc/round-exhibition3-libpng",
+                "https://github.com/aixcc-afc/round-exhibition3-zookeeper"
+              ],
+              "type": "string"
+            },
+            "is_delta_scan": {
+              "custom_type": "bool",
+              "examples": [
+                false,
+                true,
+                true,
+                false,
+                true
+              ],
+              "type": "boolean"
+            },
+            "is_full_scan": {
+              "custom_type": "bool",
+              "examples": [
+                true,
+                false,
+                false,
+                true,
+                false
+              ],
+              "type": "boolean"
+            },
+            "key": {
+              "custom_type": "string",
+              "examples": [
+                "aixcc-afc/round-final-phase7-FreeRTOS-Kernel/challenges/freertos-unharnessed-01",
+                "aixcc-afc/round-final-phase2-shadowsocks-libev/challenges/shadowsocks-full-01",
+                "aixcc-afc/round-exhibition3-sqlite/challenges/sq-delta-01",
+                "aixcc-afc/round-exhibition3-tika/challenges/tk-full-01",
+                "aixcc-afc/round-exhibition3-zookeeper/challenges/zk-delta-01"
+              ],
+              "type": "string"
+            },
+            "language": {
+              "custom_type": "string",
+              "examples": [
+                "c",
+                "jvm",
+                "c",
+                "jvm",
+                "jvm"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "custom_type": "string",
+              "examples": [
+                "Unharnessed Composer",
+                "rabbit fix",
+                "deputy",
+                "Sanctuary Reconcile",
+                "Zookeeper - Infinite Colon Problems"
+              ],
+              "type": "string"
+            },
+            "owner": {
+              "custom_type": "string",
+              "examples": [
+                "aixcc-afc",
+                "aixcc-afc",
+                "aixcc-afc",
+                "aixcc-afc",
+                "aixcc-afc"
+              ],
+              "type": "string"
+            },
+            "release_name": {
+              "custom_type": "string",
+              "examples": [
+                "release/aixcc-afc/challenges/freertos-unharnessed-01/eef8eff",
+                "release/aixcc-afc/challenges/ex-delta-02/95c1d37",
+                "release/aixcc-afc/challenges/sq-delta-01/24ce1ac",
+                "release/aixcc-afc/challenges/tk-full-01/b9e8fe1",
+                "release/aixcc-afc/challenges/zk-delta-01/8796878"
+              ],
+              "type": "string"
+            },
+            "release_tag_name": {
+              "custom_type": "string",
+              "examples": [
+                "release/aixcc-afc/challenges/freertos-unharnessed-01/eef8eff",
+                "release/aixcc-afc/challenges/ex-delta-02/95c1d37",
+                "release/aixcc-afc/challenges/sq-delta-01/24ce1ac",
+                "release/aixcc-afc/challenges/tk-full-01/b9e8fe1",
+                "release/aixcc-afc/challenges/zk-delta-01/8796878"
+              ],
+              "type": "string"
+            },
+            "repo_name": {
+              "custom_type": "string",
+              "examples": [
+                "round-final-phase7-FreeRTOS-Kernel",
+                "round-final-phase2-shadowsocks-libev",
+                "round-exhibition3-sqlite",
+                "round-exhibition3-libpng",
+                "round-exhibition3-zookeeper"
+              ],
+              "type": "string"
+            },
+            "round_id": {
+              "custom_type": "string",
+              "examples": [
+                "final-phase7",
+                "final-phase2",
+                "exhibition3",
+                "exhibition3",
+                "exhibition3"
+              ],
+              "type": "string"
+            },
+            "sarif_name": {
+              "custom_type": "string",
+              "examples": [
+                null,
+                "7952ece",
+                null,
+                null,
+                null
+              ],
+              "type": "string"
+            },
+            "sarif_sha": {
+              "custom_type": "string",
+              "examples": [
+                "",
+                "7952ece0ffb14feff96fcffe9c913ea7042f1ce1",
+                "918c3afa8d041386f6d3b4ea0261ab24392088b4",
+                "",
+                "2f62cb2e5f443ae9db5fab4ebab431be79d7604f"
+              ],
+              "type": "string"
+            },
+            "unharnessed": {
+              "custom_type": "bool",
+              "examples": [
+                true,
+                false,
+                false,
+                false,
+                false
+              ],
+              "type": "boolean"
+            },
+            "vulns": {
+              "custom_type": "list",
+              "examples": [
+                [],
+                [
+                  {
+                    "author": "factsphere",
+                    "details": {
+                      "cwes": [
+                        "CWE-122"
+                      ],
+                      "description": "An improper bounds check in libexif's MakerNote parsing can lead to an out of bounds memory access.\n",
+                      "locations": [
+                        {
+                          "endColumn": 1,
+                          "endLine": 218,
+                          "path_from_root": "libexif/exif-utils.c",
+                          "startColumn": 1,
+                          "startLine": 217
+                        },
+                        {
+                          "endColumn": 1,
+                          "endLine": 167,
+                          "path_from_root": "src/ui/user_input.c",
+                          "startColumn": 1,
+                          "startLine": 166
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "exif-001",
+                    "patch": {
+                      "bad": null,
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "exif_from_data_fuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "exif-001"
+                  }
+                ],
+                [
+                  {
+                    "author": "factsphere",
+                    "details": {
+                      "cwes": [
+                        "CWE-787"
+                      ],
+                      "description": "The base85 module contains a decompression function which does not properly check for overflow, leading to a heap buffer overflow.\n",
+                      "locations": [
+                        {
+                          "endColumn": 1,
+                          "endLine": 234,
+                          "path_from_root": "ext/misc/base85.c",
+                          "startColumn": 1,
+                          "startLine": 221
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "base85 buffer overflow",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "customfuzz3"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "SQL-006"
+                  }
+                ],
+                [
+                  {
+                    "author": "Tim Allison",
+                    "details": {
+                      "cwes": [
+                        "CWE-502"
+                      ],
+                      "description": "The RTFParser deserializes Java objects embedded in RTF files without limitations.\n",
+                      "locations": [
+                        {
+                          "endColumn": 10,
+                          "endLine": 1480,
+                          "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/TextExtractor.java",
+                          "startColumn": 11,
+                          "startLine": 1473
+                        },
+                        {
+                          "endColumn": 9,
+                          "endLine": 225,
+                          "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/RTFEmbObjHandler.java",
+                          "startColumn": 10,
+                          "startLine": 213
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Object deserialization in RTF",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "RTFParserFuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_1"
+                  },
+                  {
+                    "author": "Tim Allison",
+                    "details": {
+                      "cwes": [
+                        "CWE-611"
+                      ],
+                      "description": "XLIFF12Parser fails to securely configure the xml parser\n",
+                      "locations": [
+                        {
+                          "endColumn": 70,
+                          "endLine": 74,
+                          "path_from_root": "/tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-xml-module/src/main/java/org/apache/tika/parser/xliff/XLIFF12Parser.java",
+                          "startColumn": 8,
+                          "startLine": 73
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "xxe in xliff",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "XliffParserFuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_0"
+                  },
+                  {
+                    "author": "Tim Allison",
+                    "details": {
+                      "cwes": [
+                        "CWE-918"
+                      ],
+                      "description": "TextAndCSVParser fetches user supplied URLs from crafted csv files.\n",
+                      "locations": [
+                        {
+                          "endColumn": 10,
+                          "endLine": 284,
+                          "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-text-module/src/main/java/org/apache/tika/parser/csv/TextAndCSVParser.java",
+                          "startColumn": 9,
+                          "startLine": 274
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Et tu, csv?",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "TextAndCSVParserFuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_7"
+                  },
+                  {
+                    "author": "Tim Allison",
+                    "details": {
+                      "cwes": [
+                        "CWE-23"
+                      ],
+                      "description": "TikaUntar fails to prevent zip slip/path traversal\n",
+                      "locations": [
+                        {
+                          "endColumn": 62,
+                          "endLine": 47,
+                          "path_from_root": "tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java",
+                          "startColumn": 21,
+                          "startLine": 43
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Untar-traversal",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "TikaAppUntarringFuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_6"
+                  },
+                  {
+                    "author": "Tim Allison",
+                    "details": {
+                      "cwes": [
+                        "CWE-78"
+                      ],
+                      "description": "ShellCodeDetector may execute unsanitized user-generated code.\n",
+                      "locations": [
+                        {
+                          "endColumn": 10,
+                          "endLine": 109,
+                          "path_from_root": "tika-core/src/main/java/org/apache/tika/detect/ShellCodeDetector.java",
+                          "startColumn": 9,
+                          "startLine": 88
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Shell we detect",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "TikaAppUnpackerFuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_8"
+                  }
+                ],
+                [
+                  {
+                    "author": "anonymous",
+                    "details": {
+                      "cwes": [
+                        "CWE-121"
+                      ],
+                      "description": "An improper use of sizeof leads to an out of bounds read and write in the png_handle_iCCP function.\n",
+                      "locations": [
+                        {
+                          "endColumn": 38,
+                          "endLine": 1447,
+                          "path_from_root": "pngrutil.c",
+                          "startColumn": 7,
+                          "startLine": 1421
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Example vulnerability",
+                    "patch": {
+                      "bad": "",
+                      "good": "good_patch_1.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "libpng_read_fuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_0"
+                  }
+                ]
+              ],
+              "items": {
+                "custom_type": "object",
+                "examples": [
+                  {
+                    "author": "factsphere",
+                    "details": {
+                      "cwes": [
+                        "CWE-122"
+                      ],
+                      "description": "An improper bounds check in libexif's MakerNote parsing can lead to an out of bounds memory access.\n",
+                      "locations": [
+                        {
+                          "endColumn": 1,
+                          "endLine": 218,
+                          "path_from_root": "libexif/exif-utils.c",
+                          "startColumn": 1,
+                          "startLine": 217
+                        },
+                        {
+                          "endColumn": 1,
+                          "endLine": 167,
+                          "path_from_root": "src/ui/user_input.c",
+                          "startColumn": 1,
+                          "startLine": 166
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "exif-001",
+                    "patch": {
+                      "bad": null,
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "exif_from_data_fuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "exif-001"
+                  },
+                  {
+                    "author": "Tim Allison",
+                    "details": {
+                      "cwes": [
+                        "CWE-35",
+                        "CWE-20"
+                      ],
+                      "description": "A crafted file can trigger a path traversal and a write outside of the expected directory\n",
+                      "locations": [
+                        {
+                          "endColumn": 18,
+                          "endLine": 110,
+                          "path_from_root": "poi/src/main/java/org/apache/poi/poifs/dev/POIFSDump.java",
+                          "startColumn": 17,
+                          "startLine": 108
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Path Traversal Ol\u00e9",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "POIPOIFSDumpFuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_2"
+                  },
+                  {
+                    "author": "Tim Allison",
+                    "details": {
+                      "cwes": [
+                        "CWE-695",
+                        "CWE-20"
+                      ],
+                      "description": "Improper use of Unsafe triggered by crafted xls file.\n",
+                      "locations": [
+                        {
+                          "endColumn": 10,
+                          "endLine": 355,
+                          "path_from_root": "poi/src/main/java/org/apache/poi/hssf/model/InternalWorkbook.java",
+                          "startColumn": 9,
+                          "startLine": 343
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Crashy McCrashFace.xls",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "POIHSSFFuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_3"
+                  },
+                  {
+                    "author": "anonymous",
+                    "details": {
+                      "cwes": [
+                        "CWE-121"
+                      ],
+                      "description": "An improper use of sizeof leads to an out of bounds read and write in the png_handle_iCCP function.\n",
+                      "locations": [
+                        {
+                          "endColumn": 38,
+                          "endLine": 1447,
+                          "path_from_root": "pngrutil.c",
+                          "startColumn": 7,
+                          "startLine": 1421
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "Example vulnerability",
+                    "patch": {
+                      "bad": "",
+                      "good": "good_patch_1.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "libpng_read_fuzzer"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "vuln_0"
+                  },
+                  {
+                    "author": "factsphere",
+                    "details": {
+                      "cwes": [
+                        "CWE-787"
+                      ],
+                      "description": "The base85 module contains a decompression function which does not properly check for overflow, leading to a heap buffer overflow.\n",
+                      "locations": [
+                        {
+                          "endColumn": 1,
+                          "endLine": 234,
+                          "path_from_root": "ext/misc/base85.c",
+                          "startColumn": 1,
+                          "startLine": 221
+                        }
+                      ]
+                    },
+                    "has_valid_sarif": false,
+                    "metadata_spec_version": "v1",
+                    "name": "base85 buffer overflow",
+                    "patch": {
+                      "bad": "bad_patch.diff",
+                      "good": "good_patch.diff"
+                    },
+                    "pov": {
+                      "blob": "data.bin",
+                      "harness": "customfuzz3"
+                    },
+                    "sarif_blobs": [],
+                    "valid": true,
+                    "vuln_id": "SQL-006"
+                  }
+                ],
+                "properties": {
+                  "author": {
+                    "custom_type": "string",
+                    "examples": [
+                      "factsphere",
+                      "Tim Allison",
+                      "Tim Allison",
+                      "factsphere",
+                      "anonymous"
+                    ],
+                    "type": "string"
+                  },
+                  "details": {
+                    "custom_type": "object",
+                    "examples": [
+                      {
+                        "cwes": [
+                          "CWE-122"
+                        ],
+                        "description": "An improper bounds check in libexif's MakerNote parsing can lead to an out of bounds memory access.\n",
+                        "locations": [
+                          {
+                            "endColumn": 1,
+                            "endLine": 218,
+                            "path_from_root": "libexif/exif-utils.c",
+                            "startColumn": 1,
+                            "startLine": 217
+                          },
+                          {
+                            "endColumn": 1,
+                            "endLine": 167,
+                            "path_from_root": "src/ui/user_input.c",
+                            "startColumn": 1,
+                            "startLine": 166
+                          }
+                        ]
+                      },
+                      {
+                        "cwes": [
+                          "CWE-400",
+                          "CWE-770",
+                          "CWE-1333"
+                        ],
+                        "description": "The regex that was added to protect against CVE-2023-42503 can trigger a StackOverflow on crafted data.\n",
+                        "locations": [
+                          {
+                            "endColumn": 1,
+                            "endLine": 223,
+                            "path_from_root": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java",
+                            "startColumn": 5,
+                            "startLine": 221
+                          }
+                        ]
+                      },
+                      {
+                        "cwes": [
+                          "CWE-787"
+                        ],
+                        "description": "The base85 module contains a decompression function which does not properly check for overflow, leading to a heap buffer overflow.\n",
+                        "locations": [
+                          {
+                            "endColumn": 1,
+                            "endLine": 234,
+                            "path_from_root": "ext/misc/base85.c",
+                            "startColumn": 1,
+                            "startLine": 221
+                          }
+                        ]
+                      },
+                      {
+                        "cwes": [
+                          "CWE-502"
+                        ],
+                        "description": "The RTFParser deserializes Java objects embedded in RTF files without limitations.\n",
+                        "locations": [
+                          {
+                            "endColumn": 10,
+                            "endLine": 1480,
+                            "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/TextExtractor.java",
+                            "startColumn": 11,
+                            "startLine": 1473
+                          },
+                          {
+                            "endColumn": 9,
+                            "endLine": 225,
+                            "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/RTFEmbObjHandler.java",
+                            "startColumn": 10,
+                            "startLine": 213
+                          }
+                        ]
+                      },
+                      {
+                        "cwes": [
+                          "CWE-835",
+                          "CWE-834"
+                        ],
+                        "description": "Infinite loop triggered by crafted ipv6 address.\n",
+                        "locations": [
+                          {
+                            "endColumn": 6,
+                            "endLine": 148,
+                            "path_from_root": "zookeeper-server/src/main/java/org/apache/zookeeper/server/util/MessageTracker.java",
+                            "startColumn": 5,
+                            "startLine": 121
+                          }
+                        ]
+                      }
+                    ],
+                    "properties": {
+                      "cwes": {
+                        "custom_type": "list",
+                        "examples": [
+                          [
+                            "CWE-122"
+                          ],
+                          [
+                            "CWE-400",
+                            "CWE-770",
+                            "CWE-1333"
+                          ],
+                          [
+                            "CWE-695",
+                            "CWE-20"
+                          ],
+                          [
+                            "CWE-787"
+                          ],
+                          [
+                            "CWE-121"
+                          ]
+                        ],
+                        "items": {
+                          "custom_type": "string",
+                          "examples": [
+                            "CWE-400",
+                            "CWE-1333",
+                            "CWE-770",
+                            "CWE-695",
+                            "CWE-121"
+                          ],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": {
+                        "custom_type": "string",
+                        "examples": [
+                          "json_parse_ex() returns an error if \"(end - state.ptr) < 4\", however, it then pre-increments state.ptr by 4 before using the state.ptr to access the json buffer which may allow it to reference 1 byte after the end of the json buffer.\n",
+                          "The regex that was added to protect against CVE-2023-42503 can trigger a StackOverflow on crafted data.\n",
+                          "The RTFParser deserializes Java objects embedded in RTF files without limitations.\n",
+                          "TikaUntar fails to prevent zip slip/path traversal\n",
+                          "ShellCodeDetector may execute unsanitized user-generated code.\n"
+                        ],
+                        "type": "string"
+                      },
+                      "locations": {
+                        "custom_type": "list",
+                        "examples": [
+                          [
+                            {
+                              "endColumn": 1,
+                              "endLine": 218,
+                              "path_from_root": "libexif/exif-utils.c",
+                              "startColumn": 1,
+                              "startLine": 217
+                            },
+                            {
+                              "endColumn": 1,
+                              "endLine": 167,
+                              "path_from_root": "src/ui/user_input.c",
+                              "startColumn": 1,
+                              "startLine": 166
+                            }
+                          ],
+                          [
+                            {
+                              "endColumn": 50,
+                              "endLine": 633,
+                              "path_from_root": "src/json.c",
+                              "startColumn": 47,
+                              "startLine": 633
+                            }
+                          ],
+                          [
+                            {
+                              "endColumn": 1,
+                              "endLine": 234,
+                              "path_from_root": "ext/misc/base85.c",
+                              "startColumn": 1,
+                              "startLine": 221
+                            }
+                          ],
+                          [
+                            {
+                              "endColumn": 10,
+                              "endLine": 1480,
+                              "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/TextExtractor.java",
+                              "startColumn": 11,
+                              "startLine": 1473
+                            },
+                            {
+                              "endColumn": 9,
+                              "endLine": 225,
+                              "path_from_root": "tika-parsers/tika-parsers-standard/tika-parsers-standard-modules/tika-parser-microsoft-module/src/main/java/org/apache/tika/parser/microsoft/rtf/RTFEmbObjHandler.java",
+                              "startColumn": 10,
+                              "startLine": 213
+                            }
+                          ],
+                          [
+                            {
+                              "endColumn": 62,
+                              "endLine": 47,
+                              "path_from_root": "tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java",
+                              "startColumn": 21,
+                              "startLine": 43
+                            }
+                          ]
+                        ],
+                        "items": {
+                          "custom_type": "object",
+                          "examples": [
+                            {
+                              "endColumn": 50,
+                              "endLine": 633,
+                              "path_from_root": "src/json.c",
+                              "startColumn": 47,
+                              "startLine": 633
+                            },
+                            {
+                              "endColumn": 1,
+                              "endLine": 223,
+                              "path_from_root": "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java",
+                              "startColumn": 5,
+                              "startLine": 221
+                            },
+                            {
+                              "endColumn": 1,
+                              "endLine": 234,
+                              "path_from_root": "ext/misc/base85.c",
+                              "startColumn": 1,
+                              "startLine": 221
+                            },
+                            {
+                              "endColumn": 62,
+                              "endLine": 47,
+                              "path_from_root": "tika-app/src/main/java/org/apache/tika/cli/TikaUntar.java",
+                              "startColumn": 21,
+                              "startLine": 43
+                            },
+                            {
+                              "endColumn": 38,
+                              "endLine": 1447,
+                              "path_from_root": "pngrutil.c",
+                              "startColumn": 7,
+                              "startLine": 1421
+                            }
+                          ],
+                          "properties": {
+                            "endColumn": {
+                              "custom_type": "int8",
+                              "examples": [
+                                1,
+                                51,
+                                1,
+                                9,
+                                70
+                              ],
+                              "excludeMaximum": 117,
+                              "minimum": 0,
+                              "type": "number"
+                            },
+                            "endLine": {
+                              "custom_type": "int16",
+                              "examples": [
+                                633,
+                                110,
+                                1480,
+                                284,
+                                47
+                              ],
+                              "excludeMaximum": 9025,
+                              "minimum": 30,
+                              "type": "number"
+                            },
+                            "path_from_root": {
+                              "custom_type": "string",
+                              "examples": [
+                                "src/json.c",
+                                "poi-scratchpad/src/main/java/org/apache/poi/hmef/attribute/MAPIAttribute.java",
+                                "poi/src/main/java/org/apache/poi/hssf/model/InternalWorkbook.java",
+                                "ext/misc/base85.c",
+                                "pngrutil.c"
+                              ],
+                              "type": "string"
+                            },
+                            "startColumn": {
+                              "custom_type": "int8",
+                              "examples": [
+                                1,
+                                47,
+                                1,
+                                21,
+                                5
+                              ],
+                              "excludeMaximum": 58,
+                              "minimum": 0,
+                              "type": "number"
+                            },
+                            "startLine": {
+                              "custom_type": "int16",
+                              "examples": [
+                                633,
+                                108,
+                                1473,
+                                274,
+                                43
+                              ],
+                              "excludeMaximum": 9023,
+                              "minimum": 29,
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "endColumn",
+                            "endLine",
+                            "path_from_root",
+                            "startColumn",
+                            "startLine"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "cwes",
+                      "description",
+                      "locations"
+                    ],
+                    "type": "object"
+                  },
+                  "has_valid_sarif": {
+                    "custom_type": "bool",
+                    "examples": [
+                      false,
+                      false,
+                      false,
+                      false,
+                      false
+                    ],
+                    "type": "boolean"
+                  },
+                  "metadata_spec_version": {
+                    "custom_type": "string",
+                    "examples": [
+                      "v1",
+                      "v1",
+                      "v1",
+                      "v1",
+                      "v1"
+                    ],
+                    "type": "string"
+                  },
+                  "name": {
+                    "custom_type": "string",
+                    "examples": [
+                      "exif-001",
+                      "Path Traversal Ol\u00e9",
+                      "Crashy McCrashFace.xls",
+                      "3dxxe",
+                      "Infinite loop in ipv6 validation"
+                    ],
+                    "type": "string"
+                  },
+                  "patch": {
+                    "custom_type": "object",
+                    "examples": [
+                      {
+                        "bad": null,
+                        "good": "good_patch.diff"
+                      },
+                      {
+                        "bad": "bad_patch.diff",
+                        "good": "good_patch.diff"
+                      },
+                      {
+                        "bad": "bad_patch.diff",
+                        "good": "good_patch.diff"
+                      },
+                      {
+                        "bad": "bad_patch.diff",
+                        "good": "good_patch.diff"
+                      },
+                      {
+                        "bad": "",
+                        "good": "good_patch_1.diff"
+                      }
+                    ],
+                    "properties": {
+                      "bad": {
+                        "custom_type": "string",
+                        "examples": [
+                          null,
+                          "bad_patch.diff",
+                          "bad_patch.diff",
+                          "bad_patch.diff",
+                          ""
+                        ],
+                        "type": "string"
+                      },
+                      "good": {
+                        "custom_type": "string",
+                        "examples": [
+                          "good_patch.diff",
+                          "good_patch.diff",
+                          "good_patch.diff",
+                          "good_patch.diff",
+                          "good_patch_1.diff"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "bad",
+                      "good"
+                    ],
+                    "type": "object"
+                  },
+                  "pov": {
+                    "custom_type": "object",
+                    "examples": [
+                      {
+                        "blob": "data.blob",
+                        "harness": "json_fuzz"
+                      },
+                      {
+                        "blob": "data.bin",
+                        "harness": "POIPOIFSDumpFuzzer"
+                      },
+                      {
+                        "blob": "data.bin",
+                        "harness": "customfuzz3"
+                      },
+                      {
+                        "blob": "data.bin",
+                        "harness": "MessageTrackerPeekReceivedFuzzer"
+                      },
+                      {
+                        "blob": "data.bin",
+                        "harness": "POIHSSFFuzzer"
+                      }
+                    ],
+                    "properties": {
+                      "blob": {
+                        "custom_type": "string",
+                        "examples": [
+                          "data.bin",
+                          "data.blob",
+                          "data.bin",
+                          "data.bin",
+                          "data.bin"
+                        ],
+                        "type": "string"
+                      },
+                      "harness": {
+                        "custom_type": "string",
+                        "examples": [
+                          "json_fuzz",
+                          "POIPOIFSDumpFuzzer",
+                          "POIHSSFFuzzer",
+                          "customfuzz3",
+                          "MessageTrackerPeekReceivedFuzzer"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "blob",
+                      "harness"
+                    ],
+                    "type": "object"
+                  },
+                  "sarif_blobs": {
+                    "custom_type": "list",
+                    "examples": [
+                      [],
+                      [],
+                      [],
+                      [],
+                      []
+                    ],
+                    "type": "array"
+                  },
+                  "valid": {
+                    "custom_type": "bool",
+                    "examples": [
+                      true,
+                      true,
+                      true,
+                      true,
+                      true
+                    ],
+                    "type": "boolean"
+                  },
+                  "vuln_id": {
+                    "custom_type": "string",
+                    "examples": [
+                      "exif-001",
+                      "vuln_3",
+                      "vuln_3",
+                      "SQL-006",
+                      "vuln_1"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "author",
+                  "details",
+                  "has_valid_sarif",
+                  "metadata_spec_version",
+                  "name",
+                  "patch",
+                  "pov",
+                  "sarif_blobs",
+                  "valid",
+                  "vuln_id"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "vulns_with_valid_sarif": {
+              "custom_type": "list",
+              "examples": [
+                [],
+                [],
+                [],
+                [],
+                []
+              ],
+              "type": "array"
+            }
+          },
+          "required": [
+            "base_ref",
+            "branch_commit_sha",
+            "branch_name",
+            "challenge_type",
+            "delta_base_branch",
+            "delta_base_branch_exists",
+            "delta_head_branch",
+            "delta_head_branch_exists",
+            "delta_pull_request",
+            "delta_pull_request_exists",
+            "delta_ref",
+            "full_scan_release_exists",
+            "full_scan_release_tag_exists",
+            "gh_trigger_acked",
+            "git_artifact_exists",
+            "html_url",
+            "is_delta_scan",
+            "is_full_scan",
+            "key",
+            "language",
+            "name",
+            "owner",
+            "release",
+            "release_name",
+            "release_tag_name",
+            "repo_name",
+            "round_id",
+            "sarif_name",
+            "vulns",
+            "vulns_with_valid_sarif"
+          ],
+          "type": "object"
+        },
+        "challenge_name": {
+          "custom_type": "string",
+          "examples": [
+            "Unfixed Heights",
+            "Commentastrophe",
+            "franchise",
+            "Sharp Complexity",
+            "Feigned Prototype"
+          ],
+          "type": "string"
+        },
+        "commit_hash": {
+          "custom_type": "string",
+          "examples": [
+            "bc6dd9c13d30921fc8702e6eeeb857f8b2f4fde8",
+            "713419a1e960bfdad00afcdc05ea243f554eab1c",
+            "3d5df4899d3d98cbfaf177e95c0de67345d6aad8",
+            "f2eca76e70b951495d90cc245412ee1acccf4d70",
+            "288ac982b1e51223a2274fd959e5430c66deb453"
+          ],
+          "type": "string"
+        },
+        "crs_url": {
+          "custom_type": "string",
+          "examples": [
+            "https://binary-blade-burnt-pizza.tail7e9b4c.ts.net",
+            "https://ethereal-logic-exhibition2.tail7e9b4c.ts.net",
+            "https://quantum-thought.tail7e9b4c.ts.net",
+            "https://synthetic-dawn-exhibition2.tail7e9b4c.ts.net",
+            "https://team-friday-final1.tail7e9b4c.ts.net"
+          ],
+          "type": "string"
+        },
+        "deadline": {
+          "custom_type": "int64",
+          "examples": [
+            1746816534454,
+            1743783332925,
+            1751193795702,
+            1749368353116,
+            1749194418686
+          ],
+          "excludeMaximum": 1751554695332,
+          "minimum": 1743783332925,
+          "type": "number"
+        },
+        "delta_commit_hash": {
+          "custom_type": "string",
+          "examples": [
+            "406bc5b1b36219bf7777fc964fce2e41207f6b08",
+            "811166f53bd89e7d2392351fbbddd55459b70b69",
+            "9f4267c0f7cf6e8767cec874cda5bb15f6ea64d9",
+            "fbc9db4ed949776ac7ac33b613b32017e2d8d12a",
+            "bda58e1ad6ae1d3e3504d135c1b65a17f0e7757e"
+          ],
+          "type": "string"
+        },
+        "description": {
+          "custom_type": "string",
+          "examples": [
+            null,
+            "",
+            "",
+            "The handleLink method will fetch any HTTP URL from the playlist by invoking TikaInputStream.get(new URL(...)) without validating the host, scheme beyond \u201chttp\u201d, or enforcing timeouts, exposing a Server-Side Request Forgery (SSRF) vulnerability.",
+            "Bundle for task 01974189-9f82-74b4-8366-71ea0d695cdd"
+          ],
+          "type": "string"
+        },
+        "details": {
+          "custom_type": "object",
+          "examples": [
+            null,
+            {
+              "backtrace": "Traceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 198, in _new_conn\n    sock = connection.create_connection(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 85, in create_connection\n    raise err\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 73, in create_connection\n    sock.connect(sa)\nTimeoutError: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 488, in _make_request\n    raise new_e\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 464, in _make_request\n    self._validate_conn(conn)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 1093, in _validate_conn\n    conn.connect()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 704, in connect\n    self.sock = sock = self._new_conn()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 207, in _new_conn\n    raise ConnectTimeoutError(\nurllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7ffff01504c0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)')\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 667, in send\n    resp = conn.urlopen(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/retry.py\", line 519, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff01504c0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 403, in ping\n    response = self.session.get(url, timeout=2)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 602, in get\n    return self.request(\"GET\", url, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 688, in send\n    raise ConnectTimeout(e, request=request)\nrequests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff01504c0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/crs_api_impl.py\", line 278, in get_status\n    competition_reachable = COMPETITION_API.ping().status.lower() in [\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 411, in ping\n    raise CompetitionAPIError(f\"Error pinging API: {str(e)}\")\ncrs_api.competition_api.CompetitionAPIError: Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff01504c0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n",
+              "competition_reachable": "False",
+              "error": "Failed to connect to competition API",
+              "exception": "Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff01504c0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))"
+            },
+            {
+              "competition_reachable": "True"
+            },
+            {}
+          ],
+          "properties": {
+            "backtrace": {
+              "custom_type": "string",
+              "examples": [
+                "Traceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 534, in _make_request\n    response = conn.getresponse()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 565, in getresponse\n    httplib_response = super().getresponse()\n  File \"/usr/lib/python3.10/http/client.py\", line 1375, in getresponse\n    response.begin()\n  File \"/usr/lib/python3.10/http/client.py\", line 318, in begin\n    version, status, reason = self._read_status()\n  File \"/usr/lib/python3.10/http/client.py\", line 279, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n  File \"/usr/lib/python3.10/socket.py\", line 705, in readinto\n    return self._sock.recv_into(b)\n  File \"/usr/lib/python3.10/ssl.py\", line 1303, in recv_into\n    return self.read(nbytes, buffer)\n  File \"/usr/lib/python3.10/ssl.py\", line 1159, in read\n    return self._sslobj.read(len, buffer)\nTimeoutError: The read operation timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 667, in send\n    resp = conn.urlopen(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/retry.py\", line 474, in increment\n    raise reraise(type(error), error, _stacktrace)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/util.py\", line 39, in reraise\n    raise value\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 536, in _make_request\n    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 367, in _raise_timeout\n    raise ReadTimeoutError(\nurllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 410, in ping\n    response = self.session.get(url, timeout=2)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 602, in get\n    return self.request(\"GET\", url, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 713, in send\n    raise ReadTimeout(e, request=request)\nrequests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/crs_api_impl.py\", line 394, in get_status\n    competition_reachable = COMPETITION_API.ping().status.lower() in [\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 418, in ping\n    raise CompetitionAPIError(f\"Error pinging API: {str(e)}\")\ncrs_api.competition_api.CompetitionAPIError: Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)\n",
+                "Traceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 198, in _new_conn\n    sock = connection.create_connection(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 85, in create_connection\n    raise err\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 73, in create_connection\n    sock.connect(sa)\nTimeoutError: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 488, in _make_request\n    raise new_e\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 464, in _make_request\n    self._validate_conn(conn)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 1093, in _validate_conn\n    conn.connect()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 704, in connect\n    self.sock = sock = self._new_conn()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 207, in _new_conn\n    raise ConnectTimeoutError(\nurllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7ffff3b320e0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)')\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 667, in send\n    resp = conn.urlopen(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/retry.py\", line 519, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b320e0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 403, in ping\n    response = self.session.get(url, timeout=2)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 602, in get\n    return self.request(\"GET\", url, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 688, in send\n    raise ConnectTimeout(e, request=request)\nrequests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b320e0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/crs_api_impl.py\", line 278, in get_status\n    competition_reachable = COMPETITION_API.ping().status.lower() in [\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 411, in ping\n    raise CompetitionAPIError(f\"Error pinging API: {str(e)}\")\ncrs_api.competition_api.CompetitionAPIError: Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b320e0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n",
+                "Traceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 534, in _make_request\n    response = conn.getresponse()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 516, in getresponse\n    httplib_response = super().getresponse()\n  File \"/usr/lib/python3.10/http/client.py\", line 1375, in getresponse\n    response.begin()\n  File \"/usr/lib/python3.10/http/client.py\", line 318, in begin\n    version, status, reason = self._read_status()\n  File \"/usr/lib/python3.10/http/client.py\", line 279, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n  File \"/usr/lib/python3.10/socket.py\", line 705, in readinto\n    return self._sock.recv_into(b)\n  File \"/usr/lib/python3.10/ssl.py\", line 1303, in recv_into\n    return self.read(nbytes, buffer)\n  File \"/usr/lib/python3.10/ssl.py\", line 1159, in read\n    return self._sslobj.read(len, buffer)\nTimeoutError: The read operation timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 667, in send\n    resp = conn.urlopen(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/retry.py\", line 474, in increment\n    raise reraise(type(error), error, _stacktrace)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/util.py\", line 39, in reraise\n    raise value\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 536, in _make_request\n    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 367, in _raise_timeout\n    raise ReadTimeoutError(\nurllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 403, in ping\n    response = self.session.get(url, timeout=2)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 602, in get\n    return self.request(\"GET\", url, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 713, in send\n    raise ReadTimeout(e, request=request)\nrequests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/crs_api_impl.py\", line 278, in get_status\n    competition_reachable = COMPETITION_API.ping().status.lower() in [\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 411, in ping\n    raise CompetitionAPIError(f\"Error pinging API: {str(e)}\")\ncrs_api.competition_api.CompetitionAPIError: Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)\n",
+                "Traceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 198, in _new_conn\n    sock = connection.create_connection(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 85, in create_connection\n    raise err\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 73, in create_connection\n    sock.connect(sa)\nTimeoutError: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 488, in _make_request\n    raise new_e\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 464, in _make_request\n    self._validate_conn(conn)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 1093, in _validate_conn\n    conn.connect()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 704, in connect\n    self.sock = sock = self._new_conn()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 207, in _new_conn\n    raise ConnectTimeoutError(\nurllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7ffff3b32380>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)')\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 667, in send\n    resp = conn.urlopen(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/retry.py\", line 519, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b32380>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 403, in ping\n    response = self.session.get(url, timeout=2)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 602, in get\n    return self.request(\"GET\", url, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 688, in send\n    raise ConnectTimeout(e, request=request)\nrequests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b32380>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/crs_api_impl.py\", line 278, in get_status\n    competition_reachable = COMPETITION_API.ping().status.lower() in [\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 411, in ping\n    raise CompetitionAPIError(f\"Error pinging API: {str(e)}\")\ncrs_api.competition_api.CompetitionAPIError: Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b32380>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n",
+                "Traceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 198, in _new_conn\n    sock = connection.create_connection(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 85, in create_connection\n    raise err\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/connection.py\", line 73, in create_connection\n    sock.connect(sa)\nTimeoutError: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 488, in _make_request\n    raise new_e\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 464, in _make_request\n    self._validate_conn(conn)\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 1093, in _validate_conn\n    conn.connect()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 704, in connect\n    self.sock = sock = self._new_conn()\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connection.py\", line 207, in _new_conn\n    raise ConnectTimeoutError(\nurllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7ffff0089e10>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)')\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 667, in send\n    resp = conn.urlopen(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n  File \"/app/venv/lib/python3.10/site-packages/urllib3/util/retry.py\", line 519, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff0089e10>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 403, in ping\n    response = self.session.get(url, timeout=2)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 602, in get\n    return self.request(\"GET\", url, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"/app/venv/lib/python3.10/site-packages/requests/adapters.py\", line 688, in send\n    raise ConnectTimeout(e, request=request)\nrequests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff0089e10>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/app/libs/crs-api/crs_api/crs_api_impl.py\", line 278, in get_status\n    competition_reachable = COMPETITION_API.ping().status.lower() in [\n  File \"/app/libs/crs-api/crs_api/competition_api.py\", line 411, in ping\n    raise CompetitionAPIError(f\"Error pinging API: {str(e)}\")\ncrs_api.competition_api.CompetitionAPIError: Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff0089e10>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))\n"
+              ],
+              "type": "string"
+            },
+            "competition_reachable": {
+              "custom_type": "string",
+              "examples": [
+                "False",
+                "True"
+              ],
+              "type": "string"
+            },
+            "error": {
+              "custom_type": "string",
+              "examples": [
+                "Failed to connect to competition API",
+                "Failed to connect to competition API",
+                "Failed to connect to competition API",
+                "Failed to connect to competition API",
+                "Failed to connect to competition API"
+              ],
+              "type": "string"
+            },
+            "exception": {
+              "custom_type": "string",
+              "examples": [
+                "Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)",
+                "Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b30c70>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))",
+                "Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff3b2e9b0>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))",
+                "Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Read timed out. (read timeout=2)",
+                "Error pinging API: HTTPSConnectionPool(host='api.tail7e9b4c.ts.net', port=443): Max retries exceeded with url: /v1/ping/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7ffff0153f10>, 'Connection to api.tail7e9b4c.ts.net timed out. (connect timeout=2)'))"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
+        "engine": {
+          "custom_type": "string",
+          "examples": [
+            "libfuzzer"
+          ],
+          "type": "string"
+        },
+        "entity": {
+          "custom_type": "string",
+          "examples": [
+            "freeform_pov",
+            "patch",
+            "pov",
+            "task"
+          ],
+          "type": "string"
+        },
+        "entity_id": {
+          "custom_type": "string",
+          "examples": [
+            "0195fc83-54e4-747b-b3c5-c45693eaa2b3",
+            "0196a716-37df-7c0c-af6d-4e177887d7e5",
+            "01974aef-bb7a-7262-9fce-a16245f5f39a",
+            "0197b104-3134-7477-a88a-0c58881107d1",
+            "0197ca93-c0c2-7558-8d3e-f7345c06d272"
+          ],
+          "type": "string"
+        },
+        "error": {
+          "custom_type": "string",
+          "examples": [
+            null,
+            "failed to send crs status request: Get \"https://pixel-phantom-exhibition2.tail7e9b4c.ts.net/status/\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+            "failed to send crs status request: Get \"https://pixel-phantom-exhibition2.tail7e9b4c.ts.net/status/\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+            "Invalid status code: 502",
+            "failed to send crs status request: Get \"https://ethereal-logic-final.tail7e9b4c.ts.net/status/\": GET https://ethereal-logic-final.tail7e9b4c.ts.net/status/ giving up after 4 attempt(s): Get \"https://ethereal-logic-final.tail7e9b4c.ts.net/status/\": dial tcp 10.224.1.152:443: i/o timeout"
+          ],
+          "type": "string"
+        },
+        "file_archived": {
+          "custom_type": "string",
+          "examples": [
+            "fuzz.out_base_repo",
+            "patch",
+            "pov_trigger",
+            "stripped_repo_tarball",
+            "unstripped_base_tarball"
+          ],
+          "type": "string"
+        },
+        "freeform_id": {
+          "custom_type": "uuid",
+          "examples": [
+            null,
+            "0197c650-86a4-7f3b-93cd-4b3e4e88f912",
+            "0197b8b5-3731-7456-a779-c0d8ad5aeb73"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "functionality_tests_passing": {
+          "custom_type": "bool",
+          "examples": [
+            null,
+            false,
+            true
+          ],
+          "type": "boolean"
+        },
+        "fuzz_tooling_hash": {
+          "custom_type": "string",
+          "examples": [
+            "389af4aae4da9d818b3b25147561d3bd8c199a8dd54a8ddad6356940a8bbffda",
+            "a886d9057cd7fb7420fca5f27e9d35cacbac3003056adb1107e2fe60fe50e003",
+            "38dd9cee75ed23f64fc0a95637ce5b0857c7eee90940e714bc0c8408e55d8307",
+            "5721d92c83c12053424eb05a7221e7876fc866fb44941c0f795287e5a6ce6034",
+            "4813e61b99b314fef89268f911f44c8bfce7b1c12b36316f102add09a8cd797b"
+          ],
+          "type": "string"
+        },
+        "fuzz_tooling_url": {
+          "custom_type": "string",
+          "examples": [
+            "git@github.com:aixcc-afc/oss-fuzz-afc.git",
+            "git@github.com:aixcc-afc/oss-fuzz-afc.git",
+            "git@github.com:aixcc-afc/oss-fuzz-afc.git",
+            "git@github.com:aixcc-afc/oss-fuzz-afc.git",
+            "git@github.com:aixcc-afc/oss-fuzz-afc.git"
+          ],
+          "type": "string"
+        },
+        "fuzzer_name": {
+          "custom_type": "string",
+          "examples": [
+            "JsonFuzzer",
+            "api",
+            "fuzz",
+            "html",
+            "reader"
+          ],
+          "type": "string"
+        },
+        "object_name": {
+          "custom_type": "string",
+          "examples": [
+            "0514f8856f17068b7ba0c586a991168b382420e3bec6ac8b2319036836ca8c8c",
+            "0bd670adc2947fb600f4daf7feaff537ff9f33ff3ffd7cdf62735b444ef00589",
+            "87d002733f2c19c0bc36c31cf21dcc28d8749d2f34de80e59700760d4149fa0e",
+            "92a91ff89a8c4caa55e2c48e2e25d33b8b066e44e06602a15c2ad5bba5595014",
+            "ca45e7552a437ba1eeae4638896596b7a5f8f98896ff8aac2fe09851ed3875fd"
+          ],
+          "type": "string"
+        },
+        "patch_id": {
+          "custom_type": "uuid",
+          "examples": [
+            "0195fd35-75a6-7189-944f-cbdc89364838",
+            "0196a722-c2e2-7e04-9e55-f73e729ac05f",
+            "0196b3b6-d81a-78e5-8150-d14df616c16e",
+            "01974392-214d-7191-a293-6af68afd5fb4",
+            "01974665-78ef-76a8-b6ee-555307530023"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "patch_sha256": {
+          "custom_type": "string",
+          "examples": [
+            "35130a1e68e6b94886ffc400be110075c36217927b99326000a84a48c42cac38",
+            "4bb29c906443bb354bff92dd52ed93c5810e96a29c09ec4f96b35dd24105b559",
+            "7d5b1e6869efcdd30b8334a5d4e66b9a8e6efb3a8d5d777e9980954703ef0534",
+            "a35ac86f47511a3d528625b75388cd961b78c822ba9da0029421d9ad4c9f8ddc",
+            "d9cd946eba36de42cca3e7f79bdd1c3efff5446e1f2d8413fffea61fed236f3b"
+          ],
+          "type": "string"
+        },
+        "payload": {
+          "custom_type": "string",
+          "examples": [
+            "{\"message_id\":\"a32aefe5-891d-4393-82fa-d7e0b95f6861\",\"message_time\":1751256304320,\"broadcasts\":[{\"task_id\":\"0197bd13-eaa4-7bc7-be59-a075f53644b3\",\"sarif_id\":\"0197bf02-8aba-7d02-be7a-cb467d35fbe6\",\"sarif\":{\"runs\":[{\"artifacts\":[{\"location\":{\"index\":0,\"uri\":\"src/shared/condition.c\"}}],\"automationDetails\":{\"id\":\"/\"},\"conversion\":{\"tool\":{\"driver\":{\"name\":\"GitHub Code Scanning\"}}},\"results\":[{\"correlationGuid\":\"91ea463c-9526-4b6e-8660-6d0759bb4cd3\",\"level\":\"warning\",\"locations\":[{\"physicalLocation\":{\"artifactLocation\":{\"index\":0,\"uri\":\"src/shared/condition.c\"},\"region\":{\"endColumn\":1,\"endLine\":103,\"startColumn\":1,\"startLine\":101}}}],\"message\":{\"text\":\"Reimplementation of: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13878 on upstream.\\n\"},\"partialFingerprints\":{\"primaryLocationLineHash\":\"1ffdf1a72a7a0aef:5\"},\"properties\":{\"github/alertNumber\":1,\"github/alertUrl\":\"https://api.github.com/repos/aixcc-afc/round-final-phase2-systemd/code-scanning/alerts/1\"},\"rule\":{\"id\":\"CWE-415\",\"index\":0},\"ruleId\":\"CWE-415\"}],\"tool\":{\"driver\":{\"name\":\"CodeScan++\",\"rules\":[{\"defaultConfiguration\":{\"level\":\"warning\"},\"fullDescription\":{\"text\":\"The product calls free() twice on the same memory address.\"},\"helpUri\":\"https://cwe.mitre.org/\",\"id\":\"CWE-415\",\"properties\":{},\"shortDescription\":{\"text\":\"Double Free\"}}],\"version\":\"1.0.0\"}},\"versionControlProvenance\":[{\"branch\":\"refs/heads/challenges/systemd-full-001\",\"repositoryUri\":\"https://github.com/aixcc-afc/round-final-phase2-systemd\",\"revisionId\":\"9775d40054d0d14de7aa83abe245bb991dcb9af5\"}]}],\"$schema\":\"https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json\",\"version\":\"2.1.0\"},\"metadata\":{\"task_id\":\"0197bd13-eaa4-7bc7-be59-a075f53644b3\",\"sarif_id\":\"0197bf02-8aba-7d02-be7a-cb467d35fbe6\",\"round_id\":\"final\"}}]}",
+            "{\"message_id\":\"84bb4101-abdb-462c-91d4-d3940cc19131\",\"message_time\":1751312125919,\"tasks\":[{\"task_id\":\"0197c256-49fc-703d-bf22-c1206be5006a\",\"type\":\"delta\",\"deadline\":1751333724403,\"source\":[{\"type\":\"repo\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/f3727d64a8436559786b530cc7e527e7d7dc1a76db9d16d06836d9585abdc50c?se=2025-07-01T01%3A40%3A24Z\\u0026sig=E9TIExFiTTpAgZyltUZiqBLXu4%2BNNrt0EOk5fn3YVcA%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"f3727d64a8436559786b530cc7e527e7d7dc1a76db9d16d06836d9585abdc50c\"},{\"type\":\"fuzz-tooling\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/ac966263cb69d3f2bd3b6b7ea132205fa936e81c5766230a294fbaf5124095e2?se=2025-07-01T01%3A40%3A24Z\\u0026sig=BGaSs6dFCsGHnmXMuaJIxbTjJGELDnUBsLcTLDKXJvI%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"ac966263cb69d3f2bd3b6b7ea132205fa936e81c5766230a294fbaf5124095e2\"},{\"type\":\"diff\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/7305f8f214e1d36fb07880ab754ce878067326bbd947f1c21dfefa289b838457?se=2025-07-01T01%3A40%3A24Z\\u0026sig=OdDjTtnC6EkS%2Byk6AnmBQY9hAtkMhB3GuuVP4yDDSR0%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"7305f8f214e1d36fb07880ab754ce878067326bbd947f1c21dfefa289b838457\"}],\"project_name\":\"libavif\",\"focus\":\"round-final-phase4-libavif\",\"metadata\":{\"task.id\":\"0197c256-49fc-703d-bf22-c1206be5006a\",\"round.id\":\"final\"},\"harnesses_included\":true}]}",
+            "{\"message_id\":\"84bb4101-abdb-462c-91d4-d3940cc19131\",\"message_time\":1751312125919,\"tasks\":[{\"task_id\":\"0197c256-49fc-703d-bf22-c1206be5006a\",\"type\":\"delta\",\"deadline\":1751333724403,\"source\":[{\"type\":\"repo\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/f3727d64a8436559786b530cc7e527e7d7dc1a76db9d16d06836d9585abdc50c?se=2025-07-01T01%3A40%3A24Z\\u0026sig=E9TIExFiTTpAgZyltUZiqBLXu4%2BNNrt0EOk5fn3YVcA%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"f3727d64a8436559786b530cc7e527e7d7dc1a76db9d16d06836d9585abdc50c\"},{\"type\":\"fuzz-tooling\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/ac966263cb69d3f2bd3b6b7ea132205fa936e81c5766230a294fbaf5124095e2?se=2025-07-01T01%3A40%3A24Z\\u0026sig=BGaSs6dFCsGHnmXMuaJIxbTjJGELDnUBsLcTLDKXJvI%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"ac966263cb69d3f2bd3b6b7ea132205fa936e81c5766230a294fbaf5124095e2\"},{\"type\":\"diff\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/7305f8f214e1d36fb07880ab754ce878067326bbd947f1c21dfefa289b838457?se=2025-07-01T01%3A40%3A24Z\\u0026sig=OdDjTtnC6EkS%2Byk6AnmBQY9hAtkMhB3GuuVP4yDDSR0%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"7305f8f214e1d36fb07880ab754ce878067326bbd947f1c21dfefa289b838457\"}],\"project_name\":\"libavif\",\"focus\":\"round-final-phase4-libavif\",\"metadata\":{\"task.id\":\"0197c256-49fc-703d-bf22-c1206be5006a\",\"round.id\":\"final\"},\"harnesses_included\":true}]}",
+            "{\"message_id\":\"a32aefe5-891d-4393-82fa-d7e0b95f6861\",\"message_time\":1751256304320,\"broadcasts\":[{\"task_id\":\"0197bd13-eaa4-7bc7-be59-a075f53644b3\",\"sarif_id\":\"0197bf02-8aba-7d02-be7a-cb467d35fbe6\",\"sarif\":{\"runs\":[{\"artifacts\":[{\"location\":{\"index\":0,\"uri\":\"src/shared/condition.c\"}}],\"automationDetails\":{\"id\":\"/\"},\"conversion\":{\"tool\":{\"driver\":{\"name\":\"GitHub Code Scanning\"}}},\"results\":[{\"correlationGuid\":\"91ea463c-9526-4b6e-8660-6d0759bb4cd3\",\"level\":\"warning\",\"locations\":[{\"physicalLocation\":{\"artifactLocation\":{\"index\":0,\"uri\":\"src/shared/condition.c\"},\"region\":{\"endColumn\":1,\"endLine\":103,\"startColumn\":1,\"startLine\":101}}}],\"message\":{\"text\":\"Reimplementation of: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=13878 on upstream.\\n\"},\"partialFingerprints\":{\"primaryLocationLineHash\":\"1ffdf1a72a7a0aef:5\"},\"properties\":{\"github/alertNumber\":1,\"github/alertUrl\":\"https://api.github.com/repos/aixcc-afc/round-final-phase2-systemd/code-scanning/alerts/1\"},\"rule\":{\"id\":\"CWE-415\",\"index\":0},\"ruleId\":\"CWE-415\"}],\"tool\":{\"driver\":{\"name\":\"CodeScan++\",\"rules\":[{\"defaultConfiguration\":{\"level\":\"warning\"},\"fullDescription\":{\"text\":\"The product calls free() twice on the same memory address.\"},\"helpUri\":\"https://cwe.mitre.org/\",\"id\":\"CWE-415\",\"properties\":{},\"shortDescription\":{\"text\":\"Double Free\"}}],\"version\":\"1.0.0\"}},\"versionControlProvenance\":[{\"branch\":\"refs/heads/challenges/systemd-full-001\",\"repositoryUri\":\"https://github.com/aixcc-afc/round-final-phase2-systemd\",\"revisionId\":\"9775d40054d0d14de7aa83abe245bb991dcb9af5\"}]}],\"$schema\":\"https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json\",\"version\":\"2.1.0\"},\"metadata\":{\"task_id\":\"0197bd13-eaa4-7bc7-be59-a075f53644b3\",\"sarif_id\":\"0197bf02-8aba-7d02-be7a-cb467d35fbe6\",\"round_id\":\"final\"}}]}",
+            "{\"message_id\":\"cbfa363d-6278-41f7-bb11-9083ab876285\",\"message_time\":1751202113450,\"tasks\":[{\"task_id\":\"0197bbc7-86f5-7ba6-bf01-567f3a3f00c8\",\"type\":\"delta\",\"deadline\":1751223705073,\"source\":[{\"type\":\"repo\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/ad448c48e50aff00b7470c6477dada5b3d1c47fcbc3e4eac9408c3451e7fa71b?se=2025-06-29T19%3A06%3A45Z\\u0026sig=QOIsmE61IgRoZxd2V3LHDMjPg1IYEKYoMqfZ50%2FcNNc%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"ad448c48e50aff00b7470c6477dada5b3d1c47fcbc3e4eac9408c3451e7fa71b\"},{\"type\":\"fuzz-tooling\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/779968e12bb985116b31db5cc487306b64a12e9449aea831e94daacfbfeb2287?se=2025-06-29T19%3A06%3A45Z\\u0026sig=XlXyTm3sFNT4h4KIihFw2ltBnn26qeEFVmB5ggaoxPs%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"779968e12bb985116b31db5cc487306b64a12e9449aea831e94daacfbfeb2287\"},{\"type\":\"diff\",\"url\":\"https://maintainerinterfaces.blob.core.windows.net/sources/e6cd90b2e16301d83ea45f6037c460c101c3293f5037efc96360645cc932644b?se=2025-06-29T19%3A06%3A45Z\\u0026sig=tLjPQyJneXIob87LoVFWV%2FEnPCwofr5bsda3fthRzkU%3D\\u0026sp=r\\u0026sr=b\\u0026sv=2025-01-05\",\"sha256\":\"e6cd90b2e16301d83ea45f6037c460c101c3293f5037efc96360645cc932644b\"}],\"project_name\":\"apache-poi\",\"focus\":\"round-final-phase2-poi\",\"metadata\":{\"task.id\":\"0197bbc7-86f5-7ba6-bf01-567f3a3f00c8\",\"round.id\":\"final\"},\"harnesses_included\":true}]}"
+          ],
+          "type": "string"
+        },
+        "pov_id": {
+          "custom_type": "uuid",
+          "examples": [
+            null,
+            "0195fc73-a4a6-7575-b503-6edb1d08980c",
+            "0196b430-cf0b-7df0-bd00-c36347b69868",
+            "01974191-9a6a-7442-93c1-557bbb322fe0",
+            "01974aeb-3785-7da6-aadc-1dda51a51f85"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "ready": {
+          "custom_type": "bool",
+          "examples": [
+            false,
+            true
+          ],
+          "type": "boolean"
+        },
+        "repo_url": {
+          "custom_type": "string",
+          "examples": [
+            "https://github.com/aixcc-afc/round-exhibition1b-libxml2",
+            "https://github.com/aixcc-afc/round-final-phase2-Hertzbeat",
+            "https://github.com/aixcc-afc/round-exhibition3-freerdp",
+            "https://github.com/aixcc-afc/round-exhibition3-libxml2",
+            "https://github.com/aixcc-afc/round-exhibition3-commons-compress"
+          ],
+          "type": "string"
+        },
+        "retries": {
+          "custom_type": "int16",
+          "examples": [
+            0,
+            1,
+            9,
+            19,
+            246
+          ],
+          "excludeMaximum": 501,
+          "minimum": 0,
+          "type": "number"
+        },
+        "sanitizer": {
+          "custom_type": "string",
+          "examples": [
+            "address",
+            "memory",
+            "undefined"
+          ],
+          "type": "string"
+        },
+        "sarif_broadcast_id": {
+          "custom_type": "uuid",
+          "examples": [
+            "0197cb51-f099-728f-b549-15edf4114c4b",
+            "0197c9a8-1d32-7e7f-9e99-cf093376883b",
+            "0197bf02-8aba-7d02-be7a-cb467d35fbe6",
+            "01974b6c-d897-7df8-95d9-85d3207e3ca4",
+            "019748d7-465a-74fe-b886-c1e39433f313"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "sarif_id": {
+          "custom_type": "uuid",
+          "examples": [
+            "0197c9a8-1d32-7e7f-9e99-cf093376883b",
+            "019742d3-3bd3-75f0-a0ab-d0c9c7ad9e40",
+            "019748d6-8fee-7ae1-9877-cb8ccda417f4",
+            "01974b6c-d897-7df8-95d9-85d3207e3ca4"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "state": {
+          "custom_type": "object",
+          "examples": [
+            null,
+            {
+              "tasks": {
+                "canceled": 0,
+                "errored": 0,
+                "failed": 0,
+                "pending": 0,
+                "processing": 0,
+                "succeeded": 0,
+                "waiting": 0
+              }
+            },
+            {
+              "tasks": {
+                "canceled": 0,
+                "errored": 0,
+                "failed": 6,
+                "pending": 2,
+                "processing": 2,
+                "succeeded": 209,
+                "waiting": -1
+              }
+            },
+            {
+              "tasks": {
+                "canceled": 0,
+                "errored": 1,
+                "failed": 0,
+                "pending": 0,
+                "processing": 0,
+                "succeeded": 4,
+                "waiting": 0
+              }
+            },
+            {
+              "tasks": {
+                "canceled": 3,
+                "errored": 0,
+                "failed": 2,
+                "pending": 0,
+                "processing": 17,
+                "succeeded": 67,
+                "waiting": 1
+              }
+            }
+          ],
+          "properties": {
+            "tasks": {
+              "custom_type": "object",
+              "examples": [
+                {
+                  "canceled": 0,
+                  "errored": 0,
+                  "failed": 0,
+                  "pending": 0,
+                  "processing": 2,
+                  "succeeded": 2,
+                  "waiting": 2
+                },
+                {
+                  "canceled": 0,
+                  "errored": 0,
+                  "failed": 12,
+                  "pending": 6,
+                  "processing": 4,
+                  "succeeded": 438,
+                  "waiting": -2
+                },
+                {
+                  "canceled": 0,
+                  "errored": 0,
+                  "failed": 6,
+                  "pending": 2,
+                  "processing": 2,
+                  "succeeded": 211,
+                  "waiting": -1
+                },
+                {
+                  "canceled": 0,
+                  "errored": 5,
+                  "failed": 0,
+                  "pending": 0,
+                  "processing": 23,
+                  "succeeded": 12,
+                  "waiting": 0
+                },
+                {
+                  "canceled": 1,
+                  "errored": 0,
+                  "failed": 1,
+                  "pending": 0,
+                  "processing": 0,
+                  "succeeded": 1,
+                  "waiting": 2
+                }
+              ],
+              "properties": {
+                "canceled": {
+                  "custom_type": "int8",
+                  "examples": [
+                    0,
+                    1,
+                    9,
+                    16,
+                    27
+                  ],
+                  "excludeMaximum": 27,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "errored": {
+                  "custom_type": "int8",
+                  "examples": [
+                    0,
+                    1,
+                    6
+                  ],
+                  "excludeMaximum": 7,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "failed": {
+                  "custom_type": "uint8",
+                  "examples": [
+                    0,
+                    1,
+                    10,
+                    29,
+                    198
+                  ],
+                  "excludeMaximum": 198,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "pending": {
+                  "custom_type": "int8",
+                  "examples": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "excludeMaximum": 6,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "processing": {
+                  "custom_type": "int8",
+                  "examples": [
+                    0,
+                    1,
+                    14,
+                    24,
+                    38
+                  ],
+                  "excludeMaximum": 38,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "succeeded": {
+                  "custom_type": "int16",
+                  "examples": [
+                    0,
+                    1,
+                    65,
+                    209,
+                    550
+                  ],
+                  "excludeMaximum": 550,
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "waiting": {
+                  "custom_type": "int16",
+                  "examples": [
+                    -5,
+                    5,
+                    48,
+                    237,
+                    448
+                  ],
+                  "excludeMaximum": 448,
+                  "minimum": -6,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "canceled",
+                "errored",
+                "failed",
+                "pending",
+                "processing",
+                "succeeded",
+                "waiting"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "tasks"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "custom_type": "string",
+          "examples": [
+            "accepted",
+            "errored",
+            "failed",
+            "passed"
+          ],
+          "type": "string"
+        },
+        "task_type": {
+          "custom_type": "string",
+          "examples": [
+            "full",
+            "delta",
+            "full",
+            "full",
+            "delta"
+          ],
+          "type": "string"
+        },
+        "testcase_sha256": {
+          "custom_type": "string",
+          "examples": [
+            "00e02b7ccac1bb106df30ff9701ac3c84d88d3f031d110c6f421bb10c31dd7a0",
+            "583acd8e087fff41e74fe505522f3bbaa31b2551722b5870a177c7224e95eef9",
+            "bed9a7de56e10ef9eb86f0e5fa56cbd6bed8eb8d66e8b0db91f44be2f0893be2",
+            "c23c1848002082e128f533dc3c24a49fc57329293cc1468cc9dc36339b1abcac",
+            "cce4b3857587ce6fcd7e8dd4ff29def9220e765ee46f999a23a00fe45de1a796"
+          ],
+          "type": "string"
+        },
+        "unharnessed": {
+          "custom_type": "bool",
+          "examples": [
+            false
+          ],
+          "type": "boolean"
+        },
+        "version": {
+          "custom_type": "string",
+          "examples": [
+            null,
+            "0.1.3",
+            "gold",
+            "precheckpoint-fixes",
+            "v0.1.0"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "event_type": {
+      "custom_type": "string",
+      "examples": [
+        "bundle_delete",
+        "crs_status_check",
+        "new_delta_scan",
+        "pov_submission",
+        "sarif_assessment"
+      ],
+      "type": "string"
+    },
+    "log_context": {
+      "custom_type": "string",
+      "examples": [
+        "audit"
+      ],
+      "type": "string"
+    },
+    "round_id": {
+      "custom_type": "string",
+      "examples": [
+        "exhibition1b",
+        "exhibition2",
+        "exhibition3",
+        "final"
+      ],
+      "type": "string"
+    },
+    "schema_version": {
+      "custom_type": "string",
+      "examples": [
+        "0.1.0",
+        "0.1.0",
+        "0.1.0",
+        "0.1.0",
+        "0.1.0"
+      ],
+      "type": "string"
+    },
+    "task_id": {
+      "custom_type": "uuid",
+      "examples": [
+        null,
+        "0196a6df-366d-7498-8a04-02b96ea4b18b",
+        "0197ae62-564a-7c5a-8929-28d27cc08a7e",
+        "0197c3b3-3f71-798d-9b93-770fd5e5aa51",
+        "0197b0f6-c289-7533-81c3-6ae813bb264d"
+      ],
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "team_id": {
+      "custom_type": "uuid",
+      "examples": [
+        null,
+        "249c2ba2-db69-4914-99b8-c44e1df9b00f",
+        "937874a1-1dd8-428a-9d4f-1f1195f408c3",
+        "dff41614-01d1-4799-aec3-e72c8b436a4f",
+        "fa8a37e5-afc2-4404-8510-bdc3ce3a733b"
+      ],
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "timestamp": {
+      "custom_type": "float64",
+      "examples": [
+        1743696675458,
+        1746855288125,
+        1749154553879,
+        1750959595333,
+        1751487692030
+      ],
+      "type": "number"
+    },
+    "version": {
+      "custom_type": "string",
+      "examples": [
+        "0.1.0"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "disposition",
+    "event",
+    "event_type",
+    "log_context",
+    "round_id",
+    "task_id",
+    "team_id",
+    "timestamp",
+    "version"
+  ],
+  "type": "object",
+  "version": "0.1.0"
+}
