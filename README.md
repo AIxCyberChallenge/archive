@@ -7,6 +7,27 @@ Developer documentation for the AIxCC Competition Archive website.
 
 ## Quick Start
 
+### Option 1: Docker
+
+Make sure you have Docker installed and running. Then:
+
+```bash
+git clone https://github.com/AIxCyberChallenge/archive.git
+cd archive
+./docker-dev.sh up    # Start development server at localhost:4000
+```
+
+The site will be available at [http://localhost:4000](http://localhost:4000) with live reload enabled. Your local code changes will be automatically reflected in the container.
+
+**Docker Commands:**
+- `./docker-dev.sh up` - Start the development server
+- `./docker-dev.sh down` - Stop the development server  
+- `./docker-dev.sh logs` - View server logs
+- `./docker-dev.sh shell` - Open shell in container
+- `./docker-dev.sh help` - Show all available commands
+
+### Option 2: Local Ruby Setup
+
 Make sure you have Ruby >3.1 on your machine. Then:
 
 ```bash

@@ -1,0 +1,38 @@
+# Git files
+.git
+.gitignore
+
+# Jekyll build artifacts
+_site
+.jekyll-cache
+.sass-cache
+
+# Docker files (no need to copy these into the image during build)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Node modules (if any)
+node_modules
+
+# Ruby version files
+.ruby-version
+.rvmrc
+
+# Bundler files that should be regenerated
+.bundle
+vendor/bundle
