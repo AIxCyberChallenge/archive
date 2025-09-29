@@ -16,6 +16,12 @@ timezone: America/Los_Angeles
 github:
   is_project_page: false
 
+collections:
+  notebooks:
+    output: true
+    permalink: /:collection/:name/
+
+
 # Plugins (using GitHub Pages compatible versions)
 plugins:
   - jekyll-feed
@@ -24,6 +30,9 @@ plugins:
 
 # Build settings
 safe: true
+
+inlcude:
+ - [".nojekyll"]
 
 # Exclude files from processing
 exclude:
@@ -38,6 +47,7 @@ exclude:
   - .gitignore
   - scripts/
   - Makefile
+
 
 # Custom variables
 organization: AIxCyberChallenge

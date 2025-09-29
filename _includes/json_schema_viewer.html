@@ -1,15 +1,86 @@
 <div class="container">
-  <div id="schema-viewer" class="schema-box"></div>
+  <div id="schema-viewer" class="schema-box jse-theme-dark" ></div>
 </div>
 
 <link rel="stylesheet" href="https://unpkg.com/jsoneditor@10.1.0/dist/jsoneditor.min.css" />
 <script src="https://unpkg.com/jsoneditor@10.1.0/dist/jsoneditor.min.js"></script>
 <style>
-  .schema-box { background:#07081a; border:1px solid #333; border-radius:12px; padding: 12px; }
-  .jsoneditor { border: none; }
-  .jsoneditor-navigation-bar { background: #0d0e23; color: #ddd; }
-  .jsoneditor-menu { background: #111; border-bottom: 1px solid #333; }
-  .jsoneditor-menu a, .jsoneditor-menu button { color: #fff; }
+/* dark styling of the editor */
+div.jsoneditor,
+div.jsoneditor-menu {
+  border-color: #222;
+}
+div.jsoneditor-menu {
+  background-color: #222;
+}
+div.jsoneditor-tree,
+div.jsoneditor textarea.jsoneditor-text {
+  background-color: #222;
+  color: #ffffff;
+}
+div.jsoneditor-field,
+div.jsoneditor-value {
+  color: #ffffff;
+}
+table.jsoneditor-search div.jsoneditor-frame {
+  background: #444;
+}
+
+tr.jsoneditor-highlight,
+tr.jsoneditor-selected {
+  background-color: #444;
+}
+
+div.jsoneditor-field[contenteditable=true]:focus,
+div.jsoneditor-field[contenteditable=true]:hover,
+div.jsoneditor-value[contenteditable=true]:focus,
+div.jsoneditor-value[contenteditable=true]:hover,
+div.jsoneditor-field.jsoneditor-highlight,
+div.jsoneditor-value.jsoneditor-highlight {
+  background-color: #444;
+  border-color: #444;
+}
+
+div.jsoneditor-field.jsoneditor-highlight-active,
+div.jsoneditor-field.jsoneditor-highlight-active:focus,
+div.jsoneditor-field.jsoneditor-highlight-active:hover,
+div.jsoneditor-value.jsoneditor-highlight-active,
+div.jsoneditor-value.jsoneditor-highlight-active:focus,
+div.jsoneditor-value.jsoneditor-highlight-active:hover {
+  background-color: #b1b1b1;
+  border-color: #b1b1b1;
+}
+
+div.jsoneditor-tree button:focus {
+  background-color: #868686;
+}
+
+/* coloring of JSON in tree mode */
+div.jsoneditor-readonly {
+  color: #444;
+}
+div.jsoneditor td.jsoneditor-separator {
+  color: #444;
+}
+div.jsoneditor-value.jsoneditor-string {
+  color: #00dd88;
+}
+div.jsoneditor-value.jsoneditor-object,
+div.jsoneditor-value.jsoneditor-array {
+  color: #bababa;
+}
+div.jsoneditor-value.jsoneditor-number {
+  color: #dd4040;
+}
+div.jsoneditor-value.jsoneditor-boolean {
+  color: #dd8048;
+}
+div.jsoneditor-value.jsoneditor-null {
+  color: #49a7fc;
+}
+div.jsoneditor-value.jsoneditor-invalid {
+  color: white;
+}
 </style>
 <script>
   window.addEventListener('DOMContentLoaded', async () => {

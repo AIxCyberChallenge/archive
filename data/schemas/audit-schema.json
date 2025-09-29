@@ -1,0 +1,631 @@
+{
+  "type": "object",
+  "properties": {
+    "disposition": {
+      "type": "string",
+      "custom_type": "string"
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "bucket_name": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "entity": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "entity_id": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "file_archived": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "object_name": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "pov_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "architecture": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "engine": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "fuzzer_name": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "sanitizer": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "testcase_sha256": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "bundle_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "broadcast_sarif_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "description": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "freeform_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "patch_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "crs_url": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "competition_reachable": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "backtrace": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "error": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "exception": {
+              "type": "string",
+              "custom_type": "string"
+            }
+          },
+          "required": [],
+          "custom_type": "object"
+        },
+        "error": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "ready": {
+          "type": "boolean",
+          "custom_type": "bool"
+        },
+        "state": {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "object",
+              "properties": {
+                "canceled": {
+                  "type": "number",
+                  "custom_type": "int8",
+                  "minimum": 0,
+                  "excludeMaximum": 27
+                },
+                "errored": {
+                  "type": "number",
+                  "custom_type": "int8",
+                  "minimum": 0,
+                  "excludeMaximum": 7
+                },
+                "failed": {
+                  "type": "number",
+                  "custom_type": "uint8",
+                  "minimum": 0,
+                  "excludeMaximum": 198
+                },
+                "pending": {
+                  "type": "number",
+                  "custom_type": "int8",
+                  "minimum": 0,
+                  "excludeMaximum": 6
+                },
+                "processing": {
+                  "type": "number",
+                  "custom_type": "int8",
+                  "minimum": 0,
+                  "excludeMaximum": 38
+                },
+                "succeeded": {
+                  "type": "number",
+                  "custom_type": "int16",
+                  "minimum": 0,
+                  "excludeMaximum": 550
+                },
+                "waiting": {
+                  "type": "number",
+                  "custom_type": "int16",
+                  "minimum": -6,
+                  "excludeMaximum": 448
+                }
+              },
+              "required": [
+                "canceled",
+                "errored",
+                "failed",
+                "pending",
+                "processing",
+                "succeeded",
+                "waiting"
+              ],
+              "custom_type": "object"
+            }
+          },
+          "required": [
+            "tasks"
+          ],
+          "custom_type": "object"
+        },
+        "version": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "functionality_tests_passing": {
+          "type": "boolean",
+          "custom_type": "bool"
+        },
+        "patch_sha256": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "payload": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "retries": {
+          "type": "number",
+          "custom_type": "int16",
+          "minimum": 0,
+          "excludeMaximum": 501
+        },
+        "challenge_name": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "commit_hash": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "deadline": {
+          "type": "number",
+          "custom_type": "int64",
+          "minimum": 1743783332925,
+          "excludeMaximum": 1751554695332
+        },
+        "fuzz_tooling_hash": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "fuzz_tooling_url": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "repo_url": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "task_type": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "unharnessed": {
+          "type": "boolean",
+          "custom_type": "bool"
+        },
+        "assessment": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "assessment_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "sarif_broadcast_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "sarif_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "custom_type": "uuid"
+        },
+        "base_commit_hash": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "delta_commit_hash": {
+          "type": "string",
+          "custom_type": "string"
+        },
+        "challenge": {
+          "type": "object",
+          "properties": {
+            "base_ref": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "branch_commit_sha": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "branch_name": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "challenge_type": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "delta_base_branch": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "delta_base_branch_exists": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "delta_head_branch": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "delta_head_branch_exists": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "delta_pull_request_exists": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "delta_ref": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "full_scan_release_exists": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "full_scan_release_tag_exists": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "gh_trigger_acked": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "gh_trigger_nacked": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "git_artifact_exists": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "html_url": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "is_delta_scan": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "is_full_scan": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "key": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "language": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "name": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "owner": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "release_name": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "release_tag_name": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "repo_name": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "round_id": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "sarif_name": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "sarif_sha": {
+              "type": "string",
+              "custom_type": "string"
+            },
+            "unharnessed": {
+              "type": "boolean",
+              "custom_type": "bool"
+            },
+            "vulns": {
+              "type": "array",
+              "custom_type": "list",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "author": {
+                    "type": "string",
+                    "custom_type": "string"
+                  },
+                  "details": {
+                    "type": "object",
+                    "properties": {
+                      "cwes": {
+                        "type": "array",
+                        "custom_type": "list",
+                        "items": {
+                          "type": "string",
+                          "custom_type": "string"
+                        }
+                      },
+                      "description": {
+                        "type": "string",
+                        "custom_type": "string"
+                      },
+                      "locations": {
+                        "type": "array",
+                        "custom_type": "list",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "endColumn": {
+                              "type": "number",
+                              "custom_type": "int8",
+                              "minimum": 0,
+                              "excludeMaximum": 117
+                            },
+                            "endLine": {
+                              "type": "number",
+                              "custom_type": "int16",
+                              "minimum": 30,
+                              "excludeMaximum": 9025
+                            },
+                            "path_from_root": {
+                              "type": "string",
+                              "custom_type": "string"
+                            },
+                            "startColumn": {
+                              "type": "number",
+                              "custom_type": "int8",
+                              "minimum": 0,
+                              "excludeMaximum": 58
+                            },
+                            "startLine": {
+                              "type": "number",
+                              "custom_type": "int16",
+                              "minimum": 29,
+                              "excludeMaximum": 9023
+                            }
+                          },
+                          "required": [
+                            "endColumn",
+                            "endLine",
+                            "path_from_root",
+                            "startColumn",
+                            "startLine"
+                          ],
+                          "custom_type": "object"
+                        }
+                      }
+                    },
+                    "required": [
+                      "cwes",
+                      "description",
+                      "locations"
+                    ],
+                    "custom_type": "object"
+                  },
+                  "has_valid_sarif": {
+                    "type": "boolean",
+                    "custom_type": "bool"
+                  },
+                  "metadata_spec_version": {
+                    "type": "string",
+                    "custom_type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "custom_type": "string"
+                  },
+                  "patch": {
+                    "type": "object",
+                    "properties": {
+                      "bad": {
+                        "type": "string",
+                        "custom_type": "string"
+                      },
+                      "good": {
+                        "type": "string",
+                        "custom_type": "string"
+                      }
+                    },
+                    "required": [
+                      "bad",
+                      "good"
+                    ],
+                    "custom_type": "object"
+                  },
+                  "pov": {
+                    "type": "object",
+                    "properties": {
+                      "blob": {
+                        "type": "string",
+                        "custom_type": "string"
+                      },
+                      "harness": {
+                        "type": "string",
+                        "custom_type": "string"
+                      }
+                    },
+                    "required": [
+                      "blob",
+                      "harness"
+                    ],
+                    "custom_type": "object"
+                  },
+                  "sarif_blobs": {
+                    "type": "array",
+                    "custom_type": "list"
+                  },
+                  "valid": {
+                    "type": "boolean",
+                    "custom_type": "bool"
+                  },
+                  "vuln_id": {
+                    "type": "string",
+                    "custom_type": "string"
+                  }
+                },
+                "required": [
+                  "author",
+                  "details",
+                  "has_valid_sarif",
+                  "metadata_spec_version",
+                  "name",
+                  "patch",
+                  "pov",
+                  "sarif_blobs",
+                  "valid",
+                  "vuln_id"
+                ],
+                "custom_type": "object"
+              }
+            },
+            "vulns_with_valid_sarif": {
+              "type": "array",
+              "custom_type": "list"
+            }
+          },
+          "required": [
+            "base_ref",
+            "branch_commit_sha",
+            "branch_name",
+            "challenge_type",
+            "delta_base_branch",
+            "delta_base_branch_exists",
+            "delta_head_branch",
+            "delta_head_branch_exists",
+            "delta_pull_request",
+            "delta_pull_request_exists",
+            "delta_ref",
+            "full_scan_release_exists",
+            "full_scan_release_tag_exists",
+            "gh_trigger_acked",
+            "git_artifact_exists",
+            "html_url",
+            "is_delta_scan",
+            "is_full_scan",
+            "key",
+            "language",
+            "name",
+            "owner",
+            "release",
+            "release_name",
+            "release_tag_name",
+            "repo_name",
+            "round_id",
+            "sarif_name",
+            "vulns",
+            "vulns_with_valid_sarif"
+          ],
+          "custom_type": "object"
+        }
+      },
+      "required": [],
+      "custom_type": "object"
+    },
+    "event_type": {
+      "type": "string",
+      "custom_type": "string"
+    },
+    "log_context": {
+      "type": "string",
+      "custom_type": "string"
+    },
+    "round_id": {
+      "type": "string",
+      "custom_type": "string"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "custom_type": "uuid"
+    },
+    "team_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "custom_type": "uuid"
+    },
+    "timestamp": {
+      "type": "number",
+      "custom_type": "float64"
+    },
+    "version": {
+      "type": "string",
+      "custom_type": "string"
+    },
+    "schema_version": {
+      "type": "string",
+      "custom_type": "string"
+    }
+  },
+  "required": [
+    "disposition",
+    "event",
+    "event_type",
+    "log_context",
+    "round_id",
+    "task_id",
+    "team_id",
+    "timestamp",
+    "version"
+  ],
+  "custom_type": "object"
+}
