@@ -1,0 +1,20 @@
+services:
+  jekyll:
+    build: .
+    ports:
+      - "4000:4000"    # Jekyll server
+      - "35729:35729"  # LiveReload
+    volumes:
+      # Mount the current directory to /app for live code updates
+      - .:/app
+      # Use named volume for bundle cache to speed up rebuilds
+      - bundle_cache:/usr/local/bundle
+    environment:
+      - JEKYLL_ENV=development
+    # Use the default command from Dockerfile (which runs serve-docker.sh)
+    # No need to override here
+    # Restart policy
+    restart: unless-stopped
+
+volumes:
+  bundle_cache:
