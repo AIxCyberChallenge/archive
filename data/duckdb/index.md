@@ -34,7 +34,7 @@ title: AIxCC Competition Archive
                 </div>
 
                 <div class="query-input-section">
-                    <textarea id="query-input" placeholder="Enter your SQL query here..." rows="5"></textarea>
+                    <textarea id="query-input" placeholder="Enter your SQL query here..." rows="15"></textarea>
                     <button id="execute-btn" class="btn-primary">Execute Query</button>
                 </div>
 
