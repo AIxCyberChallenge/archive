@@ -26,6 +26,13 @@ description: Interactive access to the AIxCC CRUMBS dataset (coming soon)
         <p>Explore the types of data in CRUMBS</p>
       </div>
     </a>
+    <a class="card" href="/data/duckdb/">
+      <img src="/assets/img/duckdb.png" style="width: 25%;" alt="Interactive Query" />
+        <div class="team-info">
+        <h2>Interactive Query</h2>
+        <p>Explore a subset of the data in web based DuckDB</p>
+      </div>
+    </a>
     <a class="card" href="/data/notebooks/" >
       <img src="/assets/img/marimo.png" style="width: 25%;" alt="CRUMBS Notebooks" />
         <div class="team-info">

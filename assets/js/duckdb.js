@@ -1,0 +1,235 @@
+import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@latest/+esm';
+
+let db = null;
+let conn = null;
+
+const SAMPLE_QUERIES = {
+    'audit': [
+        'SELECT * FROM audit LIMIT 10',
+        `WITH
+  submission_result AS (
+   SELECT
+     disposition
+   , event.pov_id pov_id
+   FROM
+     audit
+   WHERE (event_type = 'pov_submission_result')
+) 
+SELECT
+  audit.timestamp
+, s.disposition
+, audit.event_type
+, audit.event.pov_id
+, audit.task_id
+, audit.team_id
+, audit.round
+FROM
+  (audit
+INNER JOIN submission_result s ON (s.pov_id = audit.event.pov_id))
+WHERE (event_type = 'pov_submission');`
+    ],
+    'events': [
+        'SELECT span_id, team_name, attributes.gen_ai.completion FROM events where attributes.gen_ai.completion is not null LIMIT 10',
+    ],
+    'traces': [
+        `SELECT
+  round
+, team_id
+, attributes.gen_ai.system ai_system
+, attributes.gen_ai.request.model model_name
+, COUNT(*) total_requests
+, AVG(attributes.gen_ai.usage.total_tokens) avg_total_tokens
+, AVG(attributes.gen_ai.usage.input_tokens) avg_input_tokens
+, AVG(attributes.gen_ai.usage.output_tokens) avg_output_tokens
+, AVG(attributes.gen_ai.server.time_to_first_token) avg_time_to_first_token
+, AVG(attributes.gen_ai.server.time_per_output_token) avg_time_per_output_token
+, attributes.gen_ai.reasoning_effort
+, COUNT((CASE WHEN (attributes.gen_ai.finish_reason = 'stop') THEN 1 END)) successful_completions
+FROM
+  traces
+WHERE (attributes.gen_ai IS NOT NULL)
+GROUP BY round, team_id, attributes.gen_ai.system, attributes.gen_ai.request.model, attributes.gen_ai.reasoning_effort;`
+    ],
+};
+
+async function initDuckDB() {
+    try {
+        updateStatus('Initializing DuckDB WASM...');
+
+        const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+        const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+        const worker_url = URL.createObjectURL(
+            new Blob([`importScripts("${bundle.mainWorker}");`], { type: 'text/javascript' })
+        );
+        const worker = new Worker(worker_url);
+        const logger = new duckdb.ConsoleLogger();
+        db = new duckdb.AsyncDuckDB(logger, worker);
+        await db.instantiate(bundle.mainModule);
+        URL.revokeObjectURL(worker_url);
+
+        conn = await db.connect();
+
+        updateStatus('Loading Parquet files...');
+        await loadParquetFiles();
+
+        updateStatus('Ready! ✓');
+        await loadTablesList();
+        renderSampleQueries();
+
+    } catch (error) {
+        console.error('Error initializing DuckDB:', error);
+        updateStatus('Error: ' + error.message);
+    }
+}
+
+async function loadParquetFiles() {
+    const tables = [
+        'audit',
+        'events',
+        'traces',
+    ];
+
+    for (const table of tables) {
+
+        try {
+            const response = await fetch(`/assets/data/${table}.parquet`);
+            const arrayBuffer = await response.arrayBuffer();
+            const uint8Array = new Uint8Array(arrayBuffer);
+
+            await db.registerFileBuffer(`${table}.parquet`, uint8Array);
+
+            await conn.query(`CREATE TABLE ${table} AS SELECT * FROM read_parquet('${table}.parquet')`);
+        } catch (error) {
+            console.error(`Error loading ${table}:`, error);
+        }
+    }
+}
+
+async function loadTablesList() {
+    try {
+        const result = await conn.query('SHOW TABLES');
+        const data = result.toArray();
+        const tables = data.map(row => row.name);
+
+        const tablesListDiv = document.getElementById('tables-list');
+        if (tables.length === 0) {
+            tablesListDiv.innerHTML = '<div class="info">No tables found</div>';
+            return;
+        }
+
+        tablesListDiv.innerHTML = tables.map(table => `
+            <div class="table-item">
+                <strong>${table}</strong>
+                <button class="btn-small" onclick="describeTable('${table}')">Schema</button>
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error('Error loading tables:', error);
+    }
+}
+
+window.describeTable = async function (tableName) {
+    try {
+        const result = await conn.query(`DESCRIBE ${tableName}`);
+        displayResults(result, `Schema for ${tableName}`);
+    } catch (error) {
+        displayError(error.message);
+    }
+};
+
+function renderSampleQueries() {
+    const samplesDiv = document.getElementById('sample-queries');
+    let html = '';
+
+    for (const [table, queries] of Object.entries(SAMPLE_QUERIES)) {
+        html += `
+            <div class="query-group">
+                <h4>${table}</h4>
+                ${queries.map((query, idx) => `
+                    <div class="query-item">
+                        <code>${query}</code>
+                        <button class="btn-small" onclick="runQuery(\`${query}\`)">Run</button>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    samplesDiv.innerHTML = html;
+}
+
+window.runQuery = async function (query) {
+    document.getElementById('query-input').value = query;
+    await executeQuery();
+};
+
+async function executeQuery() {
+    const queryInput = document.getElementById('query-input');
+    const query = queryInput.value.trim();
+
+    if (!query) {
+        displayError('Please enter a query');
+        return;
+    }
+
+    try {
+        const result = await conn.query(query);
+        displayResults(result, 'Query Results');
+    } catch (error) {
+        displayError(error.message);
+    }
+}
+
+function displayResults(result, title = 'Results') {
+    const resultsDiv = document.getElementById('results-output');
+    const data = result.toArray();
+
+    if (data.length === 0) {
+        resultsDiv.innerHTML = '<div class="info">Query executed successfully. No results returned.</div>';
+        return;
+    }
+
+    const columns = Object.keys(data[0]);
+
+    let html = `<div class="results-title">${title}</div>`;
+    html += '<div class="table-wrapper"><table class="dark-mode">';
+    html += '<thead><tr>' + columns.map(col => `<th>${col}</th>`).join('') + '</tr></thead>';
+    html += '<tbody>';
+
+    data.forEach(row => {
+        html += '<tr>' + columns.map(col => {
+            let value = row[col];
+            if (value === null) value = '<em>null</em>';
+            else if (typeof value === 'object') value = JSON.stringify(value);
+            return `<td>${value}</td>`;
+        }).join('') + '</tr>';
+    });
+
+    html += '</tbody></table></div>';
+    html += `<div class="results-count">${data.length} row(s) returned</div>`;
+
+    resultsDiv.innerHTML = html;
+}
+
+function displayError(message) {
+    const resultsDiv = document.getElementById('results-output');
+    resultsDiv.innerHTML = `<div class="error">Error: ${message}</div>`;
+}
+
+function updateStatus(message) {
+    document.getElementById('status').textContent = message;
+}
+
+document.getElementById('execute-btn').addEventListener('click', executeQuery);
+document.getElementById('clear-btn').addEventListener('click', () => {
+    document.getElementById('query-input').value = '';
+    document.getElementById('results-output').innerHTML = '';
+});
+
+document.getElementById('query-input').addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'Enter') {
+        executeQuery();
+    }
+});
+
+initDuckDB();
