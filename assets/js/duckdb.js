@@ -72,7 +72,7 @@ async function initDuckDB() {
         updateStatus('Loading Parquet files...');
         await loadParquetFiles();
 
-        updateStatus('Ready! ✓');
+        updateStatus('');
         await loadTablesList();
         renderSampleQueries();
 
@@ -159,6 +159,8 @@ function renderSampleQueries() {
 }
 
 window.runQuery = async function (query) {
+    const toggleBtn = document.getElementById("toggleBtn");
+    toggleBtn.click();
     document.getElementById('query-input').value = query;
     await executeQuery();
 };
