@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -67,7 +67,6 @@ header p {
 
 .sidebar h3 {
     font-size: 1.1rem;
-    margin-top: 25px;
     margin-bottom: 10px;
     color: white;
 }
@@ -151,11 +150,11 @@ header p {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    max-width: 810px;
+    max-width: 1010px;
 }
 
 .terminal-section.expanded {
-    max-width: 1320px;
+    max-width: 1520px;
 }
 
 .terminal-header {

@@ -4,9 +4,13 @@ let db = null;
 let conn = null;
 
 const SAMPLE_QUERIES = {
-    'audit': [
-        'SELECT * FROM audit LIMIT 10',
-        `WITH
+    'audit': [{
+        'description': 'Patch and POV count by team and round',
+        'query': 'select count(*), team_name, event_type, round from audit where event_type in (\'pov_submission\', \'patch_submission\') group by team_name, event_type, round',
+    },
+    {
+        'description': 'POV Submissions Details',
+        'query': `WITH
   submission_result AS (
    SELECT
      disposition
@@ -27,12 +31,18 @@ FROM
   (audit
 INNER JOIN submission_result s ON (s.pov_id = audit.event.pov_id))
 WHERE (event_type = 'pov_submission');`
+    }
     ],
     'events': [
-        'SELECT span_id, team_name, attributes.gen_ai.completion FROM events where attributes.gen_ai.completion is not null LIMIT 10',
+        {
+            'description': 'LLM Completions',
+            'query': 'SELECT span_id, team_name, attributes.gen_ai.completion FROM events where attributes.gen_ai.completion is not null LIMIT 10',
+        }
     ],
     'traces': [
-        `SELECT
+        {
+            'description': 'Summary LLM usage statistics',
+            'query': `SELECT
   round
 , team_id
 , attributes.gen_ai.system ai_system
@@ -49,6 +59,7 @@ FROM
   traces
 WHERE (attributes.gen_ai IS NOT NULL)
 GROUP BY round, team_id, attributes.gen_ai.system, attributes.gen_ai.request.model, attributes.gen_ai.reasoning_effort;`
+        }
     ],
 };
 
@@ -144,11 +155,12 @@ function renderSampleQueries() {
     for (const [table, queries] of Object.entries(SAMPLE_QUERIES)) {
         html += `
             <div class="query-group">
-                <h4>${table}</h4>
+                <h3>${table}</h3>
                 ${queries.map((query, idx) => `
+                    <span>${query.description}</span>
                     <div class="query-item">
-                        <code>${query}</code>
-                        <button class="btn-small" onclick="runQuery(\`${query}\`)">Run</button>
+                        <code class="language-sql">${hljs.highlight(query.query, { language: 'javascript' }).value}</code>
+                        <button class="btn-small" onclick="runQuery(\`${query.query}\`)">Run</button>
                     </div>
                 `).join('')}
             </div>
@@ -159,8 +171,8 @@ function renderSampleQueries() {
 }
 
 window.runQuery = async function (query) {
-    const toggleBtn = document.getElementById("toggleBtn");
-    toggleBtn.click();
+    //const toggleBtn = document.getElementById("toggleBtn");
+    //toggleBtn.click();
     document.getElementById('query-input').value = query;
     await executeQuery();
 };
@@ -202,7 +214,7 @@ function displayResults(result, title = 'Results') {
         html += '<tr>' + columns.map(col => {
             let value = row[col];
             if (value === null) value = '<em>null</em>';
-            else if (typeof value === 'object') value = JSON.stringify(value);
+            else if (typeof value === 'object') value = JSON.stringify(value, (_, v) => typeof v === 'bigint' ? v.toString() : v);
             return `<td>${value}</td>`;
         }).join('') + '</tr>';
     });
