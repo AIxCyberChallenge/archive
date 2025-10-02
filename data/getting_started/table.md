@@ -21,15 +21,19 @@ The queryable CRUMBS data set is a collection of parquet files, seperated by typ
 
 <br><br>
 
-# Local Usage
+# Using DuckDB 
 
 The data can also be analyzed locally with a number of different data analysis tools. Here, we provide an example using DuckDB.
 
 <br>
 
-## DuckDB
+## Setting up DuckDB
 
-The CRUMBS parquet files can be downloaded locally by running the following command. You will need approximately 50 GB of disk space to download the entire archive.
+Instructions for setting up DuckDB can be found [here](https://duckdb.org/#quickinstall)
+
+<br>
+
+After setting up DuckDB, the CRUMBS parquet files can be downloaded locally by running the following command. You will need to have the AWS CLI tools installed and approximately 50 GB of disk space to download the entire archive.
 
 <br>
 ```bash
@@ -80,9 +84,9 @@ python create_database.py --database crumbs
 
 <br>
 
-## Querying the data
+# Querying the data
 
-Once the table is created, you can run queries like those below.
+After configuring for either local or AWS Athena based access, you can run SQL queries against the parquet files. 
 
 <br>
 
