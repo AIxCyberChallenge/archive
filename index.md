@@ -132,11 +132,11 @@ title: AIxCC Competition Archive
       </div>
     </div>
     <div class="card card-top">
-      <img src="/assets/img/scoring-pipeline.png" style="width: 25%;" alt="Scoring Pipeline" />
+      <img src="/assets/img/scoring-pipeline.png" style="width: 25%;" alt="Finals Scoring Pipeline" />
       <div class="team-info">
-        <h2>Scoring Pipeline</h2>
+        <h2>Finals Scoring Pipeline</h2>
         <p class="mb-2"></p>
-        <p>>>> <a target="_blank" href="https://github.com/AIxCyberChallenge/scoring-pipeline">Scoring Pipeline</a></p>
+        <p>>>> <a target="_blank" href="https://github.com/AIxCyberChallenge/scoring-pipeline">Audit log analysis and scoring computation system that evaluates CRS performance by processing competition event logs to generate rankings and metrics.</a></p>
       </div>
     </div>
   </div>
