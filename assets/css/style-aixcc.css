@@ -316,8 +316,8 @@ a.card:focus h2 {
 }
 .brand img {
   width: 241px;
-  height: 95px;
-  margin: 30px 12px 0;
+  height: 65px;
+  margin: 20px 12px;
 }
 
 .hfe-nav-menu {
@@ -394,7 +394,7 @@ ease-in;
 }
 
 .hfe-nav-menu a {
-  padding: 12px 24px;
+  padding: 12px 12px;
   text-decoration: none;
 }
 
