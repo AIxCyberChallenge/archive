@@ -121,6 +121,14 @@ title: AIxCC Competition Archive
         <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/competition-api">GitHub</a></p>
       </div>
     </div>
+    <div class="card card-top">
+      <img src="/assets/img/repoviz-card.png" style="width: 25%;" alt="Challenge Repository Visualizer" />
+      <div class="team-info">
+        <h2>Challenge Repository Visualizer</h2>
+        <p class="mb-2">An interactive visualizer for navigating the challenge repository codebases and seeing how vulnerabilities are detected.</p>
+        <p>>>> <a target="_blank" href="/repoviz">Repository Visualizer</a></p>
+      </div>
+    </div>
   </div>
 </main>
 
