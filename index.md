@@ -131,6 +131,14 @@ title: AIxCC Competition Archive
         <p>>>> <a target="_blank" href="/repoviz">Repository Visualizer</a></p>
       </div>
     </div>
+    <div class="card card-top">
+      <img src="/assets/img/scoring-pipeline.png" style="width: 25%;" alt="Scoring Pipeline" />
+      <div class="team-info">
+        <h2>Scoring Pipeline</h2>
+        <p class="mb-2"></p>
+        <p>>>> <a target="_blank" href="https://github.com/AIxCyberChallenge/scoring-pipeline">Scoring Pipeline</a></p>
+      </div>
+    </div>
   </div>
 </main>
 
