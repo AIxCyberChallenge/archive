@@ -61,7 +61,9 @@ title: AIxCC Competition Archive
           <h2>RoboDuck</h2>
           <p>Theori's cyber reasoning system.</p>
           <p><b>Team: Theori</b></p>
-          <p>>>> Semifinal Release & Final Release: <a target="_blank" href="https://theori-io.github.io/aixcc-public/index.html">GitHub</a></p>
+          <p>>>> Theori's official AIxCC Landing Page: <a target="_blank" href="https://theori-io.github.io/aixcc-public/index.html">GitHub</a></p>
+          <p>>>> Semifinal Release: <a target="_blank" href="https://github.com/theori-io/aixcc-asc-archive">GitHub</a></p>
+          <p>>>> Final Release: <a target="_blank" href="https://github.com/theori-io/aixcc-afc-archive">GitHub</a></p>
         </div>
       </div>
       <div class="card">
