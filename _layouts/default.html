@@ -26,23 +26,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-        <header>
-            <div class="container navbar" role="navigation">
-                <a class="brand" href="/">AIxCC Archive</a>
-                <div class="spacer"></div>
-                <button class="menu-toggle" aria-label="Toggle menu" aria-controls="main-menu" aria-expanded="false">
-                    <span class="menu-icon" aria-hidden="true"></span>
-                    Menu
-                </button>
-                <nav id="main-menu" class="menu" aria-label="Main Navigation">
-                      <a href="/">Home</a>
-                      <a href="/api/quickstart/">Getting Started</a>
-                      <a href="/api/">API Explorer</a>
+    <header>
+        <div class="container navbar" role="navigation">
+          <a class="brand" href="/"><img src="/assets/img/new-logo.svg" /></a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-controls="main-menu" aria-expanded="false">
+                <span class="menu-icon" aria-hidden="true"></span>
+                Menu
+            </button>
+            <nav id="main-menu" class="menu" aria-label="Main Navigation">
+              <ul class="hfe-nav-menu">
+                <li class="menu-item-has-children menu-item"> 
+                  <a class="hfe-menu-item" href="#">Open source ˅</a>
+                  <ul class="sub-menu">
+
+                    <li>
+                      <a href="/">AIxCC Repos</a>
+                    </li>
+                    <li>
+                      <a href="/api/quickstart/">Getting started</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="hfe-nav-menu">
+                <li class="menu-item-has-children menu-item">
+                  <a class="hfe-menu-item" href="#">Data Archive ˅</a>
+                  <ul class="sub-menu">
+                    <li>
                       <a href="/data/">Data Explorer</a>
+                    </li>
+                    <li>
+                      <a href="/api/rt/">API Explorer</a>
+                    </li>
+                    <li>
+                      <a href="#">Repo Visualizer</a>
+                    </li>
+                    <li>
                       <a href="/challenges/">Challenges</a>
-                </nav>
-            </div>
-        </header>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+        </div>
+    </header>
     {{ content }}
         <script type="module">
             // D2 renderer: upgrades <pre><code class="language-d2|d2">...</code></pre>
