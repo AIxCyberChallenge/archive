@@ -349,3 +349,8 @@ table.dark-mode caption {
     padding: 10px;
     font-size: 1.1em;
 }
+
+pre {
+    background: #242424;
+    width: 100%;
+}

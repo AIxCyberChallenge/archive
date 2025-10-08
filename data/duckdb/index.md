@@ -9,7 +9,7 @@ title: AIxCC Competition Archive
     <div class="container">
         <div class="sherpa-content" >
             <h2 class="mb-2">Data Explorer</h2>
-            <p class="mb-2">Explore, interact with and reason over the a small subset of the competition results and telemetry using DuckDB-Wasm. For details on interacting with the full datasets, check out the <a href="/data/getting_started/">getting started page</a></p>
+            <p class="mb-2">Explore, interact with and reason over the a small subset of the competition results and telemetry using DuckDB-Wasm. For details on interacting with the full dataset, check out the <a href="/data/getting_started/">getting started page</a></p>
         </div>
 
         <div class="main-content">

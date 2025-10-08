@@ -6,7 +6,16 @@ let conn = null;
 const SAMPLE_QUERIES = {
     'audit': [{
         'description': 'Patch and POV count by team and round',
-        'query': 'select count(*), team_name, event_type, round from audit where event_type in (\'pov_submission\', \'patch_submission\') group by team_name, event_type, round',
+        'query': `select count(*) as c,
+	team_name,
+	event_type,
+	round
+from audit
+where event_type in ('pov_submission', 'patch_submission')
+group by team_name,
+	event_type,
+	round
+order by c desc;`
     },
     {
         'description': 'POV Submissions Details',
@@ -36,10 +45,38 @@ WHERE (event_type = 'pov_submission');`
     'events': [
         {
             'description': 'LLM Completions',
-            'query': 'SELECT span_id, team_name, attributes.gen_ai.completion FROM events where attributes.gen_ai.completion is not null LIMIT 10',
+            'query': `SELECT span_id,
+	team_name,
+	attributes.gen_ai.completion
+FROM events
+where attributes.gen_ai.completion is not null
+LIMIT 10`
+        },
+        {
+            'description': "Common Event Names",
+            'query': `select count(*) as c,
+	team_name,
+	name
+from events
+group by team_name,
+	name
+order by c desc
+limit 100;`
         }
     ],
     'traces': [
+        {
+            'description': 'Common CRS Actions',
+            'query': `select count(*) as c,
+	team_name,
+	attributes.crs.action.name
+from traces
+where attributes.crs.action.name is not null
+group by team_name,
+	attributes.crs.action.name
+order by c desc
+limit 100;`
+        },
         {
             'description': 'Summary LLM usage statistics',
             'query': `SELECT
@@ -159,7 +196,7 @@ function renderSampleQueries() {
                 ${queries.map((query, idx) => `
                     <span>${query.description}</span>
                     <div class="query-item">
-                        <code class="language-sql">${hljs.highlight(query.query, { language: 'javascript' }).value}</code>
+                        <pre><code class="language-sql">${hljs.highlight(query.query, { language: 'javascript' }).value}</code></pre>
                         <button class="btn-small" onclick="runQuery(\`${query.query}\`)">Run</button>
                     </div>
                 `).join('')}
