@@ -435,3 +435,7 @@ ease-out;
 .hfe-nav-menu:hover .hfe-menu-item {
   color: #8897BD;
 }
+.hfe-menu-item img {
+  width: 12px;
+  margin: 0 4px;
+}
