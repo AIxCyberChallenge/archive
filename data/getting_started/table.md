@@ -45,13 +45,23 @@ The [CRUMBS github repository](https://github.com/AIxCyberChallenge/crumbs/) pro
 
 ## Interactive Data Explorer
 
-A small subset of this data is available [here](../duckdb/) for you to write SQL queries against and explore in a web-based DuckDB session. We've provided a number of sample queries to help demonstrate the types of data in CRUMBS and what can be done with it.
+<div style="display: flex;">
+<div>
+<img src="/assets/img/dataexplorer.gif" style="width:300px" />
+</div>
+<div style="margin-left: 20px">
+<p>You can started directly from your browser. A small sample of this data is available <a href="../duckdb/">here</a> for you to explore in a web-based DuckDB session. Write your own SQL queries against approximately 20k of the 400M recrords in CRUMBS. We've also provided a number of sample queries to help demonstrate the data in contained in several of the CRUMBS data tables and what can be done with it.</p>
+</div>
+</div>
 
 <br>
 
 ## Examples
 
+
 The [Competition Data Insights](../notebooks/) page has several example [Marimo notebooks](https://marimo.io/) that walk through stories found in the data and ways you can query and analzye the data using other tools. 
+
+<br>
 
 <br>
 

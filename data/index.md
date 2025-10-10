@@ -8,7 +8,7 @@ description: Interactive access to the AIxCC CRUMBS dataset (coming soon)
   <div class="container">
   <div class="sherpa-content" markdown="1">
   <h2 class="mb-2">Competition Data</h2>
-  <p class="mb-2">Interact with, explore, and reason over the data collected during AIxCC</p>
+  <p class="mb-2">Interact with, explore, and reason over the data collected during AIxCC Finals</p>
   </div>
 
   <div class="card-grid">
