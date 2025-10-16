@@ -25,11 +25,11 @@ The CRS telemetry includes CRS LLM prompt/completions and tool calls.
 
 ## Analzying the Data
 
-The CRUMBS dataset is provided as a collection of Parquet files, organized by data type and partitioned by round and team. This structure enables efficient access and compatibility with a variety of analysis platforms, including DuckDB and AWS Athena.
+The system logs and CRS telemetry in the CRUMBS dataset is provided as a collection of Parquet files, organized by data type and partitioned by round and team. This structure enables efficient access and compatibility with a variety of analysis platforms, including DuckDB and AWS Athena.
 
 <br>
 
-Since the data resides in Amazon S3 in Parquet format, Athena is a natural choice for large-scale analysis. Athena is a serverless, interactive query service that supports standard SQL queries directly over data stored in S3, eliminating the need for data loading or complex infrastructure management.
+Because the data resides in Amazon S3 in Parquet format, Athena is a natural choice for large-scale analysis. Athena is a serverless, interactive query service that supports standard SQL queries directly over data stored in S3, eliminating the need for data loading or complex infrastructure management.
 
 <br>
 
@@ -38,8 +38,8 @@ For researchers who prefer not to use AWS services, a downloadable copy of the d
 <br>
 
 The [CRUMBS github repository](https://github.com/AIxCyberChallenge/crumbs/) provides ready-to-use scripts and examples to help researchers get started with either DuckDB or Athena quickly. 
-* [DuckDB Setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/duckdb) for efficient local querying with an AWS account.
-* [AWS Athena Setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/athena) for provisioning the dataset as a database in your AWS account.
+* [DuckDB Setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/duckdb) for efficient local querying against locally synced CRUMBS data files.
+* [AWS Athena Setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/athena) for provisioning the dataset as an Athena database in your own AWS account.
 
 <br>
 
