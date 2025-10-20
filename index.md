@@ -61,7 +61,9 @@ title: AIxCC Competition Archive
           <h2>RoboDuck</h2>
           <p>Theori's cyber reasoning system.</p>
           <p><b>Team: Theori</b></p>
-          <p>>>> Semifinal Release & Final Release: <a target="_blank" href="https://theori-io.github.io/aixcc-public/index.html">GitHub</a></p>
+          <p>>>> Theori's official AIxCC Landing Page: <a target="_blank" href="https://theori-io.github.io/aixcc-public/index.html">GitHub</a></p>
+          <p>>>> Semifinal Release: <a target="_blank" href="https://github.com/theori-io/aixcc-asc-archive">GitHub</a></p>
+          <p>>>> Final Release: <a target="_blank" href="https://github.com/theori-io/aixcc-afc-archive">GitHub</a></p>
         </div>
       </div>
       <div class="card">
@@ -119,6 +121,14 @@ title: AIxCC Competition Archive
         <h2>Competition API</h2>
         <p class="mb-2">This is the implementation of the Competition API that was used for the Final Round.</p>
         <p class="mb-2">>>> Repo: <a target="_blank" href="https://github.com/AIxCyberChallenge/competition-api">GitHub</a></p>
+      </div>
+    </div>
+    <div class="card card-top">
+      <img src="/assets/img/repoviz-card.png" style="width: 25%;" alt="Challenge Repository Visualizer" />
+      <div class="team-info">
+        <h2>Challenge Repository Visualizer</h2>
+        <p class="mb-2">An interactive visualizer for navigating the challenge repository codebases and seeing how vulnerabilities are detected.</p>
+        <p>>>> <a target="_blank" href="/repoviz">Repository Visualizer</a></p>
       </div>
     </div>
   </div>
