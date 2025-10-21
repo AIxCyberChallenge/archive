@@ -1,7 +1,7 @@
 function format_examples(data) {
     // `data` is the original data object for the row
     let formatted = '<dl>';
-    let fieldName = data.name.substring(1);
+    let fieldName = data.field.substring(1);
     fieldName = fieldName == '' ? '*' : fieldName;
     formatted += '<dt>Examples of <code>SELECT ' + fieldName + ' FROM ' + data.schema + ' LIMIT ' + data.examples.length + ';</code>:</dt>';
     data.examples.forEach((example, i) => {
@@ -17,11 +17,11 @@ let table = new DataTable('#schema_datatable', {
     columns: [
         { data: 'schema' },
         { 
-            data: 'name', 
+            data: 'field', 
             className: 'aixcc-filter',
             render: function (data, type, row, meta) {
                 if (type === 'display') {
-                    if (row.type === 'object' || row.type === 'array') {
+                    if (row.type === 'object' || row.type === 'array' || row.type === '') {
                         return row.childrenExpanded ? '<span class="expandable">▼ </span>' + data : '<span class="expandable">▶ </span>' + data;
                     }
                     return '&nbsp;&nbsp;&nbsp;&nbsp;' + data;
@@ -66,7 +66,7 @@ table.on('click', 'tbody span.expandable', function (e) {
     let row = table.row(tr);
 
     row.data().childrenExpanded = row.data().childrenExpanded === undefined || !row.data().childrenExpanded;
-    let rowName = row.data().name;
+    let rowName = row.data().field;
     let rowDepth = rowName.split('.').length;
 
     let datas = table.rows().data();
@@ -79,18 +79,18 @@ table.on('click', 'tbody span.expandable', function (e) {
             continue;
         }
         if (!row.data().childrenExpanded) {
-            if (data.name.startsWith(rowName + '.') && data.name !== row.data().name) {
+            if (data.field.startsWith(rowName + '.') && data.field !== row.data().field) {
                 data.childrenExpanded = false;
                 data.expanded = false;
             }
         } else {
-            if (data.name.startsWith(rowName + '.')) {
-                data.expanded = data.name.split('.').length == rowDepth + 1;
+            if (data.field.startsWith(rowName + '.')) {
+                data.expanded = data.field.split('.').length == rowDepth + 1;
             }
         }
     }
     table.search.fixed('range', function (searchStr, data, index) {
-        return data.expanded || data.name == "";
+        return data.expanded || data.field == "";
     });
     table.rows().invalidate();
     table.draw(false);
@@ -113,7 +113,7 @@ table.on('click', 'tbody td', function (e) {
 
 $(document).ready(function() {
     table.search.fixed('range', function (searchStr, data, index) {
-        return data.name == "";
+        return data.field == "";
     });
     table.draw();
 });
