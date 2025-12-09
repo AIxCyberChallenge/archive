@@ -67,7 +67,8 @@ jobs:
 
         # Take a screenshot optimized for GitHub display
         npx playwright screenshot \
-          --wait-for-selector="body" \
+          --wait-for-selector="#redoc-container .api-info, #redoc-container h1" \
+          --wait-for-timeout=15000 \
           --viewport-size=1280,2000 \
           http://localhost:4000/api/crs \
           screenshot-crs-api-explorer.png
