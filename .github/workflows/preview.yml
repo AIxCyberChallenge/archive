@@ -56,40 +56,56 @@ jobs:
         bundle exec jekyll serve --host 0.0.0.0 --port 4000 --detach
         sleep 5  # Wait for server to start
         
-    - name: Take screenshot
+    - name: Take screenshots
       run: |
         # Take a screenshot optimized for GitHub display
         npx playwright screenshot \
           --wait-for-selector="body" \
           --viewport-size=1280,720 \
           http://localhost:4000 \
-          screenshot.png
+          screenshot-main-page.png
+
+        # Take a screenshot optimized for GitHub display
+        npx playwright screenshot \
+          --wait-for-selector="#redoc-container .api-info, #redoc-container h1" \
+          --wait-for-timeout=15000 \
+          --viewport-size=1280,2000 \
+          http://localhost:4000/api/crs \
+          screenshot-crs-api-explorer.png
           
         # Optimize the image for GitHub display (max 10MB, good quality)
         if command -v convert >/dev/null 2>&1; then
-          convert screenshot.png -quality 85 -resize 1200x800\> screenshot_optimized.png
-          mv screenshot_optimized.png screenshot.png
+          convert screenshot-main-page.png -quality 85 -resize 1200x800\> screenshot_optimized.png
+          mv screenshot_optimized.png screenshot-main-page.png
+
+          convert screenshot-crs-api-explorer.png -quality 85 -resize 1200x1875\> screenshot_optimized.png
+          mv screenshot_optimized.png screenshot-crs-api-explorer.png
         fi
         
-    - name: Upload screenshot to repository
+    - name: Upload screenshots to repository
       run: |
         # Create a unique filename for the screenshot
-        SCREENSHOT_NAME="preview-${{ github.event.pull_request.number }}-$(date +%s).png"
+        SCREENSHOT_NAME_01="preview01-${{ github.event.pull_request.number }}-$(date +%s).png"
+        SCREENSHOT_NAME_02="preview02-${{ github.event.pull_request.number }}-$(date +%s).png"
         
         # Copy screenshot to a directory that will be committed
         mkdir -p .github/previews
-        cp screenshot.png ".github/previews/$SCREENSHOT_NAME"
+        cp screenshot-main-page.png ".github/previews/$SCREENSHOT_NAME_01"
+        cp screenshot-crs-api-explorer.png ".github/previews/$SCREENSHOT_NAME_02"
         
         # Add and commit the screenshot
-        git add ".github/previews/$SCREENSHOT_NAME"
+        git add ".github/previews/$SCREENSHOT_NAME_01"
+        git add ".github/previews/$SCREENSHOT_NAME_02"
         git commit -m "Add preview screenshot for PR #${{ github.event.pull_request.number }}"
         git push origin HEAD:${{ github.head_ref }}
         
         # Store the screenshot path for the next step
-        echo "SCREENSHOT_PATH=.github/previews/$SCREENSHOT_NAME" >> $GITHUB_ENV
-        echo "SCREENSHOT_NAME=$SCREENSHOT_NAME" >> $GITHUB_ENV
+        echo "SCREENSHOT_PATH_01=.github/previews/$SCREENSHOT_NAME_01" >> $GITHUB_ENV
+        echo "SCREENSHOT_NAME_01=$SCREENSHOT_NAME_01" >> $GITHUB_ENV
+        echo "SCREENSHOT_PATH_02=.github/previews/$SCREENSHOT_NAME_02" >> $GITHUB_ENV
+        echo "SCREENSHOT_NAME_02=$SCREENSHOT_NAME_02" >> $GITHUB_ENV
         
-    - name: Update PR description with screenshot
+    - name: Update PR description with screenshots
       run: |
         # Get current PR description
         CURRENT_BODY=$(curl -s \
@@ -99,10 +115,11 @@ jobs:
           | jq -r '.body // ""')
         
         # Create the image URL
-        IMAGE_URL="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/$SCREENSHOT_PATH"
+        IMAGE_URL_01="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/$SCREENSHOT_PATH_01"
+        IMAGE_URL_02="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.head_ref }}/$SCREENSHOT_PATH_02"
         
         # Create preview section markdown
-        PREVIEW_SECTION="## 📸 Preview Screenshot"$'\n\n'"![Website Preview]($IMAGE_URL)"$'\n\n'"---"
+        PREVIEW_SECTION="## 📸 Preview Screenshot"$'\n\n'"![Website Preview]($IMAGE_URL_01)"$'\n\n'"![Website Preview]($IMAGE_URL_02)"$'\n\n'"---"
         
         # Check if preview section already exists and replace it, otherwise prepend
         if echo "$CURRENT_BODY" | grep -q "## 📸 Preview Screenshot"; then

@@ -67,6 +67,36 @@
     #redoc-container table td {
       border-color: #e5e7eb !important;
     }
+    /* Fix Authorization and Response Schema sections */
+    #redoc-container h1,
+    #redoc-container h2,
+    #redoc-container h3,
+    #redoc-container h4,
+    #redoc-container h5,
+    #redoc-container h6 { color: #0b0d17 !important; }
+    /* Fix labels and section headers */
+    #redoc-container [class*="section" i],
+    #redoc-container [class*="header" i],
+    #redoc-container [class*="title" i],
+    #redoc-container [class*="label" i] { color: #0b0d17 !important; }
+    /* Fix parameter sections and descriptions */
+    #redoc-container [class*="parameter" i],
+    #redoc-container [class*="param" i],
+    #redoc-container [class*="property" i],
+    #redoc-container [class*="field" i] { color: #0b0d17 !important; }
+    /* Fix response and schema sections */
+    #redoc-container [class*="response" i],
+    #redoc-container [class*="schema" i],
+    #redoc-container [class*="model" i] { color: #0b0d17 !important; }
+    /* Fix expandable content */
+    #redoc-container [class*="expandable" i],
+    #redoc-container [class*="collapsible" i],
+    #redoc-container [class*="toggle" i] { color: #0b0d17 !important; }
+    /* Fix description text */
+    #redoc-container [class*="description" i],
+    #redoc-container [class*="text" i],
+    #redoc-container p,
+    #redoc-container span { color: #0b0d17 !important; }
   }
   @media (prefers-color-scheme: dark) {
     /* Subtle borders for code blocks in dark mode without changing theme colors */
@@ -74,6 +104,31 @@
       border: 1px solid #222 !important;
       border-radius: 10px !important;
     }
+    /* Ensure good contrast in dark mode */
+    #redoc-container h1,
+    #redoc-container h2,
+    #redoc-container h3,
+    #redoc-container h4,
+    #redoc-container h5,
+    #redoc-container h6 { color: #e6e6e6 !important; }
+    #redoc-container [class*="section" i],
+    #redoc-container [class*="header" i],
+    #redoc-container [class*="title" i],
+    #redoc-container [class*="label" i],
+    #redoc-container [class*="parameter" i],
+    #redoc-container [class*="param" i],
+    #redoc-container [class*="property" i],
+    #redoc-container [class*="field" i],
+    #redoc-container [class*="response" i],
+    #redoc-container [class*="schema" i],
+    #redoc-container [class*="model" i],
+    #redoc-container [class*="expandable" i],
+    #redoc-container [class*="collapsible" i],
+    #redoc-container [class*="toggle" i],
+    #redoc-container [class*="description" i],
+    #redoc-container [class*="text" i],
+    #redoc-container p,
+    #redoc-container span { color: #e6e6e6 !important; }
   }
   @media (max-width: 768px) { #redoc-container { padding: 8px; } }
   </style>
