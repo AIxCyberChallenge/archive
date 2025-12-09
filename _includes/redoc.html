@@ -13,123 +13,84 @@
     background: #07081a;
     color: #ddd;
   }
+  
+  /* Light mode adjustments - only when explicitly in light mode */
   @media (prefers-color-scheme: light) {
     #redoc-container {
       background: #ffffff;
       color: #222;
       border-color: #ddd;
     }
-  /* Ensure right panel uses dark text in light mode */
-  #redoc-container .right-panel,
-  #redoc-container .api-content,
-  #redoc-container .right-panel *,
-  #redoc-container .api-content * { color: #0b0d17 !important; }
-  /* Common controls and labels */
-  #redoc-container button,
-  #redoc-container [role="button"],
-  #redoc-container label,
-  #redoc-container .content-type,
-  #redoc-container .content-type *,
-  #redoc-container [class*="content-type" i],
-  #redoc-container [class*="contenttype" i],
-  #redoc-container [class*="mime" i],
-  #redoc-container [class*="mime-type" i] { color: #0b0d17 !important; }
-  /* Native controls text color */
-  #redoc-container select,
-  #redoc-container input,
-  #redoc-container textarea { color: #0b0d17 !important; -webkit-text-fill-color: #0b0d17; }
-  #redoc-container select option { color: #0b0d17 !important; background: #ffffff !important; }
-  /* Endpoint URL/link coloring */
-  #redoc-container a { color: #0891b2 !important; }
-  #redoc-container [class*="operation" i] [class*="endpoint" i],
-  #redoc-container [class*="operation" i] a { color: #0b0d17 !important; }
-    /* Make code boxes and samples stand out in light mode */
+    /* Only override text colors in light mode for better contrast */
     #redoc-container pre,
-  #redoc-container code,
-  #redoc-container .right-panel pre,
-  #redoc-container .right-panel code {
-      background-color: #f3f4f6 !important; /* gray-100 */
+    #redoc-container code {
+      background-color: #f3f4f6 !important;
       color: #0b0d17 !important;
     }
-  /* Ensure nested token spans inside code adopt dark text */
-  #redoc-container pre *,
-  #redoc-container code *,
-  #redoc-container .right-panel pre *,
-  #redoc-container .right-panel code * { color: #0b0d17 !important; }
     #redoc-container pre {
-      border: 1px solid #e5e7eb !important; /* gray-200 */
+      border: 1px solid #e5e7eb !important;
       border-radius: 10px !important;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
-    #redoc-container pre code { font-size: 0.95rem; }
-    /* Tables and dividers with better contrast in light mode */
-    #redoc-container table th,
-    #redoc-container table td {
-      border-color: #e5e7eb !important;
-    }
-    /* Fix Authorization and Response Schema sections */
-    #redoc-container h1,
-    #redoc-container h2,
-    #redoc-container h3,
-    #redoc-container h4,
-    #redoc-container h5,
-    #redoc-container h6 { color: #0b0d17 !important; }
-    /* Fix labels and section headers */
-    #redoc-container [class*="section" i],
-    #redoc-container [class*="header" i],
-    #redoc-container [class*="title" i],
-    #redoc-container [class*="label" i] { color: #0b0d17 !important; }
-    /* Fix parameter sections and descriptions */
-    #redoc-container [class*="parameter" i],
-    #redoc-container [class*="param" i],
-    #redoc-container [class*="property" i],
-    #redoc-container [class*="field" i] { color: #0b0d17 !important; }
-    /* Fix response and schema sections */
-    #redoc-container [class*="response" i],
-    #redoc-container [class*="schema" i],
-    #redoc-container [class*="model" i] { color: #0b0d17 !important; }
-    /* Fix expandable content */
-    #redoc-container [class*="expandable" i],
-    #redoc-container [class*="collapsible" i],
-    #redoc-container [class*="toggle" i] { color: #0b0d17 !important; }
-    /* Fix description text */
-    #redoc-container [class*="description" i],
-    #redoc-container [class*="text" i],
-    #redoc-container p,
-    #redoc-container span { color: #0b0d17 !important; }
   }
+  
+  /* Dark mode specific fixes - ensure good contrast */
   @media (prefers-color-scheme: dark) {
-    /* Subtle borders for code blocks in dark mode without changing theme colors */
-    #redoc-container pre {
-      border: 1px solid #222 !important;
-      border-radius: 10px !important;
+    /* Fix specific readability issues in dark mode */
+    #redoc-container {
+      background: #07081a !important;
+      color: #e6e6e6 !important;
     }
-    /* Ensure good contrast in dark mode */
+    
+    /* Ensure section headers are visible */
     #redoc-container h1,
     #redoc-container h2,
     #redoc-container h3,
     #redoc-container h4,
     #redoc-container h5,
-    #redoc-container h6 { color: #e6e6e6 !important; }
-    #redoc-container [class*="section" i],
-    #redoc-container [class*="header" i],
-    #redoc-container [class*="title" i],
-    #redoc-container [class*="label" i],
-    #redoc-container [class*="parameter" i],
-    #redoc-container [class*="param" i],
-    #redoc-container [class*="property" i],
-    #redoc-container [class*="field" i],
-    #redoc-container [class*="response" i],
-    #redoc-container [class*="schema" i],
-    #redoc-container [class*="model" i],
-    #redoc-container [class*="expandable" i],
-    #redoc-container [class*="collapsible" i],
-    #redoc-container [class*="toggle" i],
+    #redoc-container h6 {
+      color: #e6e6e6 !important;
+    }
+    
+    /* Fix Authorization and other section labels */
+    #redoc-container [class*="security" i],
+    #redoc-container [class*="auth" i],
+    #redoc-container [class*="section" i] h3,
+    #redoc-container [class*="section" i] h4,
+    #redoc-container [class*="section" i] h5 {
+      color: #e6e6e6 !important;
+    }
+    
+    /* Fix parameter names and property labels */
+    #redoc-container [class*="property" i] > span:first-child,
+    #redoc-container [class*="field" i] > span:first-child,
+    #redoc-container [class*="param" i] > span:first-child {
+      color: #06b6d4 !important;
+    }
+    
+    /* Fix description text in expandable sections */
     #redoc-container [class*="description" i],
-    #redoc-container [class*="text" i],
-    #redoc-container p,
-    #redoc-container span { color: #e6e6e6 !important; }
+    #redoc-container [class*="markdown" i] p,
+    #redoc-container li {
+      color: #b3b3b3 !important;
+    }
+    
+    /* Code blocks with better contrast */
+    #redoc-container pre,
+    #redoc-container code {
+      background-color: #0d0e23 !important;
+      color: #e6e6e6 !important;
+      border: 1px solid #333 !important;
+      border-radius: 10px !important;
+    }
+    
+    /* Response examples and JSON */
+    #redoc-container [class*="response" i] pre,
+    #redoc-container [class*="example" i] pre {
+      background-color: #0d0e23 !important;
+      border: 1px solid #444 !important;
+    }
   }
+  
   @media (max-width: 768px) { #redoc-container { padding: 8px; } }
   </style>
 <script>
