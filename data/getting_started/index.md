@@ -6,7 +6,7 @@ permalink: /data/getting_started/
 
 <link rel="stylesheet" href="/assets/css/crumbs-getting-started.css">
 
-<main>
+<main class="crumbs-getting-started">
     <div class="container" >
         <div class="">
             {% capture my_include %}{% include_relative table.md %}{% endcapture %}

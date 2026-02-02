@@ -7,7 +7,7 @@ permalink: /data/schemas/
 <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/rose-pine-dawn.min.css">
 
-<link rel="stylesheet" href="/assets/css/crumbs-getting-started.css">
+<link rel="stylesheet" href="/assets/css/crumbs-schema.css">
 
 <main>
   <div class="container">

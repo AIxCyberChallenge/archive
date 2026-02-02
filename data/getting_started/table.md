@@ -1,74 +1,113 @@
 # Getting Started with CRUMBS
 
-<br>
-
-The data collected during AIxCC Finals competition and the exhibtion rounds has been processed and formed into a dataset we call CRUMBS. 
-All CRUMBS data is open to the public via the `s3://aicyberchallenge-crumbs` AWS S3 bucket. 
-The data is a combination of the competition audit log, competitor Cyber Reasoning System (CRS) telemetry, competition score evaluations, competition task objects and CRS submission artifacts (POVs, Patches). 
-In total, there are over 400M records in CRUMBS.
-The CRS telemetry includes CRS LLM prompt/completions and tool calls. 
-
-<br>
-<br>
-
-
-| Name    | S3 Location                     | Description                      |
-|---------|---------------------------------|----------------------------------|
-| parquet | `s3://aicyberchallenge-crumbs/parquet/`     | CRUMBS data stored as parquet files |
-| jsonl   | `s3://aicyberchallenge-crumbs/jsonl/`       | CRUMBS data stored as new-line delimted json |
-| objects | `s3://aicyberchallenge-crumbs/objects/`     | Competition tasking objects and CRS submission artifacts (POVs, Patches) |
-| schemas | `s3://aicyberchallenge-crumbs/schemas/`     | JSON Schemas for the data types in CRUMBS |
-| samples | `s3://aicyberchallenge-crumbs/samples/`     | A small subset of the CRUMBS data in both jsonl and parquet formats |
-
+CRUMBS is a large, public dataset from the AIxCC Finals that captures Cyber Reasoning System behavior, competition telemetry, and submission artifacts at scale. This page is designed for analysts and researchers who want to explore the data, understand how it is organized, and choose the best way to work with it—whether directly in the browser, locally with DuckDB, or at scale using AWS Athena. If you are new to CRUMBS, start with the Interactive Data Explorer below; for deeper analysis, follow the links to documentation and example notebooks.
 
 <br>
 
-## Analzying the Data
+CRUMBS combines multiple data sources collected during the AIxCC Finals competition and exhibition rounds, including competition audit logs, Cyber Reasoning System (CRS) telemetry, competition score evaluations, competition task objects, and CRS submission artifacts (POVs, patches).
 
-The system logs and CRS telemetry in the CRUMBS dataset is provided as a collection of Parquet files, organized by data type and partitioned by round and team. This structure enables efficient access and compatibility with a variety of analysis platforms, including DuckDB and AWS Athena.
-
-<br>
-
-Because the data resides in Amazon S3 in Parquet format, Athena is a natural choice for large-scale analysis. Athena is a serverless, interactive query service that supports standard SQL queries directly over data stored in S3, eliminating the need for data loading or complex infrastructure management.
+In total, the dataset contains **400M+ records**, including CRS LLM prompts, completions, and tool calls.
 
 <br>
 
-For researchers who prefer not to use AWS services, a downloadable copy of the dataset is also available for local analysis.
+---
 
-<br>
+## Fastest Way to Explore (No Setup Required)
 
-The [CRUMBS github repository](https://github.com/AIxCyberChallenge/crumbs/) provides ready-to-use scripts and examples to help researchers get started with either DuckDB or Athena quickly. 
-* [DuckDB Setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/duckdb) for efficient local querying against locally synced CRUMBS data files.
-* [AWS Athena Setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/athena) for provisioning the dataset as an Athena database in your own AWS account.
+### 🔍 Interactive Data Explorer (Recommended)
 
-<br>
+If you want to quickly understand what’s in CRUMBS, start here.
 
-## Interactive Data Explorer
+You can explore a representative sample of the dataset directly in your browser using a **web-based DuckDB session**. No AWS account or local setup is required.
 
-<div style="display: flex;">
-<div>
-<img src="/assets/img/dataexplorer.gif" style="width:300px" />
-</div>
-<div style="margin-left: 20px">
-<p>You can started directly from your browser. A small sample of this data is available <a href="../duckdb/">here</a> for you to explore in a web-based DuckDB session. Write your own SQL queries against approximately 20k of the 400M recrords in CRUMBS. We've also provided a number of sample queries to help demonstrate the data in contained in several of the CRUMBS data tables and what can be done with it.</p>
-</div>
+<div style="display: flex; align-items: center;">
+  <div>
+    <img src="/assets/img/dataexplorer.gif" style="width:300px" />
+  </div>
+  <div style="margin-left: 20px">
+    <p>
+      Explore approximately <strong>20k rows</strong> from the CRUMBS dataset using SQL.
+      Sample queries are provided to demonstrate the structure of key tables and the types of analysis you can perform.
+    </p>
+    <p>
+      👉 <a href="../duckdb/">Open the Interactive Data Explorer</a>
+    </p>
+  </div>
 </div>
 
 <br>
 
-## Examples
+---
 
+## Accessing the Full Dataset
 
-The [Competition Data Insights](../notebooks/) page has several example [Marimo notebooks](https://marimo.io/) that walk through stories found in the data and ways you can query and analzye the data using other tools. 
+Once you’re familiar with the data structure, you can move beyond the sample and work with the full CRUMBS dataset. Data is stored in Amazon S3 and can be accessed in multiple ways depending on your analysis needs.
 
-<br>
+### 🖥 Local Analysis with DuckDB
 
-<br>
+For fast local exploration, you can download the CRUMBS Parquet files and query them locally using DuckDB.
+
+- SQL-based analysis
+- No cloud services required after download
+- Ideal for exploratory analysis and prototyping
+
+📘 Setup instructions and helper scripts are available in the  
+[CRUMBS GitHub repository – DuckDB setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/duckdb)
+
+---
+
+### ☁️ Cloud-Scale Analysis with AWS Athena
+
+For large-scale analysis, CRUMBS can be queried directly in S3 using AWS Athena.
+
+- Serverless SQL queries
+- No local storage required
+- Scales to the full dataset
+
+📘 Athena setup scripts and documentation are available in the  
+[CRUMBS GitHub repository – Athena setup](https://github.com/AIxCyberChallenge/crumbs/tree/main/athena)
+
+💡 As a reference, running all example notebooks typically costs **less than $1** in Athena query charges.
+
+---
+
+## Data Organization
+
+All CRUMBS data is publicly available via the `s3://aicyberchallenge-crumbs` AWS S3 bucket and organized by format and purpose. Understanding this layout will help you choose the right access method and write more efficient queries.
+
+| Name    | S3 Location | Description |
+|---------|-------------|-------------|
+| parquet | `s3://aicyberchallenge-crumbs/parquet/` | Primary analytics format for DuckDB and Athena |
+| jsonl   | `s3://aicyberchallenge-crumbs/jsonl/`   | Raw newline-delimited event records |
+| objects | `s3://aicyberchallenge-crumbs/objects/` | Competition artifacts (POVs, patches, code) |
+| schemas | `s3://aicyberchallenge-crumbs/schemas/` | Schema definitions for CRUMBS data types |
+| samples | `s3://aicyberchallenge-crumbs/samples/` | Small subsets for quick testing |
+
+📘 Detailed schema documentation is available in the  
+[CRUMBS GitHub repository](https://github.com/AIxCyberChallenge/crumbs/).
+
+---
+
+## Example Analyses & Marimo Notebooks
+
+We provide a growing collection of **Marimo notebooks** that demonstrate how to access, analyze, and derive insights from the CRUMBS dataset.
+
+These notebooks include:
+- End-to-end data access examples
+- CRS behavior and performance analysis
+- Narrative-driven explorations of competition results
+
+If you’re new, we recommend starting with the published notebooks before running analyses locally.
+
+- 📊 <a href="../notebooks/">View published notebooks</a>
+- 📓 <a href="https://github.com/AIxCyberChallenge/crumbs/tree/main/notebooks">Browse notebooks on GitHub</a>
+
+Marimo is a modern, script-first Python notebook framework designed for reproducible, interactive data exploration.
+
+---
 
 ## Contribute
 
+The [CRUMBS GitHub repository](https://github.com/AIxCyberChallenge/crumbs/) exists to make AIxCC Finals data widely accessible to the research community.
 
-The [CRUMBS github repository](https://github.com/AIxCyberChallenge/crumbs/) exists to help make the AIxCC Finals data widely accesible to the community.
-It offers documentation, scripts and a place to collaborate with other researchers and share insights for the advancement of CRS technology.
-We want to foster collaboration to advance Cyber Reasoning Systems (CRS) techonology to accelerate the distribution of AIxCC-developed technology. 
-Contributions are encouraged. In particular, we welcome pull requests that add Marimo notebooks showcasing analyses, derived insights, or compelling narratives built on the CRUMBS dataset.
+We welcome contributions, especially new Marimo notebooks, derived analyses, and documentation improvements. If you create a notebook that tells a compelling story from the CRUMBS dataset, we encourage you to submit a pull request.
