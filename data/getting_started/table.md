@@ -83,6 +83,11 @@ All CRUMBS data is publicly available via the `s3://aicyberchallenge-crumbs` AWS
 | schemas | `s3://aicyberchallenge-crumbs/schemas/` | Schema definitions for CRUMBS data types |
 | samples | `s3://aicyberchallenge-crumbs/samples/` | Small subsets for quick testing |
 
+> **Note:** The data under `jsonl` and `parquet` represent the **same underlying records**, provided in different formats for different use cases. Each dataset has a one-to-one correspondence across formats (e.g., a table available in Parquet is also available in JSONL).
+
+🔍 For an interactive, analyst-friendly view of the schemas, use the **CRUMBS Schema Viewer**. The viewer lets you browse tables and fields, inspect field types and required/optional status, and copy example SQL or sample records for exploration.  
+➡️ [**CRUMBS Schema Viewer**](/data/schemas/)
+
 📘 Detailed schema documentation is available in the  
 [CRUMBS GitHub repository](https://github.com/AIxCyberChallenge/crumbs/).
 
