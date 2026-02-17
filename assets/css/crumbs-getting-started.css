@@ -1,0 +1,200 @@
+main.crumbs-getting-started table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  font-family: Arial, sans-serif;
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+main.crumbs-getting-started table thead {
+  background-color: #2a2a2a;
+}
+
+main.crumbs-getting-started table th,
+main.crumbs-getting-started table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+main.crumbs-getting-started table tbody tr:hover {
+  background-color: #2d2d2d;
+  transition: background-color 0.3s ease;
+}
+
+main.crumbs-getting-started table th {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+main.crumbs-getting-started table caption {
+  caption-side: top;
+  color: #aaaaaa;
+  padding: 10px;
+  font-size: 1.1em;
+}
+
+main.crumbs-getting-started ul {
+  margin-left: 20px;
+}
+
+main.crumbs-getting-started .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 18px 46px 18px;
+}
+
+main.crumbs-getting-started .container > div {
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  padding: 22px 22px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+main.crumbs-getting-started h1,
+main.crumbs-getting-started h2,
+main.crumbs-getting-started h3 {
+  color: #fff;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+main.crumbs-getting-started h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-top: 0;
+}
+
+main.crumbs-getting-started h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-top: 26px;
+}
+
+main.crumbs-getting-started h3 {
+  font-size: 1.1rem;
+  font-weight: 750;
+  margin-top: 18px;
+}
+
+main.crumbs-getting-started p,
+main.crumbs-getting-started li {
+  color: rgba(255, 255, 255, 0.90);
+  line-height: 1.6;
+}
+
+main.crumbs-getting-started p {
+  margin: 10px 0;
+}
+
+main.crumbs-getting-started hr {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: 22px 0;
+}
+
+main.crumbs-getting-started a {
+  color: #b9d7ff;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+main.crumbs-getting-started a:hover {
+  color: #e3f0ff;
+}
+
+main.crumbs-getting-started code {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2px 6px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+main.crumbs-getting-started pre {
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  padding: 14px 16px;
+  overflow-x: auto;
+}
+
+main.crumbs-getting-started pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  white-space: pre;
+}
+
+main.crumbs-getting-started img {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  max-width: 100%;
+  height: auto;
+}
+
+main.crumbs-getting-started table {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+main.crumbs-getting-started table thead {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+main.crumbs-getting-started table th,
+main.crumbs-getting-started table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+main.crumbs-getting-started table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 720px) {
+  main.crumbs-getting-started table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  main.crumbs-getting-started h1 {
+    font-size: 1.85rem;
+  }
+
+  main.crumbs-getting-started .container > div {
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  main.crumbs-getting-started div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  main.crumbs-getting-started div[style*="display: flex"] > div {
+    margin-left: 0 !important;
+    margin-top: 12px;
+  }
+
+  main.crumbs-getting-started div[style*="display: flex"] img {
+    width: 100% !important;
+    max-width: 520px;
+  }
+}
+
+.schema-help {
+  margin: 10px 0 16px 0;
+  max-width: 1100px;
+  opacity: 0.9;
+}
