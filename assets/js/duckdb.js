@@ -124,6 +124,13 @@ async function initDuckDB() {
         await loadTablesList();
         renderSampleQueries();
 
+        // NEW: accordion + filters
+        initLeftAccordion();
+        initLeftFilters();
+
+        // Initialize results header meta (safe no-ops if header isn't present yet)
+        updateResultsMeta({ source: '—', rows: '—', setTime: false });
+
     } catch (error) {
         console.error('Error initializing DuckDB:', error);
         updateStatus('Error: ' + error.message);
@@ -138,7 +145,6 @@ async function loadParquetFiles() {
     ];
 
     for (const table of tables) {
-
         try {
             const response = await fetch(`/assets/data/${table}.parquet`);
             const arrayBuffer = await response.arrayBuffer();
@@ -176,14 +182,90 @@ async function loadTablesList() {
     }
 }
 
+/**
+ * Updates the Results header bar meta fields.
+ * Requires these IDs in the DOM:
+ * - results-source
+ * - results-last-run
+ * - results-rows
+ */
+function updateResultsMeta({ source = '—', rows = '—', setTime = true } = {}) {
+    const sourceEl = document.getElementById('results-source');
+    const lastRunEl = document.getElementById('results-last-run');
+    const rowsEl = document.getElementById('results-rows');
+
+    if (sourceEl) sourceEl.textContent = source;
+
+    if (lastRunEl && setTime) {
+        const now = new Date();
+        lastRunEl.textContent = now.toLocaleTimeString();
+    }
+
+    if (rowsEl) rowsEl.textContent = String(rows);
+}
+
 window.describeTable = async function (tableName) {
     try {
         const result = await conn.query(`DESCRIBE ${tableName}`);
-        displayResults(result, `Schema for ${tableName}`);
+        displayResults(result, { source: `Schema (${tableName})` });
     } catch (error) {
         displayError(error.message);
     }
 };
+
+/* -----------------------------
+   Accordion + Filters (NEW)
+------------------------------ */
+function initLeftAccordion() {
+    const sections = document.querySelectorAll('.acc-section');
+    if (!sections.length) return;
+
+    sections.forEach(section => {
+        const header = section.querySelector('.acc-header');
+        const panel = section.querySelector('.acc-panel');
+        if (!header || !panel) return;
+
+        header.addEventListener('click', () => {
+            const isOpen = section.classList.toggle('is-open');
+            header.setAttribute('aria-expanded', String(isOpen));
+        });
+    });
+}
+
+function initLeftFilters() {
+    const tablesFilter = document.getElementById('tables-filter');
+    const queriesFilter = document.getElementById('queries-filter');
+
+    if (tablesFilter) {
+        tablesFilter.addEventListener('input', () => {
+            const q = tablesFilter.value.trim().toLowerCase();
+            document.querySelectorAll('#tables-list .table-item').forEach(el => {
+                const text = el.textContent.toLowerCase();
+                el.style.display = text.includes(q) ? '' : 'none';
+            });
+        });
+    }
+
+    if (queriesFilter) {
+        queriesFilter.addEventListener('input', () => {
+            const q = queriesFilter.value.trim().toLowerCase();
+
+            document.querySelectorAll('#sample-queries .query-group').forEach(group => {
+                let anyVisible = false;
+
+                group.querySelectorAll('.sample-query').forEach(sample => {
+                    const text = sample.textContent.toLowerCase();
+                    const visible = text.includes(q);
+                    sample.style.display = visible ? '' : 'none';
+                    if (visible) anyVisible = true;
+                });
+
+                group.style.display = anyVisible ? '' : 'none';
+            });
+        });
+    }
+}
+/* ----------------------------- */
 
 function renderSampleQueries() {
     const samplesDiv = document.getElementById('sample-queries');
@@ -193,11 +275,13 @@ function renderSampleQueries() {
         html += `
             <div class="query-group">
                 <h3>${table}</h3>
-                ${queries.map((query, idx) => `
-                    <span>${query.description}</span>
-                    <div class="query-item">
-                        <pre><code class="language-sql">${hljs.highlight(query.query, { language: 'javascript' }).value}</code></pre>
-                        <button class="btn-small" onclick="runQuery(\`${query.query}\`)">Run</button>
+                ${queries.map((query) => `
+                    <div class="sample-query">
+                        <div class="sample-query-title">${query.description}</div>
+                        <div class="query-item">
+                            <pre><code class="language-sql">${hljs.highlight(query.query, { language: 'sql' }).value}</code></pre>
+                            <button class="btn-small" onclick="runQuery(\`${query.query}\`, \`${query.description}\`)">Run</button>
+                        </div>
                     </div>
                 `).join('')}
             </div>
@@ -207,14 +291,12 @@ function renderSampleQueries() {
     samplesDiv.innerHTML = html;
 }
 
-window.runQuery = async function (query) {
-    //const toggleBtn = document.getElementById("toggleBtn");
-    //toggleBtn.click();
+window.runQuery = async function (query, description = null) {
     document.getElementById('query-input').value = query;
-    await executeQuery();
+    await executeQuery(description ? `Sample Query (${description})` : 'Sample Query');
 };
 
-async function executeQuery() {
+async function executeQuery(sourceOverride = null) {
     const queryInput = document.getElementById('query-input');
     const query = queryInput.value.trim();
 
@@ -225,15 +307,22 @@ async function executeQuery() {
 
     try {
         const result = await conn.query(query);
-        displayResults(result, 'Query Results');
+        displayResults(result, { source: sourceOverride || 'SQL Terminal' });
     } catch (error) {
-        displayError(error.message);
+        displayError(error.message, sourceOverride || 'SQL Terminal');
     }
 }
 
-function displayResults(result, title = 'Results') {
+function displayResults(result, { source = 'Results' } = {}) {
     const resultsDiv = document.getElementById('results-output');
     const data = result.toArray();
+
+    // Update header meta first (so even "0 rows" updates correctly)
+    updateResultsMeta({
+        source,
+        rows: data.length,
+        setTime: true
+    });
 
     if (data.length === 0) {
         resultsDiv.innerHTML = '<div class="info">Query executed successfully. No results returned.</div>';
@@ -242,8 +331,7 @@ function displayResults(result, title = 'Results') {
 
     const columns = Object.keys(data[0]);
 
-    let html = `<div class="results-title">${title}</div>`;
-    html += '<div class="table-wrapper"><table class="dark-mode">';
+    let html = '<div class="table-wrapper"><table class="dark-mode">';
     html += '<thead><tr>' + columns.map(col => `<th>${col}</th>`).join('') + '</tr></thead>';
     html += '<tbody>';
 
@@ -251,19 +339,29 @@ function displayResults(result, title = 'Results') {
         html += '<tr>' + columns.map(col => {
             let value = row[col];
             if (value === null) value = '<em>null</em>';
-            else if (typeof value === 'object') value = JSON.stringify(value, (_, v) => typeof v === 'bigint' ? v.toString() : v);
+            else if (typeof value === 'object') {
+                value = JSON.stringify(value, (_, v) => typeof v === 'bigint' ? v.toString() : v);
+            } else if (typeof value === 'bigint') {
+                value = value.toString();
+            }
             return `<td>${value}</td>`;
         }).join('') + '</tr>';
     });
 
     html += '</tbody></table></div>';
-    html += `<div class="results-count">${data.length} row(s) returned</div>`;
-
     resultsDiv.innerHTML = html;
 }
 
-function displayError(message) {
+function displayError(message, source = '—') {
     const resultsDiv = document.getElementById('results-output');
+
+    // Update header meta even for errors
+    updateResultsMeta({
+        source,
+        rows: '—',
+        setTime: true
+    });
+
     resultsDiv.innerHTML = `<div class="error">Error: ${message}</div>`;
 }
 
@@ -271,15 +369,17 @@ function updateStatus(message) {
     document.getElementById('status').textContent = message;
 }
 
-document.getElementById('execute-btn').addEventListener('click', executeQuery);
+document.getElementById('execute-btn').addEventListener('click', () => executeQuery('SQL Terminal'));
 document.getElementById('clear-btn').addEventListener('click', () => {
     document.getElementById('query-input').value = '';
     document.getElementById('results-output').innerHTML = '';
+    // Reset meta but don't change last-run time
+    updateResultsMeta({ source: '—', rows: '—', setTime: false });
 });
 
 document.getElementById('query-input').addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key === 'Enter') {
-        executeQuery();
+        executeQuery('SQL Terminal');
     }
 });
 

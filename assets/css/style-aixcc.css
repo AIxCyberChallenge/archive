@@ -69,6 +69,8 @@ header {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   border-bottom: 1px solid #1a1a1a;
+  position: relative;
+  z-index: 9999;
 }
 
 .container.navbar {
@@ -125,7 +127,6 @@ header {
   border-color: #333;
   background: #111;
 }
-
 
 .container {
   max-width: 1600px;
@@ -203,36 +204,12 @@ pre code {
 }
 
 /* Rouge syntax tokens (minimal) */
-.highlight .k {
-  color: #c792ea;
-}
-
-/* keyword */
-.highlight .nf {
-  color: #82aaff;
-}
-
-/* function name */
-.highlight .s {
-  color: #ecc48d;
-}
-
-/* string */
-.highlight .mi {
-  color: #f78c6c;
-}
-
-/* number */
-.highlight .na {
-  color: #addb67;
-}
-
-/* attr */
-.highlight .c {
-  color: #697098;
-}
-
-/* comment */
+.highlight .k { color: #c792ea; }  /* keyword */
+.highlight .nf { color: #82aaff; } /* function name */
+.highlight .s { color: #ecc48d; }  /* string */
+.highlight .mi { color: #f78c6c; } /* number */
+.highlight .na { color: #addb67; } /* attr */
+.highlight .c { color: #697098; }  /* comment */
 
 /* Diagram container */
 .d2,
@@ -265,37 +242,23 @@ pre code {
 .diagram-wrap .d2 {
   width: 100%;
   max-width: 520px;
-  /* base cap */
   margin-left: auto;
   margin-right: auto;
 }
 
 /* Two diagram variants: mobile (default) and desktop */
-.diagram-mobile {
-  display: block;
-}
-
-.diagram-desktop {
-  display: none;
-}
+.diagram-mobile { display: block; }
+.diagram-desktop { display: none; }
 
 /* Desktop cap */
 @media (min-width: 1024px) {
-  .diagram-wrap .d2 {
-    max-width: 380px;
-  }
+  .diagram-wrap .d2 { max-width: 380px; }
 }
 
 /* Desktop tuning: compact, no inner scroll */
 @media (min-width: 1024px) {
-  .diagram-wrap {
-    max-height: none;
-    overflow: visible;
-  }
-
-  .diagram-wrap .d2 {
-    overflow: visible;
-  }
+  .diagram-wrap { max-height: none; overflow: visible; }
+  .diagram-wrap .d2 { overflow: visible; }
 }
 
 /* Labels and strokes: small and elegant */
@@ -305,14 +268,8 @@ pre code {
   fill: #ccc;
 }
 
-.d2 svg [stroke] {
-  stroke-width: 1;
-}
-
-.d2 a,
-.d2 a * {
-  cursor: pointer;
-}
+.d2 svg [stroke] { stroke-width: 1; }
+.d2 a, .d2 a * { cursor: pointer; }
 
 .notebook-card {
   padding: 20px;
@@ -333,9 +290,7 @@ pre code {
   text-decoration: none;
 }
 
-.notebook-card a:hover {
-  text-decoration: underline;
-}
+.notebook-card a:hover { text-decoration: underline; }
 
 .btn {
   background-color: #007cba;
@@ -366,7 +321,6 @@ pre code {
   color: #333;
 }
 
-
 .card-grid {
   display: flex;
   flex-direction: row;
@@ -392,13 +346,8 @@ pre code {
   justify-content: center;
 }
 
-.card img {
-  width: 40%;
-}
-
-.sherpa-content {
-  width: 100%;
-}
+.card img { width: 40%; }
+.sherpa-content { width: 100%; }
 
 .team-info {
   padding-left: 24px;
@@ -417,22 +366,15 @@ pre code {
   margin-bottom: 36px;
 }
 
-.hero p {
-  margin-bottom: 16px;
-}
+.hero p { margin-bottom: 16px; }
 
 .hero-image {
   width: 35%;
   padding: 2% 4% 2% 4%;
 }
 
-.hero-content {
-  width: 65%;
-}
-
-.hero h1 {
-  font-size: 40px;
-}
+.hero-content { width: 65%; }
+.hero h1 { font-size: 40px; }
 
 footer {
   background: #000000;
@@ -453,16 +395,8 @@ footer p {
     background: #07081a;
   }
 
-  /* Compact the desktop-style diagram on smaller screens */
-  .diagram-wrap .diagram-desktop {
-    max-width: 420px;
-    /* compact, approx. card-sized */
-  }
-
-  /* Keep vectors crisp; adjust typography only */
-  .diagram-desktop svg {
-    display: block;
-  }
+  .diagram-wrap .diagram-desktop { max-width: 420px; }
+  .diagram-desktop svg { display: block; }
 
   .diagram-desktop .label,
   .diagram-desktop .nodeLabel,
@@ -476,29 +410,21 @@ footer p {
     width: 80%;
   }
 
-  .hero {
-    flex-wrap: wrap;
-  }
+  .hero { flex-wrap: wrap; }
 
   .hero-image {
     max-width: 500px;
     width: 100%;
   }
 
-  .hero-content {
-    width: 100%;
-  }
+  .hero-content { width: 100%; }
 }
 
-.navbar .menu {
-  display: flex;
-}
+.navbar .menu { display: flex; }
 
 /* Mobile nav */
 @media (max-width: 800px) {
-  .navbar {
-    position: relative;
-  }
+  .navbar { position: relative; }
 
   .menu-toggle {
     display: inline-flex;
@@ -520,9 +446,7 @@ footer p {
     z-index: 1000;
   }
 
-  .navbar .menu.open {
-    display: flex;
-  }
+  .navbar .menu.open { display: flex; }
 
   .navbar .menu a {
     margin: 0;
@@ -555,21 +479,14 @@ a.card:focus h2 {
   margin: 20px 12px;
 }
 
+/* ------------------------------------------------------------------ */
+/* HFE NAV MENU (dropdown) - CLEAN + FIXED FULL-WIDTH HOVER HIGHLIGHT  */
+/* ------------------------------------------------------------------ */
+
 .hfe-nav-menu {
-  -js-display: flex;
   margin-left: auto;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  -moz-box-pack: end;
   justify-content: flex-end;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -581,79 +498,12 @@ ul.hfe-nav-menu,
   padding: 0;
 }
 
-.hfe-nav-menu .sub-menu {
-  -webkit-box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
-}
-
-.hfe-nav-menu .sub-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 9999;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-}
-
-.hfe-nav-menu .sub-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 16;
-  visibility: hidden;
-  opacity: 0;
-  text-align: left;
-  -webkit-transition: all 300ms ease-in;
-  transition: all 300ms ease-in;
-}
-
-.hfe-nav-menu .sub-menu {
-  min-width: 220px;
-  margin: 0;
-  z-index: 9999;
-  border-style: solid;
-  border-color: #000000;
-  background: white;
-}
-
-.hfe-nav-menu .sub-menu li {
-  border-bottom-color: rgb(0, 0, 0);
-  border-bottom-style: solid;
-  border-bottom-width: 0.8px;
-}
-
 .hfe-nav-menu a {
   padding: 12px 12px;
   text-decoration: none;
 }
 
-.hfe-nav-menu .sub-menu a {
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 12px;
-  text-decoration: none;
-  color: black;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: calc(15px + 20px);
-  padding-right: 15px;
-}
-
-.hfe-nav-menu .sub-menu a:hover {
-  background-color: #6174A3;
-  color: #FFFFFF;
-}
-
-.hfe-nav-menu .menu-item-has-children:hover>.sub-menu,
-.hfe-nav-menu .menu-item-has-children.focus>.sub-menu {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-}
-
+/* Ensure parent list items are positioning anchors for absolute submenus */
 .menu-item {
   position: relative;
 }
@@ -671,4 +521,82 @@ ul.hfe-nav-menu,
 .hfe-menu-item img {
   width: 12px;
   margin: 0 4px;
+}
+
+/* SINGLE authoritative submenu block (removes your duplicates/conflicts) */
+.hfe-nav-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  min-width: 220px;
+  margin: 0;
+  padding: 0;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
+
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+
+  text-align: left;
+  transition: opacity 300ms ease-in, visibility 300ms ease-in;
+
+  /* helps prevent inset look if children are weird */
+  overflow: hidden;
+}
+
+/* Make each submenu row truly full width (li + a + inner wrappers) */
+.hfe-nav-menu .sub-menu li {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0.8px solid #000000;
+}
+
+.hfe-nav-menu .sub-menu li:last-child {
+  border-bottom: 0;
+}
+
+.hfe-nav-menu .sub-menu li > a {
+  display: block;
+  width: 100%;
+  margin: 0;
+
+  /* full-row click area */
+  box-sizing: border-box;
+
+  /* your indentation */
+  padding: 15px 15px 15px 15px;
+
+  color: #000000;
+  text-decoration: none;
+
+  /* kill the "pill" no matter what upstream styles exist */
+  border-radius: 0 !important;
+}
+
+/* VERY IMPORTANT: if theme/plugin wraps text in spans, force them full width too */
+.hfe-nav-menu .sub-menu li > a > * {
+  display: block;
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+/* Full-width hover highlight */
+.hfe-nav-menu .sub-menu li > a:hover,
+.hfe-nav-menu .sub-menu li > a:focus {
+  background-color: #6174A3;
+  color: #FFFFFF;
+}
+
+/* Show submenu on hover/focus */
+.hfe-nav-menu .menu-item-has-children:hover > .sub-menu,
+.hfe-nav-menu .menu-item-has-children.focus > .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 300ms ease-out, visibility 300ms ease-out;
 }

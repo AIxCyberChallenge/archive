@@ -1,5 +1,5 @@
 ---
-layout: duckdb 
+layout: duckdb
 title: AIxCC Competition Archive
 ---
 
@@ -24,18 +24,51 @@ title: AIxCC Competition Archive
                         </button>
                     </div>
                 </div>
+
                 <div id="sidebar-content" class="">
                     <div id="status" class="status">Loading DuckDB...</div>
 
-                    <div class="tables-section">
-                        <h3>Available Tables</h3>
-                        <div id="tables-list"></div>
-                    </div>
+                    <!-- Accordion sidebar -->
+                    <div class="left-accordion">
 
-                    <div class="samples-section">
-                        <h3>Sample Queries</h3>
-                        <div id="sample-queries"></div>
+                        <div class="acc-section is-open" id="acc-tables">
+                            <button class="acc-header" type="button" aria-expanded="true" aria-controls="acc-panel-tables">
+                                <span>Tables</span>
+                                <span class="acc-chevron" aria-hidden="true">▾</span>
+                            </button>
+
+                            <div class="acc-panel" id="acc-panel-tables">
+                                <div class="left-search">
+                                    <input id="tables-filter" type="search" placeholder="Filter tables…" aria-label="Filter tables" />
+                                </div>
+
+                                <div class="tables-section">
+                                    <h3>Available Tables</h3>
+                                    <div id="tables-list"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="acc-section is-open" id="acc-queries">
+                            <button class="acc-header" type="button" aria-expanded="true" aria-controls="acc-panel-queries">
+                                <span>Sample Queries</span>
+                                <span class="acc-chevron" aria-hidden="true">▾</span>
+                            </button>
+
+                            <div class="acc-panel" id="acc-panel-queries">
+                                <div class="left-search">
+                                    <input id="queries-filter" type="search" placeholder="Filter sample queries…" aria-label="Filter sample queries" />
+                                </div>
+
+                                <div class="samples-section">
+                                    <h3>Sample Queries</h3>
+                                    <div id="sample-queries"></div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                    <!-- /Accordion sidebar -->
                 </div>
             </div>
 
@@ -51,7 +84,27 @@ title: AIxCC Competition Archive
                 </div>
 
                 <div class="results-section">
-                    <h4>Results</h4>
+                    <div class="results-header">
+                        <h4 class="results-heading">Results</h4>
+
+                        <div class="results-meta" aria-live="polite">
+                            <span class="results-meta-item">
+                                <span class="results-meta-label">Source:</span>
+                                <span id="results-source" class="results-meta-value">—</span>
+                            </span>
+
+                            <span class="results-meta-item">
+                                <span class="results-meta-label">Last run:</span>
+                                <span id="results-last-run" class="results-meta-value">—</span>
+                            </span>
+
+                            <span class="results-meta-item">
+                                <span class="results-meta-label">Rows:</span>
+                                <span id="results-rows" class="results-meta-value">—</span>
+                            </span>
+                        </div>
+                    </div>
+
                     <div id="results-output"></div>
                 </div>
             </div>
@@ -75,4 +128,5 @@ title: AIxCC Competition Archive
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
 </main>
