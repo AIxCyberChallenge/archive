@@ -1,0 +1,183 @@
+---
+layout: default
+title: curl Dictionaries and leap seconds
+permalink: /challenges/curl/Dictionaries_and_leap_seconds/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Dictionaries and leap seconds</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>curl</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>17</p>
+            <p><b>Vulnerabilities: </b>2</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-curl/tree/challenges/cu-delta-05" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-curl/tree/challenges/cu-delta-05" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-curl/compare/150028193bf61131c2436e3f4f76631e5d0a21d7...challenges/cu-delta-05" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 4</p>
+            <p>Number of Teams with Scoring Bundles: 4</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 120.66139081535457</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            curl_fuzzer_https
+        </li>
+        
+        <li>
+            curl_fuzzer_ftp
+        </li>
+        
+        <li>
+            curl_fuzzer_tftp
+        </li>
+        
+        <li>
+            curl_fuzzer_rtsp
+        </li>
+        
+        <li>
+            curl_fuzzer
+        </li>
+        
+        <li>
+            curl_fuzzer_pop3
+        </li>
+        
+        <li>
+            curl_fuzzer_ws
+        </li>
+        
+        <li>
+            curl_fuzzer_gopher
+        </li>
+        
+        <li>
+            curl_fuzzer_dict
+        </li>
+        
+        <li>
+            curl_fuzzer_bufq
+        </li>
+        
+        <li>
+            curl_fuzzer_smb
+        </li>
+        
+        <li>
+            curl_fuzzer_mqtt
+        </li>
+        
+        <li>
+            curl_fuzzer_smtp
+        </li>
+        
+        <li>
+            curl_fuzzer_file
+        </li>
+        
+        <li>
+            curl_fuzzer_imap
+        </li>
+        
+        <li>
+            curl_fuzzer_http
+        </li>
+        
+        <li>
+            fuzz_url
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>DICT Authentication bug</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>David Wank</p>
+                        <p><b>Harness: </b>curl_fuzzer_dict</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-134
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/curl-001/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Leap Second Bug in FTP</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>David Wank</p>
+                        <p><b>Harness: </b>curl_fuzzer_ftp</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-787
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/curl-002/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

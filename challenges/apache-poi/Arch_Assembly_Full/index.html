@@ -1,0 +1,295 @@
+---
+layout: default
+title: apache-poi Arch Assembly Full
+permalink: /challenges/apache-poi/Arch_Assembly_Full/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Arch Assembly Full</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>apache-poi</p>
+            <p><b>Type: </b>full</p>
+            <p><b>Harnesses: </b>17</p>
+            <p><b>Vulnerabilities: </b>5</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-poi/tree/challenges/poi-full-01" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-poi/tree/challenges/poi-full-01" target=_blank>Challenge Download</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 0</p>
+            <p>Number of Teams with Scoring Bundles: 0</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 24.18656332257654</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            EncryptDecryptFuzzer
+        </li>
+        
+        <li>
+            POIHMEFFuzzer
+        </li>
+        
+        <li>
+            POIHSLFFuzzer
+        </li>
+        
+        <li>
+            POIHWPFFuzzer
+        </li>
+        
+        <li>
+            POIVisioFuzzer
+        </li>
+        
+        <li>
+            POIXWPFFuzzer
+        </li>
+        
+        <li>
+            POIFuzzer
+        </li>
+        
+        <li>
+            POIHPBFFuzzer
+        </li>
+        
+        <li>
+            POIHSMFFuzzer
+        </li>
+        
+        <li>
+            POIOldExcelFuzzer
+        </li>
+        
+        <li>
+            POIXSLFFuzzer
+        </li>
+        
+        <li>
+            XLSX2CSVFuzzer
+        </li>
+        
+        <li>
+            POIHDGFFuzzer
+        </li>
+        
+        <li>
+            POIHPSFFuzzer
+        </li>
+        
+        <li>
+            POIHSSFFuzzer
+        </li>
+        
+        <li>
+            POIPOIFSDumpFuzzer
+        </li>
+        
+        <li>
+            POIXSSFFuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+    <h3>Challenge Timeouts</h3>
+        <p>enabled</p>
+    
+
+    
+        <h3>Challenge Sarif Broadcast</h3>
+        <p>Target .aixcc/vulns/vuln_2/vuln.yaml</p>
+        
+            <p>Sarif is correct</p>
+        
+        <div class="scrollable-div">
+            <pre><code>PLACEHOLDER FOR SARIF</code></pre>
+        </div>
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>Infinite reading challenges</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>POIHMEFFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-834
+                        
+                        , 
+                        
+                        
+                        CWE-20
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_0/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Read then allocate OutOfMemoryError</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>POIHMEFFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-789
+                        
+                        , 
+                        
+                        
+                        CWE-770
+                        
+                        , 
+                        
+                        
+                        CWE-20
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_1/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Path Traversal Olé</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>POIPOIFSDumpFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-35
+                        
+                        , 
+                        
+                        
+                        CWE-20
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_2/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Crashy McCrashFace.xls</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>POIHSSFFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-695
+                        
+                        , 
+                        
+                        
+                        CWE-20
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_3/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Crashy McCrashFace.xlsx</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>POIXSSFFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-382
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_4/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

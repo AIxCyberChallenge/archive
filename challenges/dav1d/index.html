@@ -1,0 +1,19 @@
+---
+layout: default
+title: dav1d
+permalink: /challenges/dav1d/
+---
+
+<main>
+  <div class="container">
+    <div class="hero-content">
+    <img src="/assets/img/dav1d_logo.png" alt="dav1d" />
+    <h1>dav1d</h1>
+      <h3>How does this open source repository relate to critical infrastructure and healthcare?</h3>
+        <p class="mb-2">Dav1d is an open-source AV1 video decoder developed for efficiency and wide platform support. It is integrated into web browsers, media players, mobile devices, and embedded systems that need to display AV1-encoded video. In critical infrastructure, video is central to situational awareness platforms, security monitoring, and remote collaboration tools—all of which may use codecs like AV1 to save bandwidth while preserving quality. In healthcare, video compression and playback are vital for telemedicine, remote diagnostics, and training environments where smooth and accurate video streams are necessary. Dav1d provides the decoding backbone that makes these high-resolution, bandwidth-efficient video systems possible.</h3>
+        <p class="mb-2">Dav1d processes complex, compressed video bitstreams from potentially untrusted sources. A vulnerability could allow an attacker to craft a malicious video file or stream that triggers memory corruption, denial of service, or even remote code execution on systems using the decoder. For healthcare, this could disrupt telehealth sessions, corrupt medical video archives, or open a pathway to compromise clinical IT systems. In critical infrastructure, an exploit could target surveillance systems, monitoring dashboards, or communication tools, causing outages or granting adversaries control over sensitive endpoints. Because dav1d is widely deployed in browsers and media frameworks, a single flaw could cascade across many systems, making it a significant supply chain risk despite its narrow functional scope.</p>
+      <h3>Challenges</h3>
+        <p>>>> <a href="/challenges/dav1d/CVE-2024-1580/">CVE-2024-1580</a></p>
+    </div>
+  </div>
+</main>

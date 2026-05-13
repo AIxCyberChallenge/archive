@@ -1,0 +1,188 @@
+---
+layout: default
+title: apache-poi Arch Assembly Delta
+permalink: /challenges/apache-poi/Arch_Assembly_Delta/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Arch Assembly Delta</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>apache-poi</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>17</p>
+            <p><b>Vulnerabilities: </b>2</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-poi/tree/challenges/poi-delta-01" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-poi/tree/challenges/poi-delta-01" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-poi/compare/275923d56b28d2e4ac34c02007450c8fd698318f...challenges/poi-delta-01" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 4</p>
+            <p>Number of Teams with Scoring Patches: 0</p>
+            <p>Number of Teams with Scoring Bundles: 0</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 9.664544948751653</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            EncryptDecryptFuzzer
+        </li>
+        
+        <li>
+            POIHMEFFuzzer
+        </li>
+        
+        <li>
+            POIHSLFFuzzer
+        </li>
+        
+        <li>
+            POIHWPFFuzzer
+        </li>
+        
+        <li>
+            POIVisioFuzzer
+        </li>
+        
+        <li>
+            POIXWPFFuzzer
+        </li>
+        
+        <li>
+            POIFuzzer
+        </li>
+        
+        <li>
+            POIHPBFFuzzer
+        </li>
+        
+        <li>
+            POIHSMFFuzzer
+        </li>
+        
+        <li>
+            POIOldExcelFuzzer
+        </li>
+        
+        <li>
+            POIXSLFFuzzer
+        </li>
+        
+        <li>
+            XLSX2CSVFuzzer
+        </li>
+        
+        <li>
+            POIHDGFFuzzer
+        </li>
+        
+        <li>
+            POIHPSFFuzzer
+        </li>
+        
+        <li>
+            POIHSSFFuzzer
+        </li>
+        
+        <li>
+            POIPOIFSDumpFuzzer
+        </li>
+        
+        <li>
+            POIXSSFFuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>SSRF in extended properties</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>POIXSSFFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-918
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_5/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Regex StackOverflow</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>POIXSSFFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-121
+                        
+                        , 
+                        
+                        
+                        CWE-20
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_6/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

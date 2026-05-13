@@ -1,0 +1,21 @@
+---
+layout: default
+title: libexif
+permalink: /challenges/libexif/
+---
+
+<main>
+  <div class="container">
+    <div class="hero-content">
+    <img src="/assets/img/libexif.png" alt="libexif" />
+    <h1>libexif</h1>
+      <h3>How does this open source repository relate to critical infrastructure and healthcare?</h3>
+        <p class="mb-2">Libexif is a library that parses and writes EXIF metadata found in image files, such as timestamps, camera information, and geolocation data. While it may seem niche, EXIF data is routinely used in systems that store, catalog, and transmit images. In critical infrastructure, photographs with embedded metadata are often part of inspection records, situational awareness platforms, and forensic analysis workflows. In healthcare, patient photographs and diagnostic images may carry EXIF data when captured on cameras or mobile devices before being imported into medical records or research databases. This means Libexif sits quietly in the background of software used to manage, display, and archive images across both domains.</p>
+      <h3>What would vulnerabilities in this repository mean for critical infra & healthcare?</h3>
+        <p class="mb-2">Because Libexif processes metadata from untrusted image files, flaws in the library could be exploited to corrupt memory, crash systems, or execute malicious code. For critical infrastructure, this might mean that a compromised image file could disrupt field data collection, tamper with evidence logs, or provide attackers with a foothold inside sensitive operational systems. In healthcare, a similar vulnerability could be used to target electronic health record systems or medical research databases, leading to unauthorized access to sensitive patient data or disruption of clinical workflows. Even though Libexif handles metadata rather than image content itself, its position in the software supply chain means weaknesses could be weaponized as an entry point for larger attacks against mission-critical and safety-critical environments.</p>
+      <h3>Challenges</h3>
+        <p>>>> <a href="/challenges/libexif/Macroverflow/">Macroverflow</a></p>
+        <p>>>> <a href="/challenges/libexif/Parserama/">Parserama</a></p>
+    </div>
+  </div>
+</main>

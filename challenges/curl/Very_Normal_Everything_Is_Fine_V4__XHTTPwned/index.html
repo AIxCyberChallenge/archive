@@ -1,0 +1,183 @@
+---
+layout: default
+title: curl Very Normal, Everything Is Fine V4 + XHTTPwned
+permalink: /challenges/curl/Very_Normal_Everything_Is_Fine_V4__XHTTPwned/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Very Normal, Everything Is Fine V4 + XHTTPwned</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>curl</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>17</p>
+            <p><b>Vulnerabilities: </b>2</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-curl/tree/challenges/cu-delta-04" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-curl/tree/challenges/cu-delta-04" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-curl/compare/157e7faac92b4c79e7202de036b45d8ef0f7b35e...challenges/cu-delta-04" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 3</p>
+            <p>Number of Teams with Scoring Patches: 3</p>
+            <p>Number of Teams with Scoring Bundles: 3</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 30.790713906673602</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            curl_fuzzer_https
+        </li>
+        
+        <li>
+            curl_fuzzer_ftp
+        </li>
+        
+        <li>
+            curl_fuzzer_tftp
+        </li>
+        
+        <li>
+            curl_fuzzer_rtsp
+        </li>
+        
+        <li>
+            curl_fuzzer
+        </li>
+        
+        <li>
+            curl_fuzzer_pop3
+        </li>
+        
+        <li>
+            curl_fuzzer_ws
+        </li>
+        
+        <li>
+            curl_fuzzer_gopher
+        </li>
+        
+        <li>
+            curl_fuzzer_dict
+        </li>
+        
+        <li>
+            curl_fuzzer_bufq
+        </li>
+        
+        <li>
+            curl_fuzzer_smb
+        </li>
+        
+        <li>
+            curl_fuzzer_mqtt
+        </li>
+        
+        <li>
+            curl_fuzzer_smtp
+        </li>
+        
+        <li>
+            curl_fuzzer_file
+        </li>
+        
+        <li>
+            curl_fuzzer_imap
+        </li>
+        
+        <li>
+            curl_fuzzer_http
+        </li>
+        
+        <li>
+            fuzz_url
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>HTTP Header-Parsing Stack Buffer Overflow</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>revpwn</p>
+                        <p><b>Harness: </b>curl_fuzzer_http</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-121
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/curl-003/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>curl-008, "maniac difficulty" crash</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>David Wank</p>
+                        <p><b>Harness: </b>curl_fuzzer_ws</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-476
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/curl-008/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

@@ -1,0 +1,163 @@
+---
+layout: default
+title: apache-commons-compress movie
+permalink: /challenges/apache-commons-compress/movie/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>movie</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>apache-commons-compress</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>16</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-commons-compress/tree/challenges/cc-delta-04" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-commons-compress/tree/challenges/cc-delta-04" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-commons-compress/compare/1b842805ca6aa05e7cf6ec0db04fb8cf5ea1d817...challenges/cc-delta-04" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 5</p>
+            <p>Number of Teams with Scoring Bundles: 5</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 55.5250690242944</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            ArchiverArFuzzer
+        </li>
+        
+        <li>
+            ArchiverArjFuzzer
+        </li>
+        
+        <li>
+            ArchiverCpioFuzzer
+        </li>
+        
+        <li>
+            ArchiverDumpFuzzer
+        </li>
+        
+        <li>
+            ArchiverTarStreamFuzzer
+        </li>
+        
+        <li>
+            ArchiverZipStreamFuzzer
+        </li>
+        
+        <li>
+            CompressorBZip2Fuzzer
+        </li>
+        
+        <li>
+            CompressorDeflate64Fuzzer
+        </li>
+        
+        <li>
+            CompressorGzipFuzzer
+        </li>
+        
+        <li>
+            CompressorLZ4Fuzzer
+        </li>
+        
+        <li>
+            CompressorSnappyFuzzer
+        </li>
+        
+        <li>
+            CompressorZFuzzer
+        </li>
+        
+        <li>
+            CompressSevenZFuzzer
+        </li>
+        
+        <li>
+            CompressTarFuzzer
+        </li>
+        
+        <li>
+            CompressZipFuzzer
+        </li>
+        
+        <li>
+            ExpanderFuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>zip slip from url normalization</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>ExpanderFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-35
+                        
+                        , 
+                        
+                        
+                        CWE-22
+                        
+                        , 
+                        
+                        
+                        CWE-29
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_6/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

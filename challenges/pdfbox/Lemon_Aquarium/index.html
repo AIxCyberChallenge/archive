@@ -1,0 +1,315 @@
+---
+layout: default
+title: pdfbox Lemon Aquarium
+permalink: /challenges/pdfbox/Lemon_Aquarium/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Lemon Aquarium</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>pdfbox</p>
+            <p><b>Type: </b>full</p>
+            <p><b>Harnesses: </b>6</p>
+            <p><b>Vulnerabilities: </b>8</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-pdfbox/tree/challenges/pdfbox-full-01" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-pdfbox/tree/challenges/pdfbox-full-01" target=_blank>Challenge Download</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 3</p>
+            <p>Number of Teams with Scoring Bundles: 2</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 83.76047069101571</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            DomXfaParserFuzzer
+        </li>
+        
+        <li>
+            DomXmpParserFuzzer
+        </li>
+        
+        <li>
+            PDFExtractTextFuzzer
+        </li>
+        
+        <li>
+            PDFStreamParserFuzzer
+        </li>
+        
+        <li>
+            PDFWriteReadFuzzer
+        </li>
+        
+        <li>
+            PDFOCRFuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+    <h3>Challenge Timeouts</h3>
+        <p>enabled</p>
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>SSRF in xmp</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>DomXmpParserFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-611
+                        
+                        , 
+                        
+                        
+                        CWE-918
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_0/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>SSRF in xfa</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>DomXfaParserFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-611
+                        
+                        , 
+                        
+                        
+                        CWE-918
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_1/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Infinite loops in type 1 font parser</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>PDFExtractTextFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-835
+                        
+                        , 
+                        
+                        
+                        CWE-834
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_3/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Infinite loops in type 1 font parser</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>PDFExtractTextFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-835
+                        
+                        , 
+                        
+                        
+                        CWE-834
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_4/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Type1Font lexer OutOfMemoryError</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>PDFExtractTextFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-789
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_5/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Type1Font int overflow into OOM</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>PDFExtractTextFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-789
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_6/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>PageTrees -> PageForests</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>PDFExtractTextFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-834
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_7/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>Ye olde infinite XRefs</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>PDFExtractTextFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-834
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_8/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>
