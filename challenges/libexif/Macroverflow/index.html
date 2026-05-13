@@ -1,0 +1,106 @@
+---
+layout: default
+title: libexif Macroverflow
+permalink: /challenges/libexif/Macroverflow/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Macroverflow</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>libexif</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>2</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-libexif/tree/challenges/ex-delta-02" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-libexif/tree/challenges/ex-delta-02" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-libexif/compare/23435ad1d36b5d28fd7befbfb290907060b586b2...challenges/ex-delta-02" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 4</p>
+            <p>Number of Teams with Scoring Patches: 2</p>
+            <p>Number of Teams with Scoring Bundles: 2</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 28.561292398034112</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            exif_loader_fuzzer
+        </li>
+        
+        <li>
+            exif_from_data_fuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+        <h3>Challenge Sarif Broadcast</h3>
+        <p>Target .aixcc/sarif/false-sarif.yaml</p>
+        
+            <p>Sarif is incorrect</p>
+        
+        <div class="scrollable-div">
+            <pre><code>PLACEHOLDER FOR SARIF</code></pre>
+        </div>
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>exif-001, Replay 1</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>David Wank</p>
+                        <p><b>Harness: </b>exif_from_data_fuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-122
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/exif-001/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

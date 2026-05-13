@@ -1,0 +1,118 @@
+---
+layout: default
+title: pdfbox Strategic Identity
+permalink: /challenges/pdfbox/Strategic_Identity/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Strategic Identity</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>pdfbox</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>6</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-pdfbox/tree/challenges/pdfbox-delta-01" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-pdfbox/tree/challenges/pdfbox-delta-01" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-pdfbox/compare/add2d7f10b7e2a7c39efd14fd5b0bd288e1c1d31...challenges/pdfbox-delta-01" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 2</p>
+            <p>Number of Teams with Scoring Bundles: 1</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 25.433350322318695</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            DomXfaParserFuzzer
+        </li>
+        
+        <li>
+            DomXmpParserFuzzer
+        </li>
+        
+        <li>
+            PDFExtractTextFuzzer
+        </li>
+        
+        <li>
+            PDFOCRFuzzer
+        </li>
+        
+        <li>
+            PDFStreamParserFuzzer
+        </li>
+        
+        <li>
+            PDFWriteReadFuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>PDF command injection</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>PDFOCRFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-77
+                        
+                        , 
+                        
+                        
+                        CWE-28
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_2/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

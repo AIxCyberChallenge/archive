@@ -1,0 +1,121 @@
+---
+layout: default
+title: libavif Redwood Fog
+permalink: /challenges/libavif/Redwood_Fog/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Redwood Fog</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>libavif</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>8</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-libavif/tree/challenges/av-delta-02" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-libavif/tree/challenges/av-delta-02" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-libavif/compare/1a98b640c5322dfeb69a05c832b0a1ba2f277872...challenges/av-delta-02" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 0</p>
+            <p>Number of Teams with Scoring Patches: 1</p>
+            <p>Number of Teams with Scoring Bundles: 0</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 5.336123543908823</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            avif_fuzztest_dec@DecodeAvifTest.Decode
+        </li>
+        
+        <li>
+            avif_fuzztest_dec_incr@DecodeAvifFuzzTest.DecodeIncr
+        </li>
+        
+        <li>
+            avif_fuzztest_enc_dec@EncodeDecodeAvifFuzzTest.EncodeDecodeValid
+        </li>
+        
+        <li>
+            avif_fuzztest_enc_dec_anim@EncodeDecodeAvifFuzzTest.EncodeDecodeAnimation
+        </li>
+        
+        <li>
+            avif_fuzztest_enc_dec_incr@EncodeDecodeAvifFuzzTest.EncodeDecodeGridValid
+        </li>
+        
+        <li>
+            avif_fuzztest_properties@PropertiesAvifFuzzTest.EncodeDecode
+        </li>
+        
+        <li>
+            avif_fuzztest_read_image@ReadImageFuzzTest.ReadImageFile
+        </li>
+        
+        <li>
+            avif_fuzztest_yuvrgb@YuvRgbFuzzTest.Convert
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>chroma_spill</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>nemo</p>
+                        <p><b>Harness: </b>avif_fuzztest_yuvrgb@YuvRgbFuzzTest.Convert</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-126
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/avif-002/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>
