@@ -1,0 +1,21 @@
+---
+layout: default
+title: Apache Poi
+permalink: /challenges/apache-poi/
+---
+
+<main>
+  <div class="container">
+    <div class="hero-content">
+      <img src="/assets/img/apache-poi.png" alt="Apache POI" />
+      <h1>Apache POI</h1>
+      <h3>How does this open source repository relate to critical infrastructure and healthcare?</h3>
+        <p class="mb-2">This is a Microsoft Office file parsing library that is used behind the scenes in major open source and commercial search engines for extracting text and metadata. These search systems are used across the federal government and in health care applications to enable search and analysis of Microsoft Office formats.</p>
+      <h3>What would vulnerabilities in this repository mean for critical infrastructure and healthcare?</h3>
+        <p class="mb-2">Low-level image, font and compression (e.g. xz) parsers have had numerous critical vulnerabilities. This repository exists in that same space as a low-level parser library. These components can cause severe damage or offer a first step in the attack chain. From the Java perspective, the more common vulnerabilities would be Denial of Service (Out of memory errors or infinite loops), but we can also imagine XXE/SSRF and intentional backdoors as serious problems.</p>
+      <h3>Challenges</h3>
+        <p>>>> <a href="/challenges/apache-poi/Arch_Assembly_Delta/">Arch Assembly Delta</a></p>
+        <p>>>> <a href="/challenges/apache-poi/Arch_Assembly_Full/">Arch Assembly Full</a></p>
+    </div>
+  </div>
+</main>

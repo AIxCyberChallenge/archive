@@ -1,0 +1,133 @@
+---
+layout: default
+title: tika Virtue Pot
+permalink: /challenges/tika/Virtue_Pot/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Virtue Pot</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>tika</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>9</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-tika/tree/challenges/tk-delta-06" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-tika/tree/challenges/tk-delta-06" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-tika/compare/f9e454b129838a69dedbac29ecfd9cdb6422a533...challenges/tk-delta-06" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 4</p>
+            <p>Number of Teams with Scoring Patches: 2</p>
+            <p>Number of Teams with Scoring Bundles: 2</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 22.219870216992597</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            HtmlParserFuzzer
+        </li>
+        
+        <li>
+            M3U8ParserFuzzer
+        </li>
+        
+        <li>
+            RTFParserFuzzer
+        </li>
+        
+        <li>
+            TextAndCSVParserFuzzer
+        </li>
+        
+        <li>
+            ThreeDXMLParserFuzzer
+        </li>
+        
+        <li>
+            TikaAppRUnpackerFuzzer
+        </li>
+        
+        <li>
+            TikaAppUnpackerFuzzer
+        </li>
+        
+        <li>
+            TikaAppUntarringFuzzer
+        </li>
+        
+        <li>
+            XliffParserFuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+    <h3>Challenge Timeouts</h3>
+        <p>enabled</p>
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>Brute Fractions</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Tim Allison</p>
+                        <p><b>Harness: </b>TextAndCSVParserFuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-834
+                        
+                        , 
+                        
+                        
+                        CWE-407
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_10/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

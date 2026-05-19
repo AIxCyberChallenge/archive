@@ -1,0 +1,117 @@
+---
+layout: default
+title: freerdp spill incident
+permalink: /challenges/freerdp/spill_incident/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>spill incident</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>freerdp</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>7</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-freerdp/tree/challenges/fp-delta-03" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-freerdp/tree/challenges/fp-delta-03" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-freerdp/compare/c2b6631d6389bcc977eccdfadeb99fe8d62c4e26...challenges/fp-delta-03" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 1</p>
+            <p>Number of Teams with Scoring Patches: 0</p>
+            <p>Number of Teams with Scoring Bundles: 0</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 0.903229470640764</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            TestFuzzCodecs
+        </li>
+        
+        <li>
+            TestFuzzCommonAssistanceBinToHexString
+        </li>
+        
+        <li>
+            TestFuzzCommonAssistanceHexStringToBin
+        </li>
+        
+        <li>
+            TestFuzzCommonAssistanceParseFileBuffer
+        </li>
+        
+        <li>
+            TestFuzzCoreClient
+        </li>
+        
+        <li>
+            TestFuzzCoreServer
+        </li>
+        
+        <li>
+            TestFuzzCryptoCertificateDataSetPEM
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>Arbitrary memory writing within rfx_process metadata</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Sierra Haex</p>
+                        <p><b>Harness: </b>TestFuzzCodecs</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-123
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_003/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

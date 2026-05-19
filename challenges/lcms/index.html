@@ -1,0 +1,21 @@
+---
+layout: default
+title: Little CMS
+permalink: /challenges/lcms/
+---
+
+<main>
+  <div class="container">
+    <div class="hero-content">
+    <img src="/assets/img/lcms_logo.png" alt="Little CMS" />
+    <h1>Little CMS</h1>
+      <h3>How does this open source repository relate to critical infrastructure and healthcare?</h3>
+        <p class="mb-2">Little-CMS is a color management library used to apply and convert ICC color profiles in digital images and documents. It ensures that colors are represented accurately across devices such as monitors, printers, and imaging systems. In critical infrastructure, LCMS is often embedded in document processing pipelines, geospatial visualization tools, and imaging applications where consistent rendering is required. In healthcare, color fidelity is especially important for diagnostic imaging, pathology slides, dermatological photos, and telemedicine platforms where clinical decisions may depend on subtle visual details. Because LCMS is widely integrated into graphics software, printing systems, and imaging workflows, it serves as a behind-the-scenes enabler for both operational and clinical accuracy.</p>
+      <h3>What would vulnerabilities in this repository mean for critical infra & healthcare?</h3>
+        <p class="mb-2">Since Little-CMS parses complex binary ICC profile data, vulnerabilities could allow maliciously crafted profiles to trigger memory corruption, denial of service, or even code execution. In healthcare, such an exploit could compromise imaging applications or PACS (Picture Archiving and Communication Systems), potentially leading to the exposure of sensitive patient records or disruption of diagnostic workflows. In critical infrastructure, compromised profiles could be used to attack document processing systems, disrupt operational dashboards, or interfere with forensic imaging chains. Even though LCMS’s function is narrowly focused on color, its deep integration into software stacks makes it a potential attack vector—allowing adversaries to deny, disrupt, or manipulate systems that depend on accurate and secure image processing across all sectors of the economy.</p>
+      <h3>Challenges</h3>
+        <p>>>> <a href="/challenges/lcms/Active_N-Day_and_past_bug/">Active N-Day and past bug</a></p>
+        <p>>>> <a href="/challenges/lcms/Reservoir_Particle/">Reservoir Particle</a></p>
+    </div>
+  </div>
+</main>

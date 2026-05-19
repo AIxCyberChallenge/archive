@@ -1,0 +1,361 @@
+---
+layout: default
+title: systemd Littoral Bonsai
+permalink: /challenges/systemd/Littoral_Bonsai/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Littoral Bonsai</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>systemd</p>
+            <p><b>Type: </b>full</p>
+            <p><b>Harnesses: </b>47</p>
+            <p><b>Vulnerabilities: </b>4</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-systemd/tree/challenges/systemd-full-001" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-systemd/tree/challenges/systemd-full-001" target=_blank>Challenge Download</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 3</p>
+            <p>Number of Teams with Scoring Bundles: 4</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 98.32870269312929</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            fuzz-bcd
+        </li>
+        
+        <li>
+            fuzz-bootspec
+        </li>
+        
+        <li>
+            fuzz-bus-label
+        </li>
+        
+        <li>
+            fuzz-bus-match
+        </li>
+        
+        <li>
+            fuzz-bus-message
+        </li>
+        
+        <li>
+            fuzz-calendarspec
+        </li>
+        
+        <li>
+            fuzz-catalog
+        </li>
+        
+        <li>
+            fuzz-compress
+        </li>
+        
+        <li>
+            fuzz-dhcp6-client
+        </li>
+        
+        <li>
+            fuzz-dhcp-client
+        </li>
+        
+        <li>
+            fuzz-dhcp-server
+        </li>
+        
+        <li>
+            fuzz-dhcp-server-relay
+        </li>
+        
+        <li>
+            fuzz-dns-packet
+        </li>
+        
+        <li>
+            fuzz-efi-osrel
+        </li>
+        
+        <li>
+            fuzz-efi-printf
+        </li>
+        
+        <li>
+            fuzz-efi-string
+        </li>
+        
+        <li>
+            fuzz-env-file
+        </li>
+        
+        <li>
+            fuzz-etc-hosts
+        </li>
+        
+        <li>
+            fuzz-execute-serialize
+        </li>
+        
+        <li>
+            fuzz-fido-id-desc
+        </li>
+        
+        <li>
+            fuzz-hostname-setup
+        </li>
+        
+        <li>
+            fuzz-journald-audit
+        </li>
+        
+        <li>
+            fuzz-journald-kmsg
+        </li>
+        
+        <li>
+            fuzz-journald-native
+        </li>
+        
+        <li>
+            fuzz-journald-native-fd
+        </li>
+        
+        <li>
+            fuzz-journald-stream
+        </li>
+        
+        <li>
+            fuzz-journald-syslog
+        </li>
+        
+        <li>
+            fuzz-journal-remote
+        </li>
+        
+        <li>
+            fuzz-json
+        </li>
+        
+        <li>
+            fuzz-link-parser
+        </li>
+        
+        <li>
+            fuzz-lldp-rx
+        </li>
+        
+        <li>
+            fuzz-manager-serialize
+        </li>
+        
+        <li>
+            fuzz-ndisc-rs
+        </li>
+        
+        <li>
+            fuzz-netdev-parser
+        </li>
+        
+        <li>
+            fuzz-network-parser
+        </li>
+        
+        <li>
+            fuzz-nspawn-oci
+        </li>
+        
+        <li>
+            fuzz-nspawn-settings
+        </li>
+        
+        <li>
+            fuzz-resource-record
+        </li>
+        
+        <li>
+            fuzz-systemctl-parse-argv
+        </li>
+        
+        <li>
+            fuzz-time-util
+        </li>
+        
+        <li>
+            fuzz-udev-database
+        </li>
+        
+        <li>
+            fuzz-udev-rule-parse-value
+        </li>
+        
+        <li>
+            fuzz-udev-rules
+        </li>
+        
+        <li>
+            fuzz-unit-file
+        </li>
+        
+        <li>
+            fuzz-varlink
+        </li>
+        
+        <li>
+            fuzz-varlink-idl
+        </li>
+        
+        <li>
+            fuzz-xdg-desktop
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+        <h3>Challenge Sarif Broadcast</h3>
+        <p>Target .aixcc/vulns/systemd-004/vuln.yaml</p>
+        
+            <p>Sarif is correct</p>
+        
+        <div class="scrollable-div">
+            <pre><code>PLACEHOLDER FOR SARIF</code></pre>
+        </div>
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>udev-rule-prefix-matching</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>nemo</p>
+                        <p><b>Harness: </b>fuzz-udev-rule-parse-value</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-787
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/systemd-001/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>macro_confusion</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>nemo</p>
+                        <p><b>Harness: </b>fuzz-catalog</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-122
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/systemd-003/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>double-free-list-type</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>nemo</p>
+                        <p><b>Harness: </b>fuzz-link-parser</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-415
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/systemd-004/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>double-free</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>nemo</p>
+                        <p><b>Harness: </b>fuzz-systemctl-parse-argv</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-415
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/systemd-005/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

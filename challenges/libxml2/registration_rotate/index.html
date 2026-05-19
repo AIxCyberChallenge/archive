@@ -1,0 +1,136 @@
+---
+layout: default
+title: libxml2 registration rotate
+permalink: /challenges/libxml2/registration_rotate/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>registration rotate</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>libxml2</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>11</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-libxml2/tree/challenges/lx-delta-03" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-libxml2/tree/challenges/lx-delta-03" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-libxml2/compare/40bcc1944c83b15f8647ec0b6ff1d7c440d53a40...challenges/lx-delta-03" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 6</p>
+            <p>Number of Teams with Scoring Patches: 3</p>
+            <p>Number of Teams with Scoring Bundles: 4</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 24.100706804137793</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            api
+        </li>
+        
+        <li>
+            html
+        </li>
+        
+        <li>
+            lint
+        </li>
+        
+        <li>
+            reader
+        </li>
+        
+        <li>
+            regexp
+        </li>
+        
+        <li>
+            schema
+        </li>
+        
+        <li>
+            uri
+        </li>
+        
+        <li>
+            valid
+        </li>
+        
+        <li>
+            xinclude
+        </li>
+        
+        <li>
+            xml
+        </li>
+        
+        <li>
+            xpath
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+    <h3>Challenge Timeouts</h3>
+        <p>disabled</p>
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>Heap Based Buffer Overflow in UTF-32 implementation.</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Sierra Haex</p>
+                        <p><b>Harness: </b>html</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-122
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_004/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

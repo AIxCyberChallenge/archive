@@ -1,0 +1,181 @@
+---
+layout: default
+title: lcms Active N-Day and past bug
+permalink: /challenges/lcms/Active_N-Day_and_past_bug/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>Active N-Day and past bug</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>lcms</p>
+            <p><b>Type: </b>full</p>
+            <p><b>Harnesses: </b>15</p>
+            <p><b>Vulnerabilities: </b>2</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-little-cms/tree/challenges/cm-full-01" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-little-cms/tree/challenges/cm-full-01" target=_blank>Challenge Download</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 3</p>
+            <p>Number of Teams with Scoring Bundles: 3</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 40.14644394166622</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            cmsIT8_load_fuzzer
+        </li>
+        
+        <li>
+            cms_cgats_fuzzer
+        </li>
+        
+        <li>
+            cms_cie_cam02_fuzzer
+        </li>
+        
+        <li>
+            cms_devicelink_fuzzer
+        </li>
+        
+        <li>
+            cms_dict_fuzzer
+        </li>
+        
+        <li>
+            cms_gdb_fuzzer
+        </li>
+        
+        <li>
+            cms_md5_fuzzer
+        </li>
+        
+        <li>
+            cms_overwrite_transform_fuzzer
+        </li>
+        
+        <li>
+            cms_postscript_fuzzer
+        </li>
+        
+        <li>
+            cms_profile_fuzzer
+        </li>
+        
+        <li>
+            cms_transform_all_fuzzer
+        </li>
+        
+        <li>
+            cms_transform_extended_fuzzer
+        </li>
+        
+        <li>
+            cms_transform_fuzzer
+        </li>
+        
+        <li>
+            cms_universal_transform_fuzzer
+        </li>
+        
+        <li>
+            cms_virtual_profile_fuzzer
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+        <h3>Challenge Sarif Broadcast</h3>
+        <p>Target .aixcc/vulns/lcms-001/vuln.yaml</p>
+        
+            <p>Sarif is correct</p>
+        
+        <div class="scrollable-div">
+            <pre><code>PLACEHOLDER FOR SARIF</code></pre>
+        </div>
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>lcms-001, active N-Day</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>David Wank</p>
+                        <p><b>Harness: </b>cms_postscript_fuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-476
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/lcms-001/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+                    <hr>
+                
+            
+                <h2>lcms-002, buffer over-read</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Chris Connelly</p>
+                        <p><b>Harness: </b>cms_virtual_profile_fuzzer</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-126
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/lcms-002/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

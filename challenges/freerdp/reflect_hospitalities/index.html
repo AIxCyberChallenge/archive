@@ -1,0 +1,126 @@
+---
+layout: default
+title: freerdp reflect hospitalities
+permalink: /challenges/freerdp/reflect_hospitalities/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>reflect hospitalities</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>freerdp</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>7</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-freerdp/tree/challenges/fp-delta-02" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-freerdp/tree/challenges/fp-delta-02" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-freerdp/compare/8cab992c83a0f1f7a6834b40988cae977c545202...challenges/fp-delta-02" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 4</p>
+            <p>Number of Teams with Scoring Patches: 2</p>
+            <p>Number of Teams with Scoring Bundles: 3</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 37.222469435136155</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            TestFuzzCodecs
+        </li>
+        
+        <li>
+            TestFuzzCommonAssistanceBinToHexString
+        </li>
+        
+        <li>
+            TestFuzzCommonAssistanceHexStringToBin
+        </li>
+        
+        <li>
+            TestFuzzCommonAssistanceParseFileBuffer
+        </li>
+        
+        <li>
+            TestFuzzCoreClient
+        </li>
+        
+        <li>
+            TestFuzzCoreServer
+        </li>
+        
+        <li>
+            TestFuzzCryptoCertificateDataSetPEM
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+        <h3>Challenge Sarif Broadcast</h3>
+        <p>Target .aixcc/vulns/vuln_002/vuln.yaml</p>
+        
+            <p>Sarif is correct</p>
+        
+        <div class="scrollable-div">
+            <pre><code>PLACEHOLDER FOR SARIF</code></pre>
+        </div>
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>FreeRDP SAN heap overflow</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>anonymous</p>
+                        <p><b>Harness: </b>TestFuzzCryptoCertificateDataSetPEM</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-122
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_002/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

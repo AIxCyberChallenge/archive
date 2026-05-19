@@ -1,0 +1,95 @@
+---
+layout: default
+title: mongoose lawyer depend
+permalink: /challenges/mongoose/lawyer_depend/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>lawyer depend</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>mongoose</p>
+            <p><b>Type: </b>full</p>
+            <p><b>Harnesses: </b>1</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-mongoose/tree/challenges/mg-full-01" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-mongoose/tree/challenges/mg-full-01" target=_blank>Challenge Download</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 5</p>
+            <p>Number of Teams with Scoring Patches: 3</p>
+            <p>Number of Teams with Scoring Bundles: 2</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 41.62743820234595</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            fuzz
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>Double trouble stack-based buffer overflow</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>Dan</p>
+                        <p><b>Harness: </b>fuzz</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-121
+                        
+                        , 
+                        
+                        
+                        CWE-193
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/mongoose_0/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>

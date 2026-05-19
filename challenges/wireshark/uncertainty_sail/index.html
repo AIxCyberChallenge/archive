@@ -1,0 +1,277 @@
+---
+layout: default
+title: wireshark uncertainty sail
+permalink: /challenges/wireshark/uncertainty_sail/
+---
+
+<main>
+  <div class="container challenge-content">
+    <h1>uncertainty sail</h1>
+
+    <div class="challenge-info-grid">
+        <div class="challenge-info">
+            <h6>Challenge Information</h6>
+            <p><b>Project: </b>wireshark</p>
+            <p><b>Type: </b>delta</p>
+            <p><b>Harnesses: </b>47</p>
+            <p><b>Vulnerabilities: </b>1</p>
+            <br>
+            <p>
+            <a href="https://github.com/AIxCyberChallenge/afc-wireshark/tree/challenges/ws-delta-07" target=_blank>GitHub</a>
+            • 
+            <a href="https://github.com/AIxCyberChallenge/afc-wireshark/tree/challenges/ws-delta-07" target=_blank>Challenge Download</a>
+            
+                • 
+                <a href="https://github.com/AIxCyberChallenge/afc-wireshark/compare/8b1e5f591f3da71876177fd8f9e694ac190e1e38...challenges/ws-delta-07" target=_blank>Challenge Diff</a>
+            
+            </p>
+        </div>
+        <div class="challenge-stats">
+            <h6>AFC Challenge Performance</h6>
+            <p>Number of Unique Vulnerabilities Discovered: #</p>
+            <p>Number of Teams with Scoring PoVs: 1</p>
+            <p>Number of Teams with Scoring Patches: 1</p>
+            <p>Number of Teams with Scoring Bundles: 1</p>
+            <br>
+            <p>Total Points Scored for this Challenge: 9.847560559498058</p>
+        </div>
+    </div>
+
+    <div class="challenge-readme">
+        {% capture challenge_readme %}{% include_relative README.md %}{% endcapture %}{{ challenge_readme | markdownify }}
+    </div>
+
+    
+    <h3>Challenge Harnesses</h3>
+    <div class="container">
+    <ul>
+        
+        <li>
+            handler_lpp
+        </li>
+        
+        <li>
+            handler_wlan_noqos
+        </li>
+        
+        <li>
+            handler_cflow
+        </li>
+        
+        <li>
+            handler_ber
+        </li>
+        
+        <li>
+            handler_dis
+        </li>
+        
+        <li>
+            handler_rnsap
+        </li>
+        
+        <li>
+            handler_netbios
+        </li>
+        
+        <li>
+            handler_its
+        </li>
+        
+        <li>
+            handler_wlan_withfcs
+        </li>
+        
+        <li>
+            handler_zbee_aps
+        </li>
+        
+        <li>
+            handler_x2ap
+        </li>
+        
+        <li>
+            handler_wlan
+        </li>
+        
+        <li>
+            handler_wlan_withoutfcs
+        </li>
+        
+        <li>
+            handler_ngap
+        </li>
+        
+        <li>
+            handler_bat.vis
+        </li>
+        
+        <li>
+            handler_xiri
+        </li>
+        
+        <li>
+            handler_woww
+        </li>
+        
+        <li>
+            handler_asterix
+        </li>
+        
+        <li>
+            handler_e1ap
+        </li>
+        
+        <li>
+            handler_f1ap
+        </li>
+        
+        <li>
+            handler_ngap_media_type
+        </li>
+        
+        <li>
+            handler_telnet
+        </li>
+        
+        <li>
+            handler_json
+        </li>
+        
+        <li>
+            handler_zbee_zdp
+        </li>
+        
+        <li>
+            handler_icmp
+        </li>
+        
+        <li>
+            handler_rrc
+        </li>
+        
+        <li>
+            handler_json_file
+        </li>
+        
+        <li>
+            handler_netflow_tcp
+        </li>
+        
+        <li>
+            handler_wlan_centrino
+        </li>
+        
+        <li>
+            handler_bat.gw
+        </li>
+        
+        <li>
+            handler_s1ap
+        </li>
+        
+        <li>
+            handler_xnap
+        </li>
+        
+        <li>
+            handler_lppe
+        </li>
+        
+        <li>
+            handler_irc
+        </li>
+        
+        <li>
+            handler_nbap
+        </li>
+        
+        <li>
+            handler_gvcp
+        </li>
+        
+        <li>
+            handler_bat
+        </li>
+        
+        <li>
+            handler_e1ap_tcp
+        </li>
+        
+        <li>
+            handler_openvpn.udp
+        </li>
+        
+        <li>
+            handler_netflow
+        </li>
+        
+        <li>
+            handler_hcrt
+        </li>
+        
+        <li>
+            handler_aim
+        </li>
+        
+        <li>
+            handler_lte_rrc.dl_ccch
+        </li>
+        
+        <li>
+            handler_wlan_bsfc
+        </li>
+        
+        <li>
+            handler_icmp_extension
+        </li>
+        
+        <li>
+            handler_openvpn.tcp
+        </li>
+        
+        <li>
+            handler_ansi_map
+        </li>
+        
+    </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+        <hr>
+        <h1>Challenge Vulnerabilities</h1>
+        <ul>
+            
+                <h2>wireshark telnet subcommand use-after-free</h2>
+
+                <div class="vuln-info-grid">
+                    <div class="vuln-details">
+                        <h6>Vulnerability Information</h6>
+                        <p><b>Author: </b>anonymous</p>
+                        <p><b>Harness: </b>handler_gvcp</p>
+                        
+                        <p><b>CWE Classification: </b>
+                        
+                        CWE-120
+                        
+                        
+                        </p>
+                        
+                    </div>
+                </div>
+
+
+                <div class="vuln-readme">
+                    {% capture vuln_readme %}{% include_relative vulns/vuln_013/README.md %}{% endcapture %}{{ vuln_readme | markdownify }}
+                </div>
+                
+            
+        </ul>
+    
+  </div>
+</main>
