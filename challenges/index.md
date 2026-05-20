@@ -10,7 +10,7 @@ description: Challenges used in the competition
       <img src="/assets/img/hero.png" alt="Getting started" class="hero-image" />
       <div class="hero-content">
         <h1>Challenges</h1>
-        <p class="mb-2">Challenges used in the compeition.</p>
+        <p class="mb-2">Challenges used in the competition.</p>
       </div>
     </div>
     <div class="card-grid" style="margin-top: 8px;">
